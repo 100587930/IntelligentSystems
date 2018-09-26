@@ -13,13 +13,17 @@ public class RetailerAgent extends Agent{
 	public void setup () {
 		addBehaviour(new CyclicBehaviour(this) {
 			public void action() {
+				//System.out.println(getLocalName() + ": waiting for message");
 				ACLMessage msg = receive();
-				System.out.println(msg.getContent());
-				ACLMessage reply = msg.createReply();
-				reply.setContent(Integer.toString(PRICE));
-				reply.setPerformative(ACLMessage.INFORM);
-				System.out.println("Sending message to " + msg.getSender().getLocalName());
-				send(reply);
+				if(msg != null) {
+					System.out.println(msg.getContent());
+					ACLMessage reply = msg.createReply();
+					reply.setContent(Integer.toString(PRICE));
+					reply.setPerformative(ACLMessage.INFORM);
+					System.out.println("Sending message to " + msg.getSender().getLocalName());
+					send(reply);
+				}
+				//block();
 			}
 		});
 
