@@ -1,6 +1,7 @@
 package agents;
 
 import jade.core.Agent;
+
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 @SuppressWarnings("serial")
@@ -21,6 +22,7 @@ public class RetailerAgent extends Agent{
 				send(reply);
 			}
 		});
+
 	}
 
 }
