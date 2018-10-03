@@ -25,7 +25,7 @@ public class ApplianceAgent extends Agent {
 	
  
 	private AID homeAgent = Constants.HOME_AGENT_AID; 
-	private int mSecondsToInform = 1000; //change for different frequencies
+	private int mSecondsToInform = 10000; //change for different frequencies
 	
 	protected void setup() {
 		this.subscribe();
@@ -34,6 +34,7 @@ public class ApplianceAgent extends Agent {
 
 	private void subscribe() {
 		ACLMessage msg = new ACLMessage(ACLMessage.SUBSCRIBE);
+		msg.setContent(Constants.APPLIANCE_AGENT);
 		msg.addReceiver(this.homeAgent);
 		send(msg);
 	}
