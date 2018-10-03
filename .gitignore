@@ -1,7 +1,9 @@
 # Compiled class file
 *.class
 *.settings
-
+*.classpath
+APDescription.txt
+MTPs-Main-Container.txt
 
 # Log file
 *.log
