@@ -22,12 +22,12 @@ public class HomeCyclicBehaviour extends CyclicBehaviour {
 				break;
 			case ACLMessage.INFORM:
 				this.homeAgent.handleInform(msg);
-
-				
-			//case ACLMessage.Forcast:
-				//
-
+				break;
+			case ACLMessage.PROPOSE:
+				this.homeAgent.handlePropose(msg);
+				break;
 			}
+			
 		}
 	}
 	

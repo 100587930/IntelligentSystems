@@ -34,11 +34,16 @@ public class MainController {
 
 	private void startRetailerAgents() throws StaleProxyException {
 		// TODO: create 3 RAs
-		Object[][] retailerArguments = new Object[1][2]; // will be given by the GUI
-		String retailerAgentName = "Retailer Agent 1"; // will be given by the GUI
-		AgentController retailerAgent = this.retailerContainer.createNewAgent(retailerAgentName, "agents.RetailerAgent",
-				retailerArguments);
-		retailerAgent.start();
+		Object[][] retailerArguments = new Object[2][2]; // will be given by the GUI
+		ArrayList<String> retailerAgentNames = new ArrayList<String>(); // will be given by the GUI
+		retailerAgentNames.add("Retailer Agent 1");
+		retailerAgentNames.add("Retailer Agent 2");
+		for(int i = 0; i < retailerArguments.length; i++) {
+			AgentController retailerAgent = this.retailerContainer.createNewAgent(retailerAgentNames.get(i),
+					"agents.RetailerAgent", retailerArguments);
+			retailerAgent.start();
+		}
+		
 	}
 
 	private void startApplianceAgents() throws StaleProxyException {
