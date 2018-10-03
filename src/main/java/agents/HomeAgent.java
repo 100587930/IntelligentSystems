@@ -50,6 +50,7 @@ public class HomeAgent extends Agent {
 		
 		if(this.usagesInformed == Constants.APPLIANCE_AGENTS_COUNT) {
 			this.startNegotiation();
+			this.usagesInformed = 0;
 		}
 	}
 
@@ -76,6 +77,7 @@ public class HomeAgent extends Agent {
 		this.proposalsReceived++;
 		if(this.proposalsReceived == Constants.RETAILER_AGENTS_COUNT) {
 			this.chooseBestDeal();
+			this.proposalsReceived = 0;
 		}
 	}
 
@@ -91,6 +93,7 @@ public class HomeAgent extends Agent {
 			msg.setContent(Constants.APPLIANCE_AGENT);
 			msg.addReceiver(entry.getKey());
 			send(msg);
+			this.usageExpected = 0;
 		}
 	}
 
