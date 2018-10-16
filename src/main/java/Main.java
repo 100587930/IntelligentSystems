@@ -102,6 +102,5 @@ public class Main {
 		frame.getContentPane().add(txtPendingGraph);
 		txtPendingGraph.setColumns(10);
 		
-		JFreeChartLineChart();
 	}
 }
