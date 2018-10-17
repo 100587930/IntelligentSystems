@@ -19,8 +19,11 @@ public class HomeAgent extends Agent {
 	private int usagesInformed = 0;
 	private int proposalsReceived = 0;
 	private int cheapestPrice = 9999999;
+	private Object[] maxPrice = null;
+	boolean isInPriceRange = false;
 
 	public void setup() {
+		this.maxPrice = getArguments();
 		addBehaviour(new HomeCyclicBehaviour(this));
 	}
 
@@ -36,6 +39,10 @@ public class HomeAgent extends Agent {
 		System.out.println("Retailer subscribed: " + msg.getSender().getLocalName());
 			break;
 		}
+	}
+	
+	public int getMaxPrice() {
+		return (int) this.maxPrice[0];
 	}
 
 	public void handleInform(ACLMessage msg) {
@@ -74,6 +81,7 @@ public class HomeAgent extends Agent {
 		this.retailerAgents.put(msg.getSender(), Integer.parseInt(msg.getContent()));
 		int agentProposal = Integer.parseInt(msg.getContent());
 		this.cheapestPrice = agentProposal < this.cheapestPrice ? agentProposal : this.cheapestPrice;
+		this.isInPriceRange = this.cheapestPrice <= this.getMaxPrice();
 		this.proposalsReceived++;
 		if(this.proposalsReceived == Constants.RETAILER_AGENTS_COUNT) {
 			this.chooseBestDeal();
@@ -84,13 +92,18 @@ public class HomeAgent extends Agent {
 	private void chooseBestDeal() {
 		System.out.println("Choosing best deal");
 		ACLMessage msg = null;
+		
 		for (HashMap.Entry<AID, Integer> entry : this.retailerAgents.entrySet()) {
-			if(this.retailerAgents.get(entry.getKey()) == this.cheapestPrice) {
-				msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
+			if(this.isInPriceRange) {
+				if(this.retailerAgents.get(entry.getKey()) == this.cheapestPrice) {
+					msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
+				} else {
+					msg = new ACLMessage(ACLMessage.REJECT_PROPOSAL);
+				}
 			} else {
-				msg = new ACLMessage(ACLMessage.REJECT_PROPOSAL);
+				msg = new ACLMessage(ACLMessage.PROPOSE);
+				msg.setContent(getUsageExpected());
 			}
-			msg.setContent(Constants.APPLIANCE_AGENT);
 			msg.addReceiver(entry.getKey());
 			send(msg);
 			this.usageExpected = 0;

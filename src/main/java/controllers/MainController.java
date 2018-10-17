@@ -60,7 +60,8 @@ public class MainController {
 	}
 
 	private void startHomeAgent() throws StaleProxyException {
-		Object[][] homeArguments = new Object[1][2]; // will be given by the GUI
+		Object[] homeArguments = new Object[1]; // will be given by the GUI
+		homeArguments[0] = 12; // price range max
 		String homeAgentName = "Home Agent"; // will be given by the GUI
 		AgentController homeAgent = this.homeContainer.createNewAgent(homeAgentName, "agents.HomeAgent", homeArguments);
 		homeAgent.start();

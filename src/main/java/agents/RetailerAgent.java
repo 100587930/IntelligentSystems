@@ -27,11 +27,15 @@ public class RetailerAgent extends Agent{
 		msg.addReceiver(this.homeAgent);
 		send(msg);
 	}
+	
+	private int getCalculatedPrice() {
+		return Integer.toString((int) (Math.random() * energyWanted));
+	}
 
 	public void handleInform(ACLMessage msg) {
 		//Random prices
 		int energyWanted = Integer.parseInt(msg.getContent());
-		String energyPrice = Integer.toString((int) (Math.random() * energyWanted));
+		String energyPrice = getCalculatedPrice();
 		ACLMessage proposeMsg = new ACLMessage(ACLMessage.PROPOSE);
 		proposeMsg.setContent(energyPrice);
 		proposeMsg.addReceiver(this.homeAgent);
@@ -45,6 +49,11 @@ public class RetailerAgent extends Agent{
 
 	public void handleReject(ACLMessage msg) {
 		System.out.println(this.getLocalName() + " proposal has been refused");
+	}
+
+	public void handlePropose(ACLMessage msg) {
+		while(msg.getContent() )
+		
 	}
 
 }
