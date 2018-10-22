@@ -24,7 +24,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JADE"/>
-	<classpathentry kind="lib" path="C:/Users/Duncan-PC/Documents/GitHub/IntelligentSystems/imports/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Duncan-PC/Documents/GitHub/IntelligentSystems/imports/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mack-/Documents/GitHub/IntelligentSystems/imports/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mack-/Documents/GitHub/IntelligentSystems/imports/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
