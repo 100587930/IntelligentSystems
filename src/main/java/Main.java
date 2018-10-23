@@ -1,5 +1,6 @@
+import java.awt.EventQueue;
 import controllers.MainController;
-import Gui.LineChart;
+import Gui.gui;
 
 public class Main {
 
@@ -8,17 +9,17 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		new MainController();
-		new LineChart("Test", "Test");
-	}
-
-	/**
-	 * Create the application.
-	 */
+	
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					gui window = new gui();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
-
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-
+	}	
 }
