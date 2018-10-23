@@ -2,6 +2,7 @@ package behaviours;
 import agents.HomeAgent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
+import jade.lang.acl.UnreadableException;
 
 @SuppressWarnings("serial")
 public class HomeCyclicBehaviour extends CyclicBehaviour {
@@ -26,6 +27,13 @@ public class HomeCyclicBehaviour extends CyclicBehaviour {
 			case ACLMessage.PROPOSE:
 				this.homeAgent.handlePropose(msg);
 				break;
+			case ACLMessage.CONFIRM:
+				try {
+					this.homeAgent.handleConfirm(msg);
+				} catch (UnreadableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
 		}

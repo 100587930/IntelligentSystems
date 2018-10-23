@@ -1,24 +1,26 @@
 package agents;
 
-import behaviours.HomeCyclicBehaviour;
+import java.io.IOException;
 import behaviours.RetailerCyclicBehaviour;
 import jade.core.AID;
 import jade.core.Agent;
-
-import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
+import models.Retailer;
+import tariffs.Tariff;
 import utils.Constants;
+import utils.TariffSwitch;
 @SuppressWarnings("serial")
 public class RetailerAgent extends Agent{
 	
-	private int pricePerKW = 10;
-	private int OVER_PRICE = 40;
+	
 	private AID homeAgent = Constants.HOME_AGENT_AID;
+	private Tariff tariff;
 	
 	public void setup () {
 		this.subscribe();
 		addBehaviour(new RetailerCyclicBehaviour(this));
-
+		Object[] retailerArgments = getArguments();
+		this.tariff = TariffSwitch.getTariff(retailerArgments);
 	}
 	
 	private void subscribe() {
@@ -28,14 +30,22 @@ public class RetailerAgent extends Agent{
 		send(msg);
 	}
 	
-	private int getCalculatedPrice() {
-		return Integer.toString((int) (Math.random() * energyWanted));
+	private String getCalculatedPrice(int energyWanted) {
+		return Integer.toString(this.tariff.calculateOffer(energyWanted));
+	}
+	
+	public void handleInform(ACLMessage msg) throws IOException {
+		ACLMessage confirmMsg = new ACLMessage(ACLMessage.CONFIRM);
+		Retailer retailer = new Retailer(this.tariff.getCap());
+		confirmMsg.setContentObject(retailer);
+		confirmMsg.addReceiver(this.homeAgent);
+		send(confirmMsg);
 	}
 
-	public void handleInform(ACLMessage msg) {
+	public void handleIform(ACLMessage msg) {
 		//Random prices
 		int energyWanted = Integer.parseInt(msg.getContent());
-		String energyPrice = getCalculatedPrice();
+		String energyPrice = getCalculatedPrice(energyWanted);
 		ACLMessage proposeMsg = new ACLMessage(ACLMessage.PROPOSE);
 		proposeMsg.setContent(energyPrice);
 		proposeMsg.addReceiver(this.homeAgent);
@@ -52,8 +62,13 @@ public class RetailerAgent extends Agent{
 	}
 
 	public void handlePropose(ACLMessage msg) {
-		while(msg.getContent() )
-		
+		int energyWanted = Integer.parseInt(msg.getContent());
+		String energyPrice = getCalculatedPrice(energyWanted);
+		ACLMessage proposeMsg = new ACLMessage(ACLMessage.PROPOSE);
+		proposeMsg.setContent(energyPrice);
+		proposeMsg.addReceiver(this.homeAgent);
+		System.out.println(this.getLocalName() + " proposes $" + energyPrice + " dollars to sell " + msg.getContent() );
+		send(proposeMsg);
 	}
 
 }

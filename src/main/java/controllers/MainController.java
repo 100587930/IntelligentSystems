@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 import jade.wrapper.*;
+import utils.Constants;
 
 public class MainController {
 
@@ -15,6 +16,10 @@ public class MainController {
 	private AgentContainer applianceContainer;
 	private AgentContainer retailerContainer;
 
+	private int retailersCap = 25; //get from gui
+	private int retailersBasePrice = 18; //get from gui
+	private int defaulMaxPrice = 10000;
+	
 	public MainController() {
 		this.setupContainers();
 		this.startAgents();
@@ -34,13 +39,23 @@ public class MainController {
 
 	private void startRetailerAgents() throws StaleProxyException {
 		// TODO: create 3 RAs
-		Object[][] retailerArguments = new Object[2][2]; // will be given by the GUI
+		Object[][] retailerArguments = new Object[3][3]; // will be given by the GUI 
+		retailerArguments[0][0] = Constants.FIXED_TARIFF; 
+		retailerArguments[1][0] = Constants.INCREASE_VOLUME_TARIFF;
+		retailerArguments[2][0] = Constants.VOLUME_TARIFF;
+		retailerArguments[0][1] = this.retailersCap;
+		retailerArguments[1][1] = this.retailersCap;
+		retailerArguments[2][1] = this.retailersCap;
+		retailerArguments[0][2] = this.retailersBasePrice;
+		retailerArguments[1][2] = this.retailersBasePrice;
+		retailerArguments[2][2] = this.retailersBasePrice;
 		ArrayList<String> retailerAgentNames = new ArrayList<String>(); // will be given by the GUI
 		retailerAgentNames.add("Retailer Agent 1");
 		retailerAgentNames.add("Retailer Agent 2");
+		retailerAgentNames.add("Retailer Agent 3");
 		for(int i = 0; i < retailerArguments.length; i++) {
 			AgentController retailerAgent = this.retailerContainer.createNewAgent(retailerAgentNames.get(i),
-					"agents.RetailerAgent", retailerArguments);
+					"agents.RetailerAgent", retailerArguments[i]);
 			retailerAgent.start();
 		}
 		
@@ -61,7 +76,7 @@ public class MainController {
 
 	private void startHomeAgent() throws StaleProxyException {
 		Object[] homeArguments = new Object[1]; // will be given by the GUI
-		homeArguments[0] = 12; // price range max
+		homeArguments[0] = this.defaulMaxPrice; // default price
 		String homeAgentName = "Home Agent"; // will be given by the GUI
 		AgentController homeAgent = this.homeContainer.createNewAgent(homeAgentName, "agents.HomeAgent", homeArguments);
 		homeAgent.start();

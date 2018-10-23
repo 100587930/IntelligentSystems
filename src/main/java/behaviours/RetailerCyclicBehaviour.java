@@ -1,4 +1,6 @@
 package behaviours;
+import java.io.IOException;
+
 import agents.HomeAgent;
 import agents.RetailerAgent;
 import jade.core.behaviours.CyclicBehaviour;
@@ -19,7 +21,12 @@ public class RetailerCyclicBehaviour extends CyclicBehaviour {
 		if(msg != null) {
 			switch(msg.getPerformative()) {
 			case ACLMessage.INFORM:
-				this.retailerAgent.handleInform(msg);
+				try {
+					this.retailerAgent.handleInform(msg);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case ACLMessage.ACCEPT_PROPOSAL:
 				this.retailerAgent.handleAccept(msg);
@@ -27,6 +34,8 @@ public class RetailerCyclicBehaviour extends CyclicBehaviour {
 			case ACLMessage.REJECT_PROPOSAL:
 				this.retailerAgent.handleReject(msg);
 				break;
+			case ACLMessage.PROPOSE:
+				this.retailerAgent.handlePropose(msg);
 			}
 		}
 	}

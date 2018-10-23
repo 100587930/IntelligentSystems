@@ -18,11 +18,11 @@ public class ApplianceTickerBehaviour extends TickerBehaviour {
 	@Override
 	protected void onTick() {
 
-		this.applianceAgent.setEnergyUsage((int) (Math.random() * 50));
+		this.applianceAgent.setExpectedUsage((int) (Math.random() * 50));
 
 		ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 		msg.addReceiver(Constants.HOME_AGENT_AID);
-		msg.setContent(this.applianceAgent.getEnergyUsage());
+		msg.setContent(this.applianceAgent.getExpectedUsage());
 		this.applianceAgent.send(msg);
 	}
 
