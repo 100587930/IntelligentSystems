@@ -10,8 +10,8 @@ public class TariffSwitch {
 	public static Tariff getTariff(Object[] retailerArguments) {
 		
 		String tariffName = (String) retailerArguments[0];
-		int tariffCap = (int) retailerArguments[1];
-		int tariffBasePrice = (int) retailerArguments[2];
+		float tariffCap = (float) retailerArguments[1];
+		float tariffBasePrice = (float) retailerArguments[2];
 		Tariff tariff = null;
 		
 		switch(tariffName) {

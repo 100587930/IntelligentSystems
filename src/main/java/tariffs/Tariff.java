@@ -2,26 +2,26 @@ package tariffs;
 
 public class Tariff implements TariffInterface {
 
-	protected int pricePerKW;
-	protected int energyCap;
+	protected float pricePerKW;
+	protected float energyCap;
 	
-	public Tariff(int pricePerKW, int energyCap) {
+	public Tariff(float pricePerKW, float energyCap) {
 		this.pricePerKW = pricePerKW;
 		this.energyCap = energyCap;
 	}
 
 	@Override
-	public int calculateOffer(int energyWanted) {
+	public float calculateOffer(float energyWanted) {
 		return 0;
 	}
 
 	@Override
-	public int calculatePrice(int penaltyRate, int energyWanted) {
+	public float calculatePrice(float penaltyRate, float energyWanted) {
 		return this.pricePerKW * penaltyRate * energyWanted;
 	}
 
 	@Override
-	public int getCap() {
+	public float getCap() {
 		return this.energyCap;
 	}
 	

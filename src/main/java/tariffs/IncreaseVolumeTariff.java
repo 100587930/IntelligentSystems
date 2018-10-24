@@ -2,12 +2,12 @@ package tariffs;
 
 public class IncreaseVolumeTariff extends Tariff {
 	
-	public IncreaseVolumeTariff(int pricePerKW, int energyCap) {
+	public IncreaseVolumeTariff(float pricePerKW, float energyCap) {
 		super(pricePerKW, energyCap);
 	}
 	
-	public int calculateOffer(int energyWanted) {
-		int price = 0;
+	public float calculateOffer(float energyWanted) {
+		float price = 0;
 		energyWanted = energyWanted > this.energyCap ? this.energyCap : energyWanted;
 		if(energyWanted <= 5) {
 			price = this.calculatePrice(2, energyWanted);
@@ -21,7 +21,7 @@ public class IncreaseVolumeTariff extends Tariff {
 		return price;
 	}
 	
-	public int calculatePrice(int penaltyRate, int energyWanted) {
+	public float calculatePrice(float penaltyRate, float energyWanted) {
 		return this.pricePerKW * penaltyRate * energyWanted;
 	}
 	

@@ -30,8 +30,8 @@ public class RetailerAgent extends Agent{
 		send(msg);
 	}
 	
-	private String getCalculatedPrice(int energyWanted) {
-		return Integer.toString(this.tariff.calculateOffer(energyWanted));
+	private String getCalculatedPrice(float energyWanted) {
+		return Float.toString(this.tariff.calculateOffer(energyWanted));
 	}
 	
 	public void handleInform(ACLMessage msg) throws IOException {
@@ -62,7 +62,7 @@ public class RetailerAgent extends Agent{
 	}
 
 	public void handlePropose(ACLMessage msg) {
-		int energyWanted = Integer.parseInt(msg.getContent());
+		float energyWanted = Float.parseFloat(msg.getContent());
 		String energyPrice = getCalculatedPrice(energyWanted);
 		ACLMessage proposeMsg = new ACLMessage(ACLMessage.PROPOSE);
 		proposeMsg.setContent(energyPrice);

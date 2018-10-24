@@ -6,13 +6,22 @@ import jade.core.AID;
 
 public class Retailer implements Serializable {
 
-	private int cap;
-	private int price;
-	private int energyDemand;
+	private float cap;
+	private float price;
+	private float energyDemand;
 	private AID aid;
+	private int round = 0;
 	
-	public Retailer(int cap) {
+	public Retailer(float cap) {
 		this.cap = cap;
+	}
+	
+	public int getRound() {
+		return this.round;
+	}
+	
+	public void incrementRound() {
+		this.round++;
 	}
 	
 	public AID getAID() {
@@ -23,23 +32,23 @@ public class Retailer implements Serializable {
 		return this.aid = aid;
 	}
 	
-	public int getEnergyDemand() {
+	public float getEnergyDemand() {
 		return this.energyDemand;
 	}
 	
-	public void setEnergyDemand(int energyDemand) {
+	public void setEnergyDemand(float energyDemand) {
 		this.energyDemand = energyDemand;
 	}
 	
-	public int getCap() {
+	public float getCap() {
 		return this.cap;
 	}
 	
-	public int getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 }

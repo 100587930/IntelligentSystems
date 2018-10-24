@@ -16,9 +16,9 @@ public class MainController {
 	private AgentContainer applianceContainer;
 	private AgentContainer retailerContainer;
 
-	private int retailersCap = 25; //get from gui
-	private int retailersBasePrice = 18; //get from gui
-	private int defaulMaxPrice = 10000;
+	private float retailersCap = 25; //get from gui
+	private float retailersBasePrice = 18; //get from gui
+	private float defaultMaxPrice = 10000;
 	
 	public MainController() {
 		this.setupContainers();
@@ -76,7 +76,7 @@ public class MainController {
 
 	private void startHomeAgent() throws StaleProxyException {
 		Object[] homeArguments = new Object[1]; // will be given by the GUI
-		homeArguments[0] = this.defaulMaxPrice; // default price
+		homeArguments[0] = this.defaultMaxPrice; // default price
 		String homeAgentName = "Home Agent"; // will be given by the GUI
 		AgentController homeAgent = this.homeContainer.createNewAgent(homeAgentName, "agents.HomeAgent", homeArguments);
 		homeAgent.start();

@@ -18,7 +18,7 @@ public class ApplianceTickerBehaviour extends TickerBehaviour {
 	@Override
 	protected void onTick() {
 
-		this.applianceAgent.setExpectedUsage((int) (Math.random() * 50));
+		this.applianceAgent.setExpectedUsage(5); //TODO: set as an argument in homeController
 
 		ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 		msg.addReceiver(Constants.HOME_AGENT_AID);

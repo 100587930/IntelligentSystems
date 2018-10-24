@@ -27,11 +27,13 @@ public class HomeCyclicBehaviour extends CyclicBehaviour {
 			case ACLMessage.PROPOSE:
 				this.homeAgent.handlePropose(msg);
 				break;
+			case ACLMessage.REQUEST:
+				this.homeAgent.handleRequest(msg);
+				break;
 			case ACLMessage.CONFIRM:
 				try {
 					this.homeAgent.handleConfirm(msg);
 				} catch (UnreadableException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
