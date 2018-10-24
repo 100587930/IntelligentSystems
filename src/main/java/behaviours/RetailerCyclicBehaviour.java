@@ -1,4 +1,5 @@
 package behaviours;
+
 import java.io.IOException;
 
 import agents.HomeAgent;
@@ -8,9 +9,9 @@ import jade.lang.acl.ACLMessage;
 
 @SuppressWarnings("serial")
 public class RetailerCyclicBehaviour extends CyclicBehaviour {
-	
+
 	private RetailerAgent retailerAgent;
-	
+
 	public RetailerCyclicBehaviour(RetailerAgent retailerAgent) {
 		this.retailerAgent = retailerAgent;
 	}
@@ -18,8 +19,8 @@ public class RetailerCyclicBehaviour extends CyclicBehaviour {
 	@Override
 	public void action() {
 		ACLMessage msg = this.retailerAgent.receive();
-		if(msg != null) {
-			switch(msg.getPerformative()) {
+		if (msg != null) {
+			switch (msg.getPerformative()) {
 			case ACLMessage.INFORM:
 				try {
 					this.retailerAgent.handleInform(msg);
@@ -39,6 +40,5 @@ public class RetailerCyclicBehaviour extends CyclicBehaviour {
 			}
 		}
 	}
-	
 
 }

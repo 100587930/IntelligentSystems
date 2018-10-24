@@ -4,7 +4,7 @@ public class Tariff implements TariffInterface {
 
 	protected float pricePerKW;
 	protected float energyCap;
-	
+
 	public Tariff(float pricePerKW, float energyCap) {
 		this.pricePerKW = pricePerKW;
 		this.energyCap = energyCap;
@@ -24,5 +24,5 @@ public class Tariff implements TariffInterface {
 	public float getCap() {
 		return this.energyCap;
 	}
-	
+
 }

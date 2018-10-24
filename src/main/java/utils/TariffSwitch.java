@@ -6,15 +6,15 @@ import tariffs.Tariff;
 import tariffs.VolumeTariff;
 
 public class TariffSwitch {
-	
+
 	public static Tariff getTariff(Object[] retailerArguments) {
-		
+
 		String tariffName = (String) retailerArguments[0];
 		float tariffCap = (float) retailerArguments[1];
 		float tariffBasePrice = (float) retailerArguments[2];
 		Tariff tariff = null;
-		
-		switch(tariffName) {
+
+		switch (tariffName) {
 		case Constants.FIXED_TARIFF:
 			tariff = new FixedTariff(tariffBasePrice, tariffCap);
 			break;
@@ -27,5 +27,5 @@ public class TariffSwitch {
 		}
 		return tariff;
 	}
-	
+
 }

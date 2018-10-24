@@ -9,7 +9,7 @@ import utils.Constants;
 public class ApplianceTickerBehaviour extends TickerBehaviour {
 
 	private ApplianceAgent applianceAgent;
-	
+
 	public ApplianceTickerBehaviour(ApplianceAgent applianceAgent, long period) {
 		super(applianceAgent, period);
 		this.applianceAgent = applianceAgent;
@@ -18,7 +18,7 @@ public class ApplianceTickerBehaviour extends TickerBehaviour {
 	@Override
 	protected void onTick() {
 
-		this.applianceAgent.setExpectedUsage(5); //TODO: set as an argument in homeController
+		this.applianceAgent.setExpectedUsage(5); // TODO: set as an argument in homeController
 
 		ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
 		msg.addReceiver(Constants.HOME_AGENT_AID);

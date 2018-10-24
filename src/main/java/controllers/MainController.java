@@ -16,10 +16,10 @@ public class MainController {
 	private AgentContainer applianceContainer;
 	private AgentContainer retailerContainer;
 
-	private float retailersCap = 25; //get from gui
-	private float retailersBasePrice = 18; //get from gui
+	private float retailersCap = 25; // get from gui
+	private float retailersBasePrice = 18; // get from gui
 	private float defaultMaxPrice = 10000;
-	
+
 	public MainController() {
 		this.setupContainers();
 		this.startAgents();
@@ -39,8 +39,8 @@ public class MainController {
 
 	private void startRetailerAgents() throws StaleProxyException {
 		// TODO: create 3 RAs
-		Object[][] retailerArguments = new Object[3][3]; // will be given by the GUI 
-		retailerArguments[0][0] = Constants.FIXED_TARIFF; 
+		Object[][] retailerArguments = new Object[3][3]; // will be given by the GUI
+		retailerArguments[0][0] = Constants.FIXED_TARIFF;
 		retailerArguments[1][0] = Constants.INCREASE_VOLUME_TARIFF;
 		retailerArguments[2][0] = Constants.VOLUME_TARIFF;
 		retailerArguments[0][1] = this.retailersCap;
@@ -53,12 +53,12 @@ public class MainController {
 		retailerAgentNames.add("Retailer Agent 1");
 		retailerAgentNames.add("Retailer Agent 2");
 		retailerAgentNames.add("Retailer Agent 3");
-		for(int i = 0; i < retailerArguments.length; i++) {
+		for (int i = 0; i < retailerArguments.length; i++) {
 			AgentController retailerAgent = this.retailerContainer.createNewAgent(retailerAgentNames.get(i),
 					"agents.RetailerAgent", retailerArguments[i]);
 			retailerAgent.start();
 		}
-		
+
 	}
 
 	private void startApplianceAgents() throws StaleProxyException {
@@ -67,10 +67,10 @@ public class MainController {
 		ArrayList<String> applianceAgentName = new ArrayList<String>(); // will be given by the GUI
 		applianceAgentName.add("Dishwasher");
 		applianceAgentName.add("Fridge");
-		for(int i = 0; i < applianceArguments.length; i++) {
+		for (int i = 0; i < applianceArguments.length; i++) {
 			AgentController applianceAgent = this.applianceContainer.createNewAgent(applianceAgentName.get(i),
 					"agents.ApplianceAgent", applianceArguments);
-			applianceAgent.start();	
+			applianceAgent.start();
 		}
 	}
 

@@ -13,8 +13,7 @@ public class Constants {
 	public static final String FIXED_TARIFF = "Fixed Tariff";
 	public static final String VOLUME_TARIFF = "Volume Tariff";
 	public static final String INCREASE_VOLUME_TARIFF = "Increase Volume Tariff";
-	
+
 	public static final AID HOME_AGENT_AID = new AID(Constants.HOME_AGENT, AID.ISLOCALNAME);
-	
-	
+
 }
