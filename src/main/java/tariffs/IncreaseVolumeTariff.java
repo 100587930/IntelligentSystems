@@ -10,13 +10,13 @@ public class IncreaseVolumeTariff extends Tariff {
 		float price = 0;
 		energyWanted = energyWanted > this.energyCap ? this.energyCap : energyWanted;
 		if (energyWanted <= 5) {
-			price = this.calculatePrice(2, energyWanted);
+			price = this.calculatePrice(3, energyWanted);
 		} else if (energyWanted > 5 && energyWanted <= 10) {
-			price = this.calculatePrice(6, energyWanted);
+			price = this.calculatePrice(5, energyWanted);
 		} else if (energyWanted > 10 && energyWanted <= 20) {
-			price = this.calculatePrice(8, energyWanted);
+			price = this.calculatePrice(7, energyWanted);
 		} else if (energyWanted > 20) {
-			price = this.pricePerKW * energyWanted;
+			price = this.calculatePrice(9, energyWanted);
 		}
 		return price;
 	}

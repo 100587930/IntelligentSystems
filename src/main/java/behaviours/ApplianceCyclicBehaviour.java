@@ -21,7 +21,7 @@ public class ApplianceCyclicBehaviour extends CyclicBehaviour {
 		if (msg != null) {
 			switch (msg.getPerformative()) {
 			case ACLMessage.INFORM:
-				this.applianceAgent.handleInform();
+				this.applianceAgent.handleInform(msg);
 				break;
 			}
 		}

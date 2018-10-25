@@ -7,8 +7,6 @@ import jade.core.*;
 import jade.lang.acl.ACLMessage;
 
 import jade.core.Agent;
-//import java.util.Iterator;
-//import jade.core.behaviours.Behaviour;
 
 import utils.Constants;
 
@@ -18,10 +16,11 @@ public class ApplianceAgent extends Agent {
 	private float energyExpected; // TODO: Get information from data set
 	private float energyUsage;
 	private AID homeAgent = Constants.HOME_AGENT_AID;
-	private long mSecondsToInform = 10000; // change for different frequencies
+	private long mSecondsToInform = 3000; // change for different frequencies
 
 	protected void setup() {
 		this.subscribe();
+		this.setExpectedUsage(30); // TODO: CHANGE HERE FOR THE FORECASTING
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 	}
@@ -41,16 +40,18 @@ public class ApplianceAgent extends Agent {
 		send(msg);
 	}
 
-	public void handleInform() {
-		ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-		msg.setContent(Float.toString(this.getEnergyUsage()));
-		msg.addReceiver(this.homeAgent);
-		send(msg);
+	public void handleInform(ACLMessage msg) {
+		ACLMessage response = new ACLMessage(ACLMessage.REQUEST);
+		float energyGiven = Float.parseFloat(msg.getContent());
+		float energyMissing = this.getEnergyUsage() - energyGiven > 0 ? this.getEnergyUsage() - energyGiven : 0;
+		response.setContent(Float.toString(energyMissing));
+		response.addReceiver(this.homeAgent);
+		send(response);
 	}
 
 	public float getEnergyUsage() {
 		// TODO: change it later with the real usage
-		this.energyUsage = this.energyExpected + 1;
+		this.energyUsage = this.energyExpected;
 		return this.energyUsage;
 	}
 

@@ -27,6 +27,7 @@ public class HomeAgent extends Agent {
 	private int proposalsReceived = 0;
 	private int requestsReceived = 0;
 	private float energyMissing = 0;
+	private float energyBought = 0;
 	private float cheapestPrice = 9999999;
 	private int round = 0;
 	private int secondRoundProposals = 0;
@@ -111,8 +112,15 @@ public class HomeAgent extends Agent {
 
 	private void notifyAppliances() {
 		for (Entry<AID, Appliance> entry : this.applianceAgents.entrySet()) {
+			Appliance appliance = entry.getValue();
+			float energyGiven = 0;
+			if(this.energyBought > 0) {
+				energyGiven = this.energyBought - appliance.getEnergyExpected() < 0 ? this.energyBought : appliance.getEnergyExpected();
+			}
+			System.out.println("GIVING: " + energyGiven + " of energy");
+			this.energyBought -= appliance.getEnergyExpected();
 			ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
-			msg.setContent(Float.toString(entry.getValue().getEnergyExpected()));
+			msg.setContent(Float.toString(energyGiven));
 			msg.addReceiver(entry.getKey());
 			send(msg);
 		}
@@ -128,13 +136,13 @@ public class HomeAgent extends Agent {
 				msg.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
 				System.out.println("Accepting proposal: $" + retailer.getPrice() + " for " + retailer.getEnergyDemand()
 						+ " of energy");
+				this.energyBought += retailer.getEnergyDemand(); 
 			} else {
 				msg.setPerformative(ACLMessage.REJECT_PROPOSAL);
 			}
 			msg.addReceiver(entry.getKey());
 			send(msg);
 		}
-
 	}
 
 	private void setCheapestPrice() {
@@ -226,10 +234,16 @@ public class HomeAgent extends Agent {
 		Appliance appliance = this.applianceAgents.get(msg.getSender());
 		appliance.setEnergyDemand(Float.parseFloat(msg.getContent()));
 		this.applianceAgents.put(msg.getSender(), appliance);
-		this.energyMissing += appliance.getEenergyDemand() - appliance.getEnergyExpected();
+		this.energyMissing += Float.parseFloat(msg.getContent());
 		this.requestsReceived++;
-		if (this.requestsReceived == Constants.APPLIANCE_AGENTS_COUNT) {
-			System.out.println("Pentalty! " + this.energyMissing + " kw of energy missing");
+		if(this.requestsReceived == Constants.APPLIANCE_AGENTS_COUNT) {
+			if(this.energyMissing > 0) {
+				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");		
+			} else if (this.energyMissing == 0) {
+				System.out.println("All appliances received at least the right amount of energy they needed");	
+			}
+			System.out.println("System exiting...");
+			System.exit(0);
 		}
 	}
 
