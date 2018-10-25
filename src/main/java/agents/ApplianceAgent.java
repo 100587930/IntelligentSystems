@@ -20,7 +20,7 @@ public class ApplianceAgent extends Agent {
 
 	protected void setup() {
 		this.subscribe();
-		this.setExpectedUsage(30); // TODO: CHANGE HERE FOR THE FORECASTING
+		this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 	}
