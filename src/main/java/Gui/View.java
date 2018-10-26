@@ -10,15 +10,17 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class gui {
+public class View extends JFrame{
 	public JFrame frame;
 	private JTable table;
 	private JTextField txtPendingGraph;
 	private JTable table_1;
 	private JTable table_2;
 	private JTable table_3;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel;
 	
-	public gui() {
+	public View() {
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 847, 430);
@@ -44,17 +46,7 @@ public class gui {
 		frame.getContentPane().add(tp);  
 		frame.getContentPane().setLayout(null);  
 		frame.setVisible(true);  
-	    
-		
-		
-		JButton btnRun = new JButton("Run");
-		btnRun.setBounds(10, 49, 89, 23);
-		frame.getContentPane().add(btnRun);
-		
-		JButton btnPause = new JButton("Pause");
-		btnPause.setBounds(10, 83, 89, 23);
-		frame.getContentPane().add(btnPause);
-		
+
 		JLabel lblHomeAgentPower = new JLabel("Home Agent Power usage tracker");
 		lblHomeAgentPower.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblHomeAgentPower.setBounds(10, 11, 216, 27);
@@ -64,11 +56,24 @@ public class gui {
 		scrollBar.setBounds(804, 304, 17, 76);
 		frame.getContentPane().add(scrollBar);
 		
-		txtPendingGraph = new JTextField();
-		txtPendingGraph.setText("Pending Graph");
-		txtPendingGraph.setBounds(102, 49, 719, 216);
-		frame.getContentPane().add(txtPendingGraph);
-		txtPendingGraph.setColumns(10);
 		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(102, 49, 719, 216);
+		frame.getContentPane().add(lblNewLabel);
+		
+		btnNewButton  = new JButton("New button");
+		btnNewButton.setBounds(10, 49, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		
+
 	}
+		public JButton getBtnNewButton() {
+		    return btnNewButton;
+		}
+
+		public JLabel getLblNewLabel() {
+		    return lblNewLabel;
+		}
+	
 }

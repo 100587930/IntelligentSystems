@@ -1,6 +1,8 @@
 import java.awt.EventQueue;
+
 import controllers.MainController;
-import Gui.gui;
+import Gui.View;
+import Gui.Controller;
 
 public class Main {
 
@@ -13,8 +15,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui window = new gui();
-					window.frame.setVisible(true);
+					new Controller();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
