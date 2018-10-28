@@ -8,6 +8,7 @@ import jade.core.AID;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import utils.Constants;
+import Gui.Model;
 
 @SuppressWarnings("serial")
 public class HomeAgent extends Agent {
@@ -22,6 +23,7 @@ public class HomeAgent extends Agent {
 
 	public void setup() {
 		addBehaviour(new HomeCyclicBehaviour(this));
+		
 	}
 
 	public void handleSubscribe(ACLMessage msg) {
@@ -44,6 +46,7 @@ public class HomeAgent extends Agent {
 
 		System.out.println("Agent " + msg.getSender().getLocalName() + " usage is - " + this.applianceAgents.get(msg.getSender()));
 		
+		
 		this.usageExpected = this.usageExpected + this.applianceAgents.get(msg.getSender());
 		
 		this.usagesInformed++;
@@ -57,6 +60,7 @@ public class HomeAgent extends Agent {
 	private void startNegotiation() {
 		System.out.println("Starting negotiation");
 		System.out.println("Energy demand: " + this.getUsageExpected());
+		
 		for (HashMap.Entry<AID, Integer> entry : this.retailerAgents.entrySet()) {
 			//Sends message to start the negotiation with the retailer agents
 			ACLMessage negotiationMsg = new ACLMessage(ACLMessage.INFORM);
