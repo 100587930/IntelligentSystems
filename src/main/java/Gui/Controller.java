@@ -34,7 +34,7 @@ public Controller() {
     SampleAssignNew();
     SampleAssignOld();
 
-    view.UpdateValuesButton().addActionListener(new ActionListener() {
+    view.UpdateValuesButton().addActionListener(new ActionListener() {//actions to do when update button is pressed
     	 @Override
          public void actionPerformed(ActionEvent e) {
              System.out.println(model.getRetailerMax());	//example of how to get data that will be passed
