@@ -1,9 +1,9 @@
-package behaviours;
+package main.java.behaviours;
 
 import java.io.IOException;
 
-import agents.ApplianceAgent;
-import agents.RetailerAgent;
+import main.java.agents.ApplianceAgent;
+import main.java.agents.RetailerAgent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 

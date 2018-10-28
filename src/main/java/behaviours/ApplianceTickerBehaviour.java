@@ -1,9 +1,9 @@
-package behaviours;
+package main.java.behaviours;
 
-import agents.ApplianceAgent;
+import main.java.agents.ApplianceAgent;
 import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
-import utils.Constants;
+import main.java.utils.Constants;
 
 @SuppressWarnings("serial")
 public class ApplianceTickerBehaviour extends TickerBehaviour {

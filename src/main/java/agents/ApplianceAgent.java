@@ -1,14 +1,14 @@
-package agents;
+package main.java.agents;
 
-import behaviours.ApplianceCyclicBehaviour;
-import behaviours.ApplianceTickerBehaviour;
-import behaviours.RetailerCyclicBehaviour;
+import main.java.behaviours.ApplianceCyclicBehaviour;
+import main.java.behaviours.ApplianceTickerBehaviour;
+import main.java.behaviours.RetailerCyclicBehaviour;
 import jade.core.*;
 import jade.lang.acl.ACLMessage;
 
 import jade.core.Agent;
 
-import utils.Constants;
+import main.java.utils.Constants;
 
 @SuppressWarnings("serial")
 public class ApplianceAgent extends Agent {

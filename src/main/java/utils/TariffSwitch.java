@@ -1,9 +1,9 @@
-package utils;
+package main.java.utils;
 
-import tariffs.FixedTariff;
-import tariffs.IncreaseVolumeTariff;
-import tariffs.Tariff;
-import tariffs.VolumeTariff;
+import main.java.tariffs.FixedTariff;
+import main.java.tariffs.IncreaseVolumeTariff;
+import main.java.tariffs.Tariff;
+import main.java.tariffs.VolumeTariff;
 
 public class TariffSwitch {
 

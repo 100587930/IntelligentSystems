@@ -1,6 +1,9 @@
+package main.java;
+
 import java.awt.EventQueue;
-import controllers.MainController;
-import Gui.gui;
+
+import main.java.Gui.gui;
+import main.java.controllers.MainController;
 
 public class Main {
 

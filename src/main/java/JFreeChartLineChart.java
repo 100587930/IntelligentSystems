@@ -1,3 +1,5 @@
+package main.java;
+
 import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
@@ -8,6 +10,7 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+@SuppressWarnings("serial")
 public class JFreeChartLineChart extends JFrame {
 
 	public JFreeChartLineChart(String applicationTitle, String chartTitle) {

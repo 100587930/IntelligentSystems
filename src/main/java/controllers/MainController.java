@@ -1,4 +1,4 @@
-package controllers;
+package main.java.controllers;
 
 import jade.core.Runtime;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 import jade.wrapper.*;
-import utils.Constants;
+import main.java.utils.Constants;
 
 public class MainController {
 

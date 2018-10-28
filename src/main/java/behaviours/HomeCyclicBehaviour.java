@@ -1,6 +1,6 @@
-package behaviours;
+package main.java.behaviours;
 
-import agents.HomeAgent;
+import main.java.agents.HomeAgent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;

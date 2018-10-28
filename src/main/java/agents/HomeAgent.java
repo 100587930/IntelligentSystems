@@ -1,19 +1,19 @@
-package agents;
+package main.java.agents;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import behaviours.HomeCyclicBehaviour;
+import main.java.behaviours.HomeCyclicBehaviour;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 import jade.util.leap.ArrayList;
-import models.Appliance;
-import models.Retailer;
-import utils.Constants;
+import main.java.models.Appliance;
+import main.java.models.Retailer;
+import main.java.utils.Constants;
 
 @SuppressWarnings("serial")
 public class HomeAgent extends Agent {
