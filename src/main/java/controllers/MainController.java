@@ -32,6 +32,7 @@ public class MainController {
 	    final SettingView view = new SettingView();
 	    model = new SettingModel(view);
 	    view.frame.setVisible(true);
+	    view.repaint();
 		
 
 		
@@ -64,7 +65,7 @@ public class MainController {
 		for(int r = 0; r < model.getRetailAgents();){
 			retailerArguments[r][0] = Constants.FIXED_TARIFF;
 			retailerArguments[r][1] = model.getRetailerMax();
-			retailerArguments[r][2]  =model.getRetailerMin();
+			retailerArguments[r][2] = model.getRetailerMin();
 			retailerAgentNames.add(model.getRetailNames()[r]);
 			r++;
 		}
@@ -84,7 +85,7 @@ public class MainController {
 		for(int r = 0; r < model.getAplianceAgents(); r++){
 			applianceAgentName.add(model.getAppNames()[r]);
 		}
-		for (int i = 0; i < model.getRetailAgents(); i++) {
+		for (int i = 0; i < model.getAplianceAgents(); i++) {
 			AgentController applianceAgent = this.applianceContainer.createNewAgent(applianceAgentName.get(i),
 					"agents.ApplianceAgent", applianceArguments);
 			applianceAgent.start();

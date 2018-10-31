@@ -39,6 +39,8 @@ public class SettingView extends JFrame{
 	private JTextField RetailName7;
 	private JTextField RetailName6;
 	private JTextField AppName6;
+	private JPanel panel;
+	private JLabel label_7;
 	
 	public SettingView() {
 		
@@ -109,125 +111,134 @@ public class SettingView extends JFrame{
 		SettingTab.add(Retailers);
 		Retailers.setColumns(10);
 		
-		JLabel lblAgentNames = new JLabel("Agent Names");
-		lblAgentNames.setBounds(30, 134, 82, 14);
-		frame.getContentPane().add(lblAgentNames);
+		panel = new JPanel();
+		panel.setBounds(10, 136, 784, 279);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		JLabel lblRetail = new JLabel("Retail");
-		lblRetail.setBounds(122, 134, 82, 24);
-		frame.getContentPane().add(lblRetail);
+		JLabel lblAgentNames = new JLabel("Agent Names");
+		lblAgentNames.setBounds(0, 0, 196, 30);
+		panel.add(lblAgentNames);
 		
 		JLabel lblAppliance = new JLabel("Appliance");
-		lblAppliance.setBounds(225, 134, 86, 24);
-		frame.getContentPane().add(lblAppliance);
+		lblAppliance.setBounds(196, 3, 196, 30);
+		panel.add(lblAppliance);
 		
-		RetailName1 = new JTextField();
-		RetailName1.setBounds(122, 169, 86, 20);
-		frame.getContentPane().add(RetailName1);
-		RetailName1.setColumns(10);
+		JLabel lblRetail = new JLabel("Retail");
+		lblRetail.setBounds(392, 3, 196, 30);
+		panel.add(lblRetail);
 		
-		RetailName2 = new JTextField();
-		RetailName2.setColumns(10);
-		RetailName2.setBounds(122, 200, 86, 20);
-		frame.getContentPane().add(RetailName2);
-		
-		RetailName3 = new JTextField();
-		RetailName3.setColumns(10);
-		RetailName3.setBounds(122, 231, 86, 20);
-		frame.getContentPane().add(RetailName3);
-		
-		RetailName4 = new JTextField();
-		RetailName4.setColumns(10);
-		RetailName4.setBounds(122, 262, 86, 20);
-		frame.getContentPane().add(RetailName4);
-		
-		RetailName5 = new JTextField();
-		RetailName5.setColumns(10);
-		RetailName5.setBounds(122, 293, 86, 20);
-		frame.getContentPane().add(RetailName5);
-		
-		AppName5 = new JTextField();
-		AppName5.setColumns(10);
-		AppName5.setBounds(225, 293, 86, 20);
-		frame.getContentPane().add(AppName5);
-		
-		AppName4 = new JTextField();
-		AppName4.setColumns(10);
-		AppName4.setBounds(225, 262, 86, 20);
-		frame.getContentPane().add(AppName4);
-		
-		AppName3 = new JTextField();
-		AppName3.setColumns(10);
-		AppName3.setBounds(225, 231, 86, 20);
-		frame.getContentPane().add(AppName3);
-		
-		AppName2 = new JTextField();
-		AppName2.setColumns(10);
-		AppName2.setBounds(225, 200, 86, 20);
-		frame.getContentPane().add(AppName2);
-		
-		AppName1 = new JTextField();
-		AppName1.setColumns(10);
-		AppName1.setBounds(225, 169, 86, 20);
-		frame.getContentPane().add(AppName1);
+		label_7 = new JLabel("");
+		label_7.setBounds(588, 3, 196, 39);
+		panel.add(label_7);
 		
 		JLabel label = new JLabel("1");
-		label.setBounds(111, 172, 46, 14);
-		frame.getContentPane().add(label);
+		label.setBounds(0, 30, 196, 30);
+		panel.add(label);
+		
+		RetailName2 = new JTextField();
+		RetailName2.setBounds(392, 60, 196, 30);
+		RetailName2.setColumns(10);
+		panel.add(RetailName2);
+		
+		RetailName3 = new JTextField();
+		RetailName3.setBounds(392, 90, 196, 30);
+		RetailName3.setColumns(10);
+		panel.add(RetailName3);
+		
+		RetailName1 = new JTextField();
+		RetailName1.setBounds(392, 30, 196, 30);
+		RetailName1.setColumns(10);
+		panel.add(RetailName1);
 		
 		JLabel label_1 = new JLabel("2");
-		label_1.setBounds(111, 203, 46, 14);
-		frame.getContentPane().add(label_1);
+		label_1.setBounds(0, 60, 196, 30);
+		panel.add(label_1);
+		
+		AppName3 = new JTextField();
+		AppName3.setBounds(196, 90, 196, 30);
+		AppName3.setColumns(10);
+		panel.add(AppName3);
+		
+		RetailName4 = new JTextField();
+		RetailName4.setBounds(392, 120, 196, 30);
+		RetailName4.setColumns(10);
+		panel.add(RetailName4);
 		
 		JLabel label_2 = new JLabel("3");
-		label_2.setBounds(111, 234, 46, 14);
-		frame.getContentPane().add(label_2);
-		
-		JLabel label_3 = new JLabel("4");
-		label_3.setBounds(111, 265, 46, 14);
-		frame.getContentPane().add(label_3);
+		label_2.setBounds(0, 90, 196, 30);
+		panel.add(label_2);
 		
 		JLabel label_4 = new JLabel("5");
-		label_4.setBounds(111, 296, 46, 14);
-		frame.getContentPane().add(label_4);
+		label_4.setBounds(0, 150, 196, 30);
+		panel.add(label_4);
 		
-		AppName7 = new JTextField();
-		AppName7.setColumns(10);
-		AppName7.setBounds(225, 355, 86, 20);
-		frame.getContentPane().add(AppName7);
-		
-		RetailName7 = new JTextField();
-		RetailName7.setColumns(10);
-		RetailName7.setBounds(122, 355, 86, 20);
-		frame.getContentPane().add(RetailName7);
-		
-		RetailName6 = new JTextField();
-		RetailName6.setColumns(10);
-		RetailName6.setBounds(122, 324, 86, 20);
-		frame.getContentPane().add(RetailName6);
-		
-		AppName6 = new JTextField();
-		AppName6.setColumns(10);
-		AppName6.setBounds(225, 324, 86, 20);
-		frame.getContentPane().add(AppName6);
-		
-		JLabel label_5 = new JLabel("7");
-		label_5.setBounds(111, 358, 46, 14);
-		frame.getContentPane().add(label_5);
+		RetailName5 = new JTextField();
+		RetailName5.setBounds(392, 150, 196, 30);
+		RetailName5.setColumns(10);
+		panel.add(RetailName5);
 		
 		JLabel label_6 = new JLabel("6");
-		label_6.setBounds(111, 327, 46, 14);
-		frame.getContentPane().add(label_6);
+		label_6.setBounds(0, 180, 196, 30);
+		panel.add(label_6);
+		
+		AppName5 = new JTextField();
+		AppName5.setBounds(196, 150, 196, 30);
+		AppName5.setColumns(10);
+		panel.add(AppName5);
+		
+		JLabel label_3 = new JLabel("4");
+		label_3.setBounds(0, 120, 196, 30);
+		panel.add(label_3);
+		
+		AppName4 = new JTextField();
+		AppName4.setBounds(196, 120, 196, 30);
+		AppName4.setColumns(10);
+		panel.add(AppName4);
+		
+		JLabel label_5 = new JLabel("7");
+		label_5.setBounds(0, 210, 196, 30);
+		panel.add(label_5);
+		
+		AppName2 = new JTextField();
+		AppName2.setBounds(196, 60, 196, 30);
+		AppName2.setColumns(10);
+		panel.add(AppName2);
+		
+		AppName1 = new JTextField();
+		AppName1.setBounds(196, 30, 196, 31);
+		AppName1.setColumns(10);
+		panel.add(AppName1);
+		
+		AppName7 = new JTextField();
+		AppName7.setBounds(196, 210, 196, 30);
+		AppName7.setColumns(10);
+		panel.add(AppName7);
+		
+		RetailName7 = new JTextField();
+		RetailName7.setBounds(392, 210, 196, 30);
+		RetailName7.setColumns(10);
+		panel.add(RetailName7);
+		
+		RetailName6 = new JTextField();
+		RetailName6.setBounds(392, 180, 196, 30);
+		RetailName6.setColumns(10);
+		panel.add(RetailName6);
+		
+		AppName6 = new JTextField();
+		AppName6.setBounds(196, 180, 196, 31);
+		AppName6.setColumns(10);
+		panel.add(AppName6);
 		
 		
 
 	}
 		public JTextField RetailAgents() {
-		    return RetilerMax;
+		    return Retailers;
 		}
 		
 		public JTextField AplianceAgents() {
-		    return RetilerMax;
+		    return Apliances;
 		}
 
 		
@@ -276,5 +287,4 @@ public class SettingView extends JFrame{
 			};
 			return array;
 		}
-		
 }

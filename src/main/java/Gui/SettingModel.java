@@ -56,6 +56,7 @@ public int getRetailAgents() {
 	}catch(NumberFormatException ex) {
 		i = 0;
 	}
+	System.out.println(i);
 	return i;
 }
 
@@ -66,6 +67,7 @@ public int getAplianceAgents() {
 	}catch(NumberFormatException ex) {
 		i = 0;
 	}
+	System.out.println(i);
 	return i;
 }
 
