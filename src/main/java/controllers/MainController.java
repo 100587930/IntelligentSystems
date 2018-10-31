@@ -32,7 +32,7 @@ public class MainController {
 	    final SettingView view = new SettingView();
 	    model = new SettingModel(view);
 	    view.frame.setVisible(true);
-	    view.repaint();
+	    
 		
 
 		

@@ -13,6 +13,8 @@ import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class SettingView extends JFrame{
 	public JFrame frame;
@@ -114,121 +116,164 @@ public class SettingView extends JFrame{
 		panel = new JPanel();
 		panel.setBounds(10, 136, 784, 279);
 		frame.getContentPane().add(panel);
-		panel.setLayout(null);
 		
 		JLabel lblAgentNames = new JLabel("Agent Names");
-		lblAgentNames.setBounds(0, 0, 196, 30);
-		panel.add(lblAgentNames);
 		
 		JLabel lblAppliance = new JLabel("Appliance");
-		lblAppliance.setBounds(196, 3, 196, 30);
-		panel.add(lblAppliance);
 		
 		JLabel lblRetail = new JLabel("Retail");
-		lblRetail.setBounds(392, 3, 196, 30);
-		panel.add(lblRetail);
 		
 		label_7 = new JLabel("");
-		label_7.setBounds(588, 3, 196, 39);
-		panel.add(label_7);
 		
 		JLabel label = new JLabel("1");
-		label.setBounds(0, 30, 196, 30);
-		panel.add(label);
 		
 		RetailName2 = new JTextField();
-		RetailName2.setBounds(392, 60, 196, 30);
 		RetailName2.setColumns(10);
-		panel.add(RetailName2);
 		
 		RetailName3 = new JTextField();
-		RetailName3.setBounds(392, 90, 196, 30);
 		RetailName3.setColumns(10);
-		panel.add(RetailName3);
 		
 		RetailName1 = new JTextField();
-		RetailName1.setBounds(392, 30, 196, 30);
 		RetailName1.setColumns(10);
-		panel.add(RetailName1);
 		
 		JLabel label_1 = new JLabel("2");
-		label_1.setBounds(0, 60, 196, 30);
-		panel.add(label_1);
 		
 		AppName3 = new JTextField();
-		AppName3.setBounds(196, 90, 196, 30);
 		AppName3.setColumns(10);
-		panel.add(AppName3);
 		
 		RetailName4 = new JTextField();
-		RetailName4.setBounds(392, 120, 196, 30);
 		RetailName4.setColumns(10);
-		panel.add(RetailName4);
 		
 		JLabel label_2 = new JLabel("3");
-		label_2.setBounds(0, 90, 196, 30);
-		panel.add(label_2);
 		
 		JLabel label_4 = new JLabel("5");
-		label_4.setBounds(0, 150, 196, 30);
-		panel.add(label_4);
 		
 		RetailName5 = new JTextField();
-		RetailName5.setBounds(392, 150, 196, 30);
 		RetailName5.setColumns(10);
-		panel.add(RetailName5);
 		
 		JLabel label_6 = new JLabel("6");
-		label_6.setBounds(0, 180, 196, 30);
-		panel.add(label_6);
 		
 		AppName5 = new JTextField();
-		AppName5.setBounds(196, 150, 196, 30);
 		AppName5.setColumns(10);
-		panel.add(AppName5);
 		
 		JLabel label_3 = new JLabel("4");
-		label_3.setBounds(0, 120, 196, 30);
-		panel.add(label_3);
 		
 		AppName4 = new JTextField();
-		AppName4.setBounds(196, 120, 196, 30);
 		AppName4.setColumns(10);
-		panel.add(AppName4);
 		
 		JLabel label_5 = new JLabel("7");
-		label_5.setBounds(0, 210, 196, 30);
-		panel.add(label_5);
 		
 		AppName2 = new JTextField();
-		AppName2.setBounds(196, 60, 196, 30);
 		AppName2.setColumns(10);
-		panel.add(AppName2);
 		
 		AppName1 = new JTextField();
-		AppName1.setBounds(196, 30, 196, 31);
 		AppName1.setColumns(10);
-		panel.add(AppName1);
 		
 		AppName7 = new JTextField();
-		AppName7.setBounds(196, 210, 196, 30);
 		AppName7.setColumns(10);
-		panel.add(AppName7);
 		
 		RetailName7 = new JTextField();
-		RetailName7.setBounds(392, 210, 196, 30);
 		RetailName7.setColumns(10);
-		panel.add(RetailName7);
 		
 		RetailName6 = new JTextField();
-		RetailName6.setBounds(392, 180, 196, 30);
 		RetailName6.setColumns(10);
-		panel.add(RetailName6);
 		
 		AppName6 = new JTextField();
-		AppName6.setBounds(196, 180, 196, 31);
 		AppName6.setColumns(10);
-		panel.add(AppName6);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAgentNames, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAppliance, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName1, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblRetail, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName1, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(AppName3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+					.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(lblAgentNames, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+							.addComponent(label, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+							.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(3)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblAppliance, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(57)
+									.addComponent(AppName2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(27)
+									.addComponent(AppName1, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(3)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblRetail, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(27)
+									.addComponent(RetailName1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(RetailName2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(3)
+							.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+							.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(30)
+							.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+							.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))))
+		);
+		panel.setLayout(gl_panel);
 		
 		
 
