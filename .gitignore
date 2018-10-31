@@ -1,9 +1,7 @@
 # Compiled class file
 *.class
 *.settings
-*.classpath
-APDescription.txt
-MTPs-Main-Container.txt
+
 
 # Log file
 *.log
@@ -26,3 +24,9 @@ MTPs-Main-Container.txt
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /target/
+
+# JDT-specific (Eclipse Java Development Tools)     
+.classpath
+APDescription.txt
+MTPs-Main-Container.txt
+APDescription.txt

@@ -3,11 +3,11 @@ package Gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Controller {
+public class SettingController {
 
 	private Model model;
 	
-public Controller() {
+public SettingController() {
     final View view = new View();
     model = new Model(view);
     view.frame.setVisible(true);

@@ -18,13 +18,7 @@ public class View extends JFrame{
 	public JFrame frame;
 	private JTable table;
 	private JTextField txtPendingGraph;
-	private JButton btnNewButton;
-	private JButton UpdateButton;
 	private JLabel lblNewLabel;
-	private JTextField RetilerMax;
-	private JTextField RetailerMin;
-	private JTextField BaseMax;
-	private JTextField BaseMin;
 	private JTextField Agent1New;
 	private JTextField Agent1Old;
 	private JTextField Agent2Old;
@@ -39,6 +33,13 @@ public class View extends JFrame{
 	private JTextField Agent5New;
 	private JTextField Agent7Old;
 	private JTextField Agent7New;
+	private JLabel lblAppAgent1;
+	private JLabel lblAppAgent2;
+	private JLabel lblAppAgent3;
+	private JLabel lblAppAgent4;
+	private JLabel lblAppAgent5;
+	private JLabel lblAppAgent6;
+	private JLabel lblAppAgent7;
 	
 	public View() {
 		
@@ -59,187 +60,141 @@ public class View extends JFrame{
 		lblNewLabel.setBounds(102, 49, 719, 216);
 		frame.getContentPane().add(lblNewLabel);
 		
-		btnNewButton  = new JButton("Start");
-		btnNewButton.setBounds(10, 49, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(102, 276, 719, 104);
 		frame.getContentPane().add(tabbedPane);
 		
-		JPanel panel = new JPanel();
-		tabbedPane.addTab("Live Data", null, panel, null);
-		panel.setLayout(null);
+		JPanel ApplianceTab = new JPanel();
+		tabbedPane.addTab("Appliance Agents", null, ApplianceTab, null);
+		ApplianceTab.setLayout(null);
 		
-		JLabel lblAgent1 = new JLabel("Agent 1");
-		lblAgent1.setBounds(12, 6, 46, 14);
-		panel.add(lblAgent1);
+		lblAppAgent1 = new JLabel("Agent 1");
+		lblAppAgent1.setBounds(12, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent1);
 		
 		Agent1New = new JTextField();
 		Agent1New.setBounds(10, 21, 86, 20);
-		panel.add(Agent1New);
+		ApplianceTab.add(Agent1New);
 		Agent1New.setColumns(10);
 		
 		Agent1Old = new JTextField();
 		Agent1Old.setBounds(10, 40, 86, 20);
-		panel.add(Agent1Old);
+		ApplianceTab.add(Agent1Old);
 		Agent1Old.setColumns(10);
 		
-		JLabel lblAgent2 = new JLabel("Agent 2");
-		lblAgent2.setBounds(108, 6, 46, 14);
-		panel.add(lblAgent2);
+		lblAppAgent2 = new JLabel("Agent 2");
+		lblAppAgent2.setBounds(108, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent2);
 		
 		Agent2New = new JTextField();
 		Agent2New.setColumns(10);
 		Agent2New.setBounds(106, 21, 86, 20);
-		panel.add(Agent2New);
+		ApplianceTab.add(Agent2New);
 		
 		Agent2Old = new JTextField();
 		Agent2Old.setColumns(10);
 		Agent2Old.setBounds(106, 40, 86, 20);
-		panel.add(Agent2Old);
+		ApplianceTab.add(Agent2Old);
 		
-		JLabel lblAgent3 = new JLabel("Agent 3");
-		lblAgent3.setBounds(204, 6, 46, 14);
-		panel.add(lblAgent3);
+		lblAppAgent3 = new JLabel("Agent 3");
+		lblAppAgent3.setBounds(204, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent3);
 		
 		Agent3New = new JTextField();
 		Agent3New.setColumns(10);
 		Agent3New.setBounds(202, 21, 86, 20);
-		panel.add(Agent3New);
+		ApplianceTab.add(Agent3New);
 		
 		Agent3Old = new JTextField();
 		Agent3Old.setColumns(10);
 		Agent3Old.setBounds(202, 40, 86, 20);
-		panel.add(Agent3Old);
+		ApplianceTab.add(Agent3Old);
 		
-		JLabel lblAgent4 = new JLabel("Agent 4");
-		lblAgent4.setBounds(300, 6, 46, 14);
-		panel.add(lblAgent4);
+		lblAppAgent4 = new JLabel("Agent 4");
+		lblAppAgent4.setBounds(300, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent4);
 		
 		Agent4New = new JTextField();
 		Agent4New.setColumns(10);
 		Agent4New.setBounds(298, 21, 86, 20);
-		panel.add(Agent4New);
+		ApplianceTab.add(Agent4New);
 		
 		Agent4Old = new JTextField();
 		Agent4Old.setColumns(10);
 		Agent4Old.setBounds(298, 40, 86, 20);
-		panel.add(Agent4Old);
+		ApplianceTab.add(Agent4Old);
 		
-		JLabel lblAgent5 = new JLabel("Agent 5");
-		lblAgent5.setBounds(396, 6, 46, 14);
-		panel.add(lblAgent5);
+		lblAppAgent5 = new JLabel("Agent 5");
+		lblAppAgent5.setBounds(396, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent5);
 		
 		Agent5New = new JTextField();
 		Agent5New.setColumns(10);
 		Agent5New.setBounds(394, 21, 86, 20);
-		panel.add(Agent5New);
+		ApplianceTab.add(Agent5New);
 		
 		Agent5Old = new JTextField();
 		Agent5Old.setColumns(10);
 		Agent5Old.setBounds(394, 40, 86, 20);
-		panel.add(Agent5Old);
+		ApplianceTab.add(Agent5Old);
 		
-		JLabel lblAgent6 = new JLabel("Agent 6");
-		lblAgent6.setBounds(492, 6, 46, 14);
-		panel.add(lblAgent6);
+		lblAppAgent6 = new JLabel("Agent 6");
+		lblAppAgent6.setBounds(492, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent6);
 		
 		Agent6New = new JTextField();
 		Agent6New.setColumns(10);
 		Agent6New.setBounds(490, 21, 86, 20);
-		panel.add(Agent6New);
+		ApplianceTab.add(Agent6New);
 		
 		Agent6Old = new JTextField();
 		Agent6Old.setColumns(10);
 		Agent6Old.setBounds(490, 40, 86, 20);
-		panel.add(Agent6Old);
+		ApplianceTab.add(Agent6Old);
 		
-		JLabel lblAgent7 = new JLabel("Agent 7");
-		lblAgent7.setBounds(588, 6, 46, 14);
-		panel.add(lblAgent7);
+		lblAppAgent7 = new JLabel("Agent 7");
+		lblAppAgent7.setBounds(588, 6, 46, 14);
+		ApplianceTab.add(lblAppAgent7);
 		
 		Agent7New = new JTextField();
 		Agent7New.setColumns(10);
 		Agent7New.setBounds(586, 21, 86, 20);
-		panel.add(Agent7New);
+		ApplianceTab.add(Agent7New);
 		
 		Agent7Old = new JTextField();
 		Agent7Old.setColumns(10);
 		Agent7Old.setBounds(586, 40, 86, 20);
-		panel.add(Agent7Old);
+		ApplianceTab.add(Agent7Old);
 		
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Settings", null, panel_1, null);
+		JPanel RetailTab = new JPanel();
+		tabbedPane.addTab("Retail Agents", null, RetailTab, null);
 		
-		JLabel lblRetailer = new JLabel("Retailer");
-		panel_1.add(lblRetailer);
-		
-		JLabel lblMax = new JLabel("Max");
-		panel_1.add(lblMax);
-		
-		RetilerMax = new JTextField();
-		panel_1.add(RetilerMax);
-		RetilerMax.setColumns(10);
-		
-		JLabel lblMin = new JLabel("Min");
-		panel_1.add(lblMin);
-		
-		RetailerMin = new JTextField();
-		panel_1.add(RetailerMin);
-		RetailerMin.setColumns(10);
-		
-		JLabel lblRetailerBase = new JLabel("Retailer Base");
-		panel_1.add(lblRetailerBase);
-		
-		JLabel lblMax_1 = new JLabel("Max");
-		panel_1.add(lblMax_1);
-		
-		BaseMax = new JTextField();
-		panel_1.add(BaseMax);
-		BaseMax.setColumns(10);
-		
-		JLabel lblMin_1 = new JLabel("Min");
-		panel_1.add(lblMin_1);
-		
-		BaseMin = new JTextField();
-		panel_1.add(BaseMin);
-		BaseMin.setColumns(10);
-		
-		UpdateButton = new JButton("Update Values");
-		panel_1.add(UpdateButton);
-		
-		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Place Holder", null, panel_2, null);
+		JPanel HomeTab = new JPanel();
+		tabbedPane.addTab("Home Agent", null, HomeTab, null);
 		
 		
 
 	}
-		public JButton getBtnNewButton() {
-		    return btnNewButton;
-		}
-		
-		public JButton UpdateValuesButton() {
-		    return UpdateButton;
-		}
+	
+	public JLabel[] setAppAgentNames() {
+		JLabel[] names = {
+				lblAppAgent1,
+				lblAppAgent2,
+				lblAppAgent3,
+				lblAppAgent4,
+				lblAppAgent5,
+				lblAppAgent6,
+				lblAppAgent7
+		};
+	    return names;
+	}
 
+		
+	
 		public JLabel getLblNewLabel() {
 		    return lblNewLabel;
 		}
-		
-		public JTextField RetilerMax() {
-		    return RetilerMax;
-		}
-		
-		public JTextField RetailerMin() {
-		    return RetailerMin;
-		}
-		public JTextField BaseMax() {
-		    return BaseMax;
-		}
-		public JTextField BaseMin() {
-		    return BaseMin;
-		}
+
 		public JTextField Agent1New() {
 		    return Agent1New;
 		}

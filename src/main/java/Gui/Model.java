@@ -7,9 +7,7 @@ public Model(View view) {
     this.view = view;
 }
 
-public void UpdateButtonCLick(String Val) {
-    view.getBtnNewButton().setText(Val);
-}
+
 
 
 public int[] getCurrentNew() {
@@ -56,45 +54,16 @@ public void AssignOldValues(int[] values, int agents) {
 	}
 }
 
-public int getRetailerMax() {
-	int i;
-	try {
-		i = Integer.parseInt(view.RetilerMax().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
+public void AssignAppAgentsNames(String[] names) {
+	for(int i = 0; i<7; i++) {
+		view.setAppAgentNames()[i].setText(names[i]);
 	}
-	return i;
 }
 
-public int getRetailerMin() {
-	int i;
-	try {
-		i = Integer.parseInt(view.RetailerMin().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
 
-public int getBaseMax() {
-	int i;
-	try {
-		i = Integer.parseInt(view.BaseMax().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
 
-public int getBaseMin() {
-	int i;
-	try {
-		i = Integer.parseInt(view.BaseMin().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
+
+
 
 
 }
