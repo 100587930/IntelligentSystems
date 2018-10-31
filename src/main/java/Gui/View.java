@@ -40,6 +40,28 @@ public class View extends JFrame{
 	private JLabel lblAppAgent5;
 	private JLabel lblAppAgent6;
 	private JLabel lblAppAgent7;
+	private JPanel RetailTab;
+	private JLabel lblRetailAgent1;
+	private JTextField Retail1Prop;
+	private JTextField Retail1Accept;
+	private JLabel lblRetailAgent2;
+	private JTextField Retail2Prop;
+	private JTextField Retail2Accept;
+	private JLabel lblRetailAgent3;
+	private JTextField Retail3Prop;
+	private JTextField Retail3Accept;
+	private JLabel lblRetailAgent4;
+	private JTextField Retail4Prop;
+	private JTextField Retail4Accept;
+	private JLabel lblRetailAgent5;
+	private JTextField Retail5Prop;
+	private JTextField Retail5Accept;
+	private JLabel lblRetailAgent6;
+	private JTextField Retail6Prop;
+	private JTextField Retail6Accept;
+	private JLabel lblRetailAgent7;
+	private JTextField Retail7Prop;
+	private JTextField Retail7Accept;
 	
 	public View() {
 		
@@ -166,8 +188,107 @@ public class View extends JFrame{
 		Agent7Old.setBounds(586, 40, 86, 20);
 		ApplianceTab.add(Agent7Old);
 		
-		JPanel RetailTab = new JPanel();
-		tabbedPane.addTab("Retail Agents", null, RetailTab, null);
+		RetailTab = new JPanel();
+		RetailTab.setLayout(null);
+		tabbedPane.addTab("Retail Tab", null, RetailTab, null);
+		
+		lblRetailAgent1 = new JLabel("Agent 1");
+		lblRetailAgent1.setBounds(12, 6, 46, 14);
+		RetailTab.add(lblRetailAgent1);
+		
+		Retail1Prop = new JTextField();
+		Retail1Prop.setColumns(10);
+		Retail1Prop.setBounds(10, 21, 86, 20);
+		RetailTab.add(Retail1Prop);
+		
+		Retail1Accept = new JTextField();
+		Retail1Accept.setColumns(10);
+		Retail1Accept.setBounds(10, 40, 86, 20);
+		RetailTab.add(Retail1Accept);
+		
+		lblRetailAgent2 = new JLabel("Agent 2");
+		lblRetailAgent2.setBounds(108, 6, 46, 14);
+		RetailTab.add(lblRetailAgent2);
+		
+		Retail2Prop = new JTextField();
+		Retail2Prop.setColumns(10);
+		Retail2Prop.setBounds(106, 21, 86, 20);
+		RetailTab.add(Retail2Prop);
+		
+		Retail2Accept = new JTextField();
+		Retail2Accept.setColumns(10);
+		Retail2Accept.setBounds(106, 40, 86, 20);
+		RetailTab.add(Retail2Accept);
+		
+		lblRetailAgent3 = new JLabel("Agent 3");
+		lblRetailAgent3.setBounds(204, 6, 46, 14);
+		RetailTab.add(lblRetailAgent3);
+		
+		Retail3Prop = new JTextField();
+		Retail3Prop.setColumns(10);
+		Retail3Prop.setBounds(202, 21, 86, 20);
+		RetailTab.add(Retail3Prop);
+		
+		Retail3Accept = new JTextField();
+		Retail3Accept.setColumns(10);
+		Retail3Accept.setBounds(202, 40, 86, 20);
+		RetailTab.add(Retail3Accept);
+		
+		lblRetailAgent4 = new JLabel("Agent 4");
+		lblRetailAgent4.setBounds(300, 6, 46, 14);
+		RetailTab.add(lblRetailAgent4);
+		
+		Retail4Prop = new JTextField();
+		Retail4Prop.setColumns(10);
+		Retail4Prop.setBounds(298, 21, 86, 20);
+		RetailTab.add(Retail4Prop);
+		
+		Retail4Accept = new JTextField();
+		Retail4Accept.setColumns(10);
+		Retail4Accept.setBounds(298, 40, 86, 20);
+		RetailTab.add(Retail4Accept);
+		
+		lblRetailAgent5 = new JLabel("Agent 5");
+		lblRetailAgent5.setBounds(396, 6, 46, 14);
+		RetailTab.add(lblRetailAgent5);
+		
+		Retail5Prop = new JTextField();
+		Retail5Prop.setColumns(10);
+		Retail5Prop.setBounds(394, 21, 86, 20);
+		RetailTab.add(Retail5Prop);
+		
+		Retail5Accept = new JTextField();
+		Retail5Accept.setColumns(10);
+		Retail5Accept.setBounds(394, 40, 86, 20);
+		RetailTab.add(Retail5Accept);
+		
+		lblRetailAgent6 = new JLabel("Agent 6");
+		lblRetailAgent6.setBounds(492, 6, 46, 14);
+		RetailTab.add(lblRetailAgent6);
+		
+		Retail6Prop = new JTextField();
+		Retail6Prop.setColumns(10);
+		Retail6Prop.setBounds(490, 21, 86, 20);
+		RetailTab.add(Retail6Prop);
+		
+		Retail6Accept = new JTextField();
+		Retail6Accept.setColumns(10);
+		Retail6Accept.setBounds(490, 40, 86, 20);
+		RetailTab.add(Retail6Accept);
+		
+		lblRetailAgent7 = new JLabel("Agent 7");
+		lblRetailAgent7.setBounds(588, 6, 46, 14);
+		RetailTab.add(lblRetailAgent7);
+		
+		Retail7Prop = new JTextField();
+		Retail7Prop.setColumns(10);
+		Retail7Prop.setBounds(586, 21, 86, 20);
+		RetailTab.add(Retail7Prop);
+		
+		Retail7Accept = new JTextField();
+		Retail7Accept.setColumns(10);
+		Retail7Accept.setBounds(586, 40, 86, 20);
+		RetailTab.add(Retail7Accept);
 		
 		JPanel HomeTab = new JPanel();
 		tabbedPane.addTab("Home Agent", null, HomeTab, null);
