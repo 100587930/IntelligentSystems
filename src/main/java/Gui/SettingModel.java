@@ -18,16 +18,6 @@ public float getRetailerMax() {
 	return i;
 }
 
-public float getRetailerMin() {
-	float i;
-	try {
-		i = Integer.parseInt(view.RetailerMin().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
-
 public int getRetailAgents() {
 	int i;
 	try {

@@ -68,7 +68,7 @@ public class MainController {
 		for(int r = 0; r < model.getRetailAgents();){
 			retailerArguments[r][0] = tariffs[r];
 			retailerArguments[r][1] = model.getRetailerMax();
-			retailerArguments[r][2] = model.getRetailerMin();
+			retailerArguments[r][2] = retailersBasePrice;
 			retailerAgentNames.add(model.getRetailNames()[r]);
 			r++;
 		}

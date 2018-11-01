@@ -41,7 +41,7 @@ public class HomeAgent extends Agent {
 	private int RetailNumber = 0;
 	private float time = 0;
 	
-	public void setup() {	    
+	public void setup() {
 
 		this.maxPrice = getArguments();
 		addBehaviour(new HomeCyclicBehaviour(this));
@@ -281,7 +281,7 @@ public class HomeAgent extends Agent {
 		this.applianceAgents.put(msg.getSender(), appliance);
 		this.energyMissing += Float.parseFloat(msg.getContent());
 		this.requestsReceived++;
-		if(this.requestsReceived == Constants.APPLIANCE_AGENTS_COUNT) {
+		if(this.requestsReceived == AppNumber) {
 			if(this.energyMissing > 0) {
 				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");		
 			} else if (this.energyMissing == 0) {

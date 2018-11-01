@@ -37,19 +37,13 @@ public class View extends JFrame{
 	private JTextField Agent4New;
 	private JTextField Agent3Old;
 	private JTextField Agent3New;
-	private JTextField Agent6New;
-	private JTextField Agent6Old;
 	private JTextField Agent5Old;
 	private JTextField Agent5New;
-	private JTextField Agent7Old;
-	private JTextField Agent7New;
 	private JLabel lblAppAgent1;
 	private JLabel lblAppAgent2;
 	private JLabel lblAppAgent3;
 	private JLabel lblAppAgent4;
 	private JLabel lblAppAgent5;
-	private JLabel lblAppAgent6;
-	private JLabel lblAppAgent7;
 	private JPanel RetailTab;
 	private JLabel lblRetailAgent1;
 	private JTextField Retail1Prop;
@@ -98,6 +92,11 @@ public class View extends JFrame{
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 49, 811, 331);
 		frame.getContentPane().add(tabbedPane);
+		
+         JFreeChart Addingchart = ChartFactory.createXYLineChart("Power Usage Data",
+                 "Time", "Cost", ds, PlotOrientation.VERTICAL, true, true,
+                 false);
+
 		
 		JPanel ApplianceTab = new JPanel();
 		tabbedPane.addTab("Appliance Agents", null, ApplianceTab, null);
@@ -172,34 +171,6 @@ public class View extends JFrame{
 		Agent5Old.setColumns(10);
 		Agent5Old.setBounds(482, 45, 86, 20);
 		ApplianceTab.add(Agent5Old);
-		
-		lblAppAgent6 = new JLabel("Agent 6");
-		lblAppAgent6.setBounds(580, 11, 46, 14);
-		ApplianceTab.add(lblAppAgent6);
-		
-		Agent6New = new JTextField();
-		Agent6New.setColumns(10);
-		Agent6New.setBounds(578, 26, 86, 20);
-		ApplianceTab.add(Agent6New);
-		
-		Agent6Old = new JTextField();
-		Agent6Old.setColumns(10);
-		Agent6Old.setBounds(578, 45, 86, 20);
-		ApplianceTab.add(Agent6Old);
-		
-		lblAppAgent7 = new JLabel("Agent 7");
-		lblAppAgent7.setBounds(676, 11, 46, 14);
-		ApplianceTab.add(lblAppAgent7);
-		
-		Agent7New = new JTextField();
-		Agent7New.setColumns(10);
-		Agent7New.setBounds(674, 26, 86, 20);
-		ApplianceTab.add(Agent7New);
-		
-		Agent7Old = new JTextField();
-		Agent7Old.setColumns(10);
-		Agent7Old.setBounds(674, 45, 86, 20);
-		ApplianceTab.add(Agent7Old);
 		
 		ChartPanel cp = new ChartPanel(chart);
 		cp.setBounds(0, 76, 796, 216);
@@ -317,9 +288,6 @@ public class View extends JFrame{
 		
 		JPanel HomeTab = new JPanel();
 		tabbedPane.addTab("Home Agent", null, HomeTab, null);
-		
-		
-
 	}
 	
 	public JLabel[] setAppAgentNames() {
@@ -328,9 +296,7 @@ public class View extends JFrame{
 				lblAppAgent2,
 				lblAppAgent3,
 				lblAppAgent4,
-				lblAppAgent5,
-				lblAppAgent6,
-				lblAppAgent7
+				lblAppAgent5
 		};
 	    return names;
 	}
@@ -376,12 +342,7 @@ public class View extends JFrame{
 		public JTextField Agent3New() {
 		    return Agent3New;
 		}
-		public JTextField Agent6New() {
-		    return Agent6New;
-		}
-		public JTextField Agent6Old() {
-		    return Agent6Old;
-		}
+
 
 		public JTextField Agent5Old() {
 		    return Agent5Old;
@@ -391,13 +352,6 @@ public class View extends JFrame{
 		    return Agent5New;
 		}
 
-		public JTextField Agent7Old() {
-		    return Agent7Old;
-		}
-		
-		public JTextField Agent7New() {
-		    return Agent7New;
-		}
 
 		public JTextField Retail1Prop() {
 		    return Retail1Prop;

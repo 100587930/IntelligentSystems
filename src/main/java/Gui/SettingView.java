@@ -23,23 +23,16 @@ public class SettingView extends JFrame{
 	private JTextField txtPendingGraph;
 	private JButton UpdateButton;
 	private JTextField RetilerMax;
-	private JTextField RetailerMin;
 	private JTextField Apliances;
 	private JTextField Retailers;
 	private JTextField RetailName1;
 	private JTextField RetailName2;
 	private JTextField RetailName3;
-	private JTextField RetailName4;
-	private JTextField RetailName5;
 	private JTextField AppName5;
 	private JTextField AppName4;
 	private JTextField AppName3;
 	private JTextField AppName2;
 	private JTextField AppName1;
-	private JTextField AppName7;
-	private JTextField RetailName7;
-	private JTextField RetailName6;
-	private JTextField AppName6;
 	private JPanel panel;
 	private JLabel label_7;
 	
@@ -69,12 +62,6 @@ public class SettingView extends JFrame{
 		RetilerMax.setText("25");
 		RetilerMax.setColumns(10);
 		
-		JLabel lblMin = new JLabel("Retailer Base Price");
-		
-		RetailerMin = new JTextField();
-		RetailerMin.setText("18");
-		RetailerMin.setColumns(10);
-		
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
 		
 		Apliances = new JTextField();
@@ -93,24 +80,19 @@ public class SettingView extends JFrame{
 					.addGap(22)
 					.addComponent(UpdateButton)
 					.addGap(5)
-					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_SettingTab.createSequentialGroup()
 							.addComponent(lblNumberOfApliances)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(Alignment.TRAILING, gl_SettingTab.createSequentialGroup()
+						.addGroup(gl_SettingTab.createSequentialGroup()
 							.addComponent(lblMax)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_SettingTab.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblNumberOfRetail))
-						.addComponent(lblMin, Alignment.TRAILING))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
-						.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addComponent(lblNumberOfRetail)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(283))
 		);
 		gl_SettingTab.setVerticalGroup(
@@ -121,23 +103,17 @@ public class SettingView extends JFrame{
 							.addGap(5)
 							.addComponent(UpdateButton))
 						.addGroup(gl_SettingTab.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_SettingTab.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_SettingTab.createSequentialGroup()
-									.addGap(9)
-									.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
-										.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblMax)))
-								.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
-									.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(lblMin)))
+							.addGap(11)
+							.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+								.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblMax))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNumberOfApliances)
 								.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNumberOfRetail)
 								.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(25, Short.MAX_VALUE))
+					.addContainerGap(14, Short.MAX_VALUE))
 		);
 		SettingTab.setLayout(gl_SettingTab);
 		
@@ -173,19 +149,9 @@ public class SettingView extends JFrame{
 		AppName3.setText("5");
 		AppName3.setColumns(10);
 		
-		RetailName4 = new JTextField();
-		RetailName4.setText("8");
-		RetailName4.setColumns(10);
-		
 		JLabel label_2 = new JLabel("3");
 		
 		JLabel label_4 = new JLabel("5");
-		
-		RetailName5 = new JTextField();
-		RetailName5.setText("10");
-		RetailName5.setColumns(10);
-		
-		JLabel label_6 = new JLabel("6");
 		
 		AppName5 = new JTextField();
 		AppName5.setText("9");
@@ -197,8 +163,6 @@ public class SettingView extends JFrame{
 		AppName4.setText("7");
 		AppName4.setColumns(10);
 		
-		JLabel label_5 = new JLabel("7");
-		
 		AppName2 = new JTextField();
 		AppName2.setText("3");
 		AppName2.setColumns(10);
@@ -206,22 +170,6 @@ public class SettingView extends JFrame{
 		AppName1 = new JTextField();
 		AppName1.setText("1");
 		AppName1.setColumns(10);
-		
-		AppName7 = new JTextField();
-		AppName7.setText("13");
-		AppName7.setColumns(10);
-		
-		RetailName7 = new JTextField();
-		RetailName7.setText("14");
-		RetailName7.setColumns(10);
-		
-		RetailName6 = new JTextField();
-		RetailName6.setText("12");
-		RetailName6.setColumns(10);
-		
-		AppName6 = new JTextField();
-		AppName6.setText("11");
-		AppName6.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -246,21 +194,11 @@ public class SettingView extends JFrame{
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 					.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGap(196))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 					.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)))
+					.addGap(196))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -297,23 +235,11 @@ public class SettingView extends JFrame{
 						.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(30)
-							.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))))
+						.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+					.addGap(60))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -337,10 +263,6 @@ public class SettingView extends JFrame{
 		public JTextField RetilerMax() {
 		    return RetilerMax;
 		}
-		
-		public JTextField RetailerMin() {
-		    return RetailerMin;
-		}
 
 		
 		public String[] GetAppNames() {
@@ -349,9 +271,7 @@ public class SettingView extends JFrame{
 					AppName2.getText(),
 					AppName3.getText(),
 					AppName4.getText(),
-					AppName5.getText(),
-					AppName6.getText(),
-					AppName7.getText()
+					AppName5.getText()
 			};
 			
 			return array;
@@ -361,11 +281,8 @@ public class SettingView extends JFrame{
 			String[] array = {
 					RetailName1.getText(),
 					RetailName2.getText(),
-					RetailName3.getText(),
-					RetailName4.getText(),
-					RetailName5.getText(),
-					RetailName6.getText(),
-					RetailName7.getText()
+					RetailName3.getText()
+
 			};
 			return array;
 		}
