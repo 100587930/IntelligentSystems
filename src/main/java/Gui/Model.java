@@ -24,6 +24,15 @@ public int[] getCurrentNew() {
 
 public void AssignNewValues(Float values, int agents) {
 		switch(agents) {
+		case 0: view.Agent1Old().setText(view.Agent1New().getText()); break;
+		case 1: view.Agent2Old().setText(view.Agent2New().getText()); break;
+		case 2: view.Agent3Old().setText(view.Agent3New().getText()); break;
+		case 3: view.Agent4Old().setText(view.Agent4New().getText()); break;
+		case 4: view.Agent5Old().setText(view.Agent5New().getText()); break;
+		case 5: view.Agent6Old().setText(view.Agent6New().getText()); break;
+		case 6: view.Agent7Old().setText(view.Agent7New().getText()); break;
+		}
+		switch(agents) {
 		case 0: view.Agent1New().setText(Float.toString(values));break;
 		case 1: view.Agent2New().setText(Float.toString(values));break;
 		case 2: view.Agent3New().setText(Float.toString(values));break;
