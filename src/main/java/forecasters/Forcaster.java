@@ -67,7 +67,7 @@ public class Forcaster {
 		
 		prediction = (float) (a + b);
 		j = 0;
-		
+		i++;
 		return prediction;
 	}
 
