@@ -5,7 +5,7 @@ intelligent systems group lab 1
 https://i.imgur.com/DgMIcWq.png
 
 Src▼
-    ►Agents▼
+    ►Agents▼\n
                   ApplianceAgent.java
                   HomeAgent.java
                   RetailerAgent.java
