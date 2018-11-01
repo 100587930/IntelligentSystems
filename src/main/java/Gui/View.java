@@ -54,6 +54,7 @@ public class View extends JFrame{
 	private JLabel lblRetailAgent3;
 	private JTextField Retail3Prop;
 	private JTextField Retail3Accept;
+	private JPanel PowerSupply;
 	
 	private XYSeries[] Lineindevidual = new XYSeries[7];
 	private XYSeries[] LineUsage = new XYSeries[7];
@@ -62,6 +63,7 @@ public class View extends JFrame{
 	private XYSeriesCollection Usagedataset;
 	private XYSeriesCollection Cumlativedataset;
 	private float[] UsageArray = {0,0,0,0,0,0,0};
+	private JLabel PowerMissing;
 	
 	public View() {
 		
@@ -71,6 +73,17 @@ public class View extends JFrame{
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().setLayout(null);  
 		frame.setVisible(true);  
+		
+		PowerSupply = new JPanel();
+		PowerSupply.setBounds(654, 24, 84, 27);
+		frame.getContentPane().add(PowerSupply);
+		
+		PowerMissing = new JLabel("");
+		PowerSupply.add(PowerMissing);
+		
+		JLabel lblPowerSupplied = new JLabel("Power Supplied:");
+		lblPowerSupplied.setBounds(539, 24, 105, 14);
+		frame.getContentPane().add(lblPowerSupplied);
 
 		JLabel lblHomeAgentPower = new JLabel("Home Agent Power usage tracker");
 		lblHomeAgentPower.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -81,10 +94,22 @@ public class View extends JFrame{
          JFreeChart chart = ChartFactory.createXYLineChart("Power Usage Data",
                  "Time", "Kw", ds, PlotOrientation.VERTICAL, true, true,
                  false);
-
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 49, 811, 331);
-		frame.getContentPane().add(tabbedPane);
+		
+		XYDataset dsUsage = createUsageDataset();
+		
+        JFreeChart chartUsage = ChartFactory.createXYLineChart("Retailer Cost",
+                "Time", "Cost", dsUsage, PlotOrientation.VERTICAL, true, true,
+                false);
+		
+		XYDataset dsCumlitive = createCumlativedataset();
+		
+        JFreeChart ChartCumlitive = ChartFactory.createXYLineChart("Cumlitive Power Usage",
+                "Time", "Kw", dsCumlitive, PlotOrientation.VERTICAL, true, true,
+                false);
+		
+				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+				tabbedPane.setBounds(10, 49, 811, 331);
+				frame.getContentPane().add(tabbedPane);
 				
 		JPanel ApplianceTab = new JPanel();
 		tabbedPane.addTab("Appliance Agents", null, ApplianceTab, null);
@@ -172,12 +197,6 @@ public class View extends JFrame{
 		lblPreviousValues.setBounds(10, 48, 78, 14);
 		ApplianceTab.add(lblPreviousValues);
 		
-		XYDataset dsUsage = createUsageDataset();
-		
-        JFreeChart chartUsage = ChartFactory.createXYLineChart("Retailer Cost",
-                "Time", "Cost", dsUsage, PlotOrientation.VERTICAL, true, true,
-                false);
-		
 		ChartPanel chartPanel = new ChartPanel(chartUsage);
 		chartPanel.setBounds(408, 76, 398, 216);
 		ApplianceTab.add(chartPanel);
@@ -186,12 +205,6 @@ public class View extends JFrame{
 		RetailTab = new JPanel();
 		RetailTab.setLayout(null);
 		tabbedPane.addTab("Retail Tab", null, RetailTab, null);
-		
-		XYDataset dsCumlitive = createCumlativedataset();
-		
-        JFreeChart ChartCumlitive = ChartFactory.createXYLineChart("Cumlitive Power Usage",
-                "Time", "Kw", dsCumlitive, PlotOrientation.VERTICAL, true, true,
-                false);
 		
 		ChartPanel CumlitivechartPanel = new ChartPanel(ChartCumlitive);
 		CumlitivechartPanel.setBounds(12, 76, 794, 216);
@@ -380,4 +393,12 @@ public class View extends JFrame{
 	    		case 9: LineUsage[2].add(x,y);break;  		
 	    	}
 		    }
+		    
+	public JPanel getPowerSupply() {
+		return PowerSupply;
+	}
+	
+	public JLabel getJPowerMissing() {
+		return PowerMissing;
+	}
 }

@@ -1,5 +1,6 @@
 package agents;
 
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import Gui.Model;
@@ -299,9 +300,11 @@ public class HomeAgent extends Agent {
 		this.requestsReceived++;
 		if(this.requestsReceived == AppNumber) {
 			if(this.energyMissing > 0) {
-				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");		
+				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");
+				model.PowerSupplyColour(Color.red, this.energyMissing);
 			} else if (this.energyMissing == 0) {
 				System.out.println("All appliances received at least the right amount of energy they needed");	
+				model.PowerSupplyColour(Color.green, this.energyMissing);
 			}
 			System.out.println("System exiting...");
 			//System.exit(0);

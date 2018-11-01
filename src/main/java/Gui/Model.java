@@ -1,5 +1,9 @@
 package Gui;
 
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
 public class Model {
 
 private View view;
@@ -96,4 +100,9 @@ public void addData(float x, float y, int i) {
 public void setupLines(String Name, int i) {
 		view.setupLinesindevidual(Name, i);
 	}	
+
+public void PowerSupplyColour(Color colour, Float Power) {
+	view.getPowerSupply().setBackground(colour);
+	view.getJPowerMissing().setText(Power.toString()+" Missing");
+}
 }
