@@ -28,6 +28,7 @@ public class HomeAgent extends Agent {
 	private float energyMissing = 0;
 	private float energyBought = 0;
 	private float cheapestPrice = 9999999;
+	private float previousCheapestPrice = 9999999;
 	private int round = 0;
 	private int secondRoundProposals = 0;
 	private Object[] maxPrice = null;
@@ -223,13 +224,14 @@ public class HomeAgent extends Agent {
 
 	private void setHigherCheapestPrice() {
 		float newCheapestPrice = 0;
+		this.previousCheapestPrice = this.cheapestPrice;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			float agentPrice = entry.getValue().getPrice();
 			if (agentPrice != this.cheapestPrice && newCheapestPrice == 0) {
-				newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : newCheapestPrice;
-			} else if (agentPrice != this.cheapestPrice && newCheapestPrice > 0) {
-				newCheapestPrice = agentPrice < newCheapestPrice ? agentPrice : newCheapestPrice;
-				//newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : newCheapestPrice;
+				newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : 0;
+			} 
+			else if (agentPrice != this.cheapestPrice && newCheapestPrice > 0) {
+				newCheapestPrice = agentPrice > this.cheapestPrice && agentPrice < newCheapestPrice ? agentPrice : newCheapestPrice;
 			}
 		}
 		this.cheapestPrice = newCheapestPrice;
@@ -245,14 +247,11 @@ public class HomeAgent extends Agent {
 	}
 
 	private void proposeOffer() {
-		float totalCap = getTotalCap();
-		float difference = totalCap < this.usageExpected ? this.usageExpected - totalCap : 0;
 		float splitDemand = this.usageExpected / this.retailerAgents.size();
 		ACLMessage proposeMessage = null;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			float agentCap = entry.getValue().getCap();
 			float energyWanted = splitDemand > agentCap ? agentCap : splitDemand;
-			totalCap -= energyWanted;
 			proposeMessage = new ACLMessage(ACLMessage.PROPOSE);
 			proposeMessage.setContent(Float.toString(energyWanted));
 			proposeMessage.addReceiver(entry.getKey());
