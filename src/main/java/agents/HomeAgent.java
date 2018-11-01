@@ -38,7 +38,7 @@ public class HomeAgent extends Agent {
 	private String[] RetailNames = new String[7];
 	private int AppNumber = 0;
 	private int RetailNumber = 0;
-
+	private float time = 0;
 	
 	public void setup() {	    
 
@@ -92,6 +92,8 @@ public class HomeAgent extends Agent {
 		for(int i = 0; i < AppNumber; i++) {
 			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
 				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+				model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected());
+				time = time + 15;
 			}
 		}
 		

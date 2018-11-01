@@ -74,6 +74,7 @@ public class View extends JFrame{
 	private JLabel lblRetailAgent7;
 	private JTextField Retail7Prop;
 	private JTextField Retail7Accept;
+	private XYSeries firefox;
 	
 	public View() {
 		
@@ -453,19 +454,37 @@ public class View extends JFrame{
 		            }
 		        };
 		        cp.setMouseWheelEnabled(true);
-		        add(cp);
+		        getContentPane().add(cp);
 		        setDefaultCloseOperation(EXIT_ON_CLOSE);
 		        pack();
 		    }
-		
-		    private static XYDataset createDataset() {
+		    public XYDataset createDataset() {
 
-		        DefaultXYDataset ds = new DefaultXYDataset();
+		    	firefox = new XYSeries("Firefox");
+		    	firefox.add(1.0, 1.0);
+		    	firefox.add(2.0, 3.0);
+		    	firefox.add(3.0, 4.0);
 
-		        double[][] data = { {15, 30, 45, 60, 75, 90, 105, 120}, {20, 18, 15, 20, 18, 15, 20, 18} };
+		    	XYSeries chrome = new XYSeries("Chrome");
+		    	chrome.add(1.0, 4.0);
+		    	chrome.add(2.0, 6.0);
+		    	chrome.add(3.0, 5.0);
 
-		        ds.addSeries("series1", data);
+		    	XYSeries iexplorer = new XYSeries("InternetExplorer");
+		    	iexplorer.add(3.0, 4.0);
+		    	iexplorer.add(4.0, 5.0);
+		    	iexplorer.add(5.0, 4.0);
 
-		        return ds;
+		    	final XYSeriesCollection dataset = new XYSeriesCollection();
+		    	dataset.addSeries(firefox);
+		    	dataset.addSeries(chrome);
+		    	dataset.addSeries(iexplorer);
+
+		    	return dataset;
+
 		    }
+		    public void addData(float x, float y) {
+		    	firefox.add(x, y);
+		    }
+
 }

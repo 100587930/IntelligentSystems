@@ -84,7 +84,7 @@ public class SettingView extends JFrame{
 		JLabel lblNumberOfRetail = new JLabel("Number of Retail Agents");
 		
 		Retailers = new JTextField();
-		Retailers.setText("5");
+		Retailers.setText("3");
 		Retailers.setColumns(10);
 		GroupLayout gl_SettingTab = new GroupLayout(SettingTab);
 		gl_SettingTab.setHorizontalGroup(
