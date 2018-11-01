@@ -61,14 +61,7 @@ public class HomeAgent extends Agent {
 		previousCheapestPrice = 9999999;
 		round = 0;
 		secondRoundProposals = 0;
-		//maxPrice = null;
 		isInPriceRange = false;
-
-		//AppNames = new String[7];
-		//RetailNames = new String[7];
-		AppNumber = 0;
-		RetailNumber = 0;
-		time = 0;
 	}
 
 	public void handleSubscribe(ACLMessage msg) {

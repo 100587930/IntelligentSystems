@@ -54,21 +54,14 @@ public class View extends JFrame{
 	private JLabel lblRetailAgent3;
 	private JTextField Retail3Prop;
 	private JTextField Retail3Accept;
-	private JLabel lblRetailAgent4;
-	private JTextField Retail4Prop;
-	private JTextField Retail4Accept;
-	private JLabel lblRetailAgent5;
-	private JTextField Retail5Prop;
-	private JTextField Retail5Accept;
-	private JLabel lblRetailAgent6;
-	private JTextField Retail6Prop;
-	private JTextField Retail6Accept;
-	private JLabel lblRetailAgent7;
-	private JTextField Retail7Prop;
-	private JTextField Retail7Accept;
 	
-	private XYSeries[] Lineindevidual = new XYSeries[14];
+	private XYSeries[] Lineindevidual = new XYSeries[7];
+	private XYSeries[] LineUsage = new XYSeries[7];
+	private XYSeries[] LineCumlitive = new XYSeries[7];
 	private XYSeriesCollection dataset;
+	private XYSeriesCollection Usagedataset;
+	private XYSeriesCollection Cumlativedataset;
+	private float[] UsageArray = {0,0,0,0,0,0,0};
 	
 	public View() {
 		
@@ -86,18 +79,13 @@ public class View extends JFrame{
 		
 		 XYDataset ds = createDataset();
          JFreeChart chart = ChartFactory.createXYLineChart("Power Usage Data",
-                 "Time", "Cost", ds, PlotOrientation.VERTICAL, true, true,
+                 "Time", "Kw", ds, PlotOrientation.VERTICAL, true, true,
                  false);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 49, 811, 331);
 		frame.getContentPane().add(tabbedPane);
-		
-         JFreeChart Addingchart = ChartFactory.createXYLineChart("Power Usage Data",
-                 "Time", "Cost", ds, PlotOrientation.VERTICAL, true, true,
-                 false);
-
-		
+				
 		JPanel ApplianceTab = new JPanel();
 		tabbedPane.addTab("Appliance Agents", null, ApplianceTab, null);
 		ApplianceTab.setLayout(null);
@@ -173,7 +161,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent5Old);
 		
 		ChartPanel cp = new ChartPanel(chart);
-		cp.setBounds(0, 76, 796, 216);
+		cp.setBounds(0, 76, 398, 216);
 		ApplianceTab.add(cp);
 		
 		JLabel lblCurrentValues = new JLabel("Current Values");
@@ -184,9 +172,30 @@ public class View extends JFrame{
 		lblPreviousValues.setBounds(10, 48, 78, 14);
 		ApplianceTab.add(lblPreviousValues);
 		
+		XYDataset dsUsage = createUsageDataset();
+		
+        JFreeChart chartUsage = ChartFactory.createXYLineChart("Retailer Cost",
+                "Time", "Cost", dsUsage, PlotOrientation.VERTICAL, true, true,
+                false);
+		
+		ChartPanel chartPanel = new ChartPanel(chartUsage);
+		chartPanel.setBounds(408, 76, 398, 216);
+		ApplianceTab.add(chartPanel);
+		
+		
 		RetailTab = new JPanel();
 		RetailTab.setLayout(null);
 		tabbedPane.addTab("Retail Tab", null, RetailTab, null);
+		
+		XYDataset dsCumlitive = createCumlativedataset();
+		
+        JFreeChart ChartCumlitive = ChartFactory.createXYLineChart("Cumlitive Power Usage",
+                "Time", "Kw", dsCumlitive, PlotOrientation.VERTICAL, true, true,
+                false);
+		
+		ChartPanel CumlitivechartPanel = new ChartPanel(ChartCumlitive);
+		CumlitivechartPanel.setBounds(12, 76, 794, 216);
+		RetailTab.add(CumlitivechartPanel);	
 		
 		lblRetailAgent1 = new JLabel("Agent 1");
 		lblRetailAgent1.setBounds(12, 6, 46, 14);
@@ -229,65 +238,6 @@ public class View extends JFrame{
 		Retail3Accept.setColumns(10);
 		Retail3Accept.setBounds(202, 40, 86, 20);
 		RetailTab.add(Retail3Accept);
-		
-		lblRetailAgent4 = new JLabel("Agent 4");
-		lblRetailAgent4.setBounds(300, 6, 46, 14);
-		RetailTab.add(lblRetailAgent4);
-		
-		Retail4Prop = new JTextField();
-		Retail4Prop.setColumns(10);
-		Retail4Prop.setBounds(298, 21, 86, 20);
-		RetailTab.add(Retail4Prop);
-		
-		Retail4Accept = new JTextField();
-		Retail4Accept.setColumns(10);
-		Retail4Accept.setBounds(298, 40, 86, 20);
-		RetailTab.add(Retail4Accept);
-		
-		lblRetailAgent5 = new JLabel("Agent 5");
-		lblRetailAgent5.setBounds(396, 6, 46, 14);
-		RetailTab.add(lblRetailAgent5);
-		
-		Retail5Prop = new JTextField();
-		Retail5Prop.setColumns(10);
-		Retail5Prop.setBounds(394, 21, 86, 20);
-		RetailTab.add(Retail5Prop);
-		
-		Retail5Accept = new JTextField();
-		Retail5Accept.setColumns(10);
-		Retail5Accept.setBounds(394, 40, 86, 20);
-		RetailTab.add(Retail5Accept);
-		
-		lblRetailAgent6 = new JLabel("Agent 6");
-		lblRetailAgent6.setBounds(492, 6, 46, 14);
-		RetailTab.add(lblRetailAgent6);
-		
-		Retail6Prop = new JTextField();
-		Retail6Prop.setColumns(10);
-		Retail6Prop.setBounds(490, 21, 86, 20);
-		RetailTab.add(Retail6Prop);
-		
-		Retail6Accept = new JTextField();
-		Retail6Accept.setColumns(10);
-		Retail6Accept.setBounds(490, 40, 86, 20);
-		RetailTab.add(Retail6Accept);
-		
-		lblRetailAgent7 = new JLabel("Agent 7");
-		lblRetailAgent7.setBounds(588, 6, 46, 14);
-		RetailTab.add(lblRetailAgent7);
-		
-		Retail7Prop = new JTextField();
-		Retail7Prop.setColumns(10);
-		Retail7Prop.setBounds(586, 21, 86, 20);
-		RetailTab.add(Retail7Prop);
-		
-		Retail7Accept = new JTextField();
-		Retail7Accept.setColumns(10);
-		Retail7Accept.setBounds(586, 40, 86, 20);
-		RetailTab.add(Retail7Accept);
-		
-		JPanel HomeTab = new JPanel();
-		tabbedPane.addTab("Home Agent", null, HomeTab, null);
 	}
 	
 	public JLabel[] setAppAgentNames() {
@@ -305,11 +255,7 @@ public class View extends JFrame{
 		JLabel[] names = {
 				lblRetailAgent1,
 				lblRetailAgent2,
-				lblRetailAgent3,
-				lblRetailAgent4,
-				lblRetailAgent5,
-				lblRetailAgent6,
-				lblRetailAgent7
+				lblRetailAgent3
 		};
 	    return names;
 	}	
@@ -362,18 +308,7 @@ public class View extends JFrame{
 		public JTextField Retail3Prop() {
 		    return Retail3Prop;
 		}
-		public JTextField Retail4Prop() {
-		    return Retail4Prop;
-		}
-		public JTextField Retail5Prop() {
-		    return Retail5Prop;
-		}
-		public JTextField Retail6Prop() {
-		    return Retail6Prop;
-		}
-		public JTextField Retail7Prop() {
-		    return Retail7Prop;
-		}
+
 		
 		public JTextField Retail1Accept() {
 		    return Retail1Accept;
@@ -384,46 +319,54 @@ public class View extends JFrame{
 		public JTextField Retail3Accept() {
 		    return Retail3Accept;
 		}
-		public JTextField Retail4Accept() {
-		    return Retail4Accept;
-		}
-		public JTextField Retail5Accept() {
-		    return Retail5Accept;
-		}
-		public JTextField Retail6Accept() {
-		    return Retail6Accept;
-		}
-		public JTextField Retail7Accept() {
-		    return Retail7Accept;
-		}
+
 
 
 		public XYDataset createDataset() {
 			dataset = new XYSeriesCollection();
 		    return dataset;
 		}
+		
+		public XYDataset createUsageDataset() {
+			Usagedataset = new XYSeriesCollection();
+		    return Usagedataset;
+		}
+		
+		public XYDataset createCumlativedataset() {
+			Cumlativedataset = new XYSeriesCollection();
+			return Cumlativedataset;
+		}
 		    
 		    public void setupLinesindevidual(String Name, int i) {
 		    	System.out.println("adding line to graph");
 		    	switch (i) {
-		    		case 0: Lineindevidual[0] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[0]);break;
-		    		case 1: Lineindevidual[1] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[1]);break;
-		    		case 2: Lineindevidual[2] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[2]);break;
-		    		case 3: Lineindevidual[3] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[3]);break;
-		    		case 4: Lineindevidual[4] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[4]);break;
-		    		case 5: Lineindevidual[5] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[5]);break;
-		    		case 6: Lineindevidual[6] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[6]);break;
-		    		case 7: Lineindevidual[7] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[7]);break;
-		    		case 8: Lineindevidual[8] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[8]);break;
-		    		case 9: Lineindevidual[9] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[9]);break;
-		    		case 10: Lineindevidual[10] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[10]);break;
-		    		case 11: Lineindevidual[11] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[11]);break;
-		    		case 12: Lineindevidual[12] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[12]);break;
-		    		case 13: Lineindevidual[13] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[13]);break;
+		    		case 0: Lineindevidual[0] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[0]); break;
+		    		case 1: Lineindevidual[1] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[1]); break;
+		    		case 2: Lineindevidual[2] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[2]); break;
+		    		case 3: Lineindevidual[3] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[3]); break;
+		    		case 4: Lineindevidual[4] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[4]); break;
+		    		case 5: Lineindevidual[5] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[5]); break;
+		    		case 6: Lineindevidual[6] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[6]); break;
+		    		case 7: LineUsage[0] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[0]);break;
+		    		case 8: LineUsage[1] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[1]);break;
+		    		case 9: LineUsage[2] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[2]);break;
 		    	}	
+		    	switch (i) {
+	    		case 0: LineCumlitive[0] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[0]); break;
+	    		case 1: LineCumlitive[1] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[1]); break;
+	    		case 2: LineCumlitive[2] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[2]); break;
+	    		case 3: LineCumlitive[3] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[3]); break;
+	    		case 4: LineCumlitive[4] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[4]); break;
+	    		case 5: LineCumlitive[5] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[5]); break;
+	    		case 6: LineCumlitive[6] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[6]); break;
+		    	}
 		    }
 		    
 		    public void addDataIndevidual(float x, float y, int i) {
+		    	if(i <= 5) {
+		    	UsageArray[i] = UsageArray[i] + y;
+		    	LineCumlitive[i].add(x, UsageArray[i]);
+		    	}
 		    	switch (i) {
 	    		case 0: Lineindevidual[0].add(x,y);break;
 	    		case 1: Lineindevidual[1].add(x,y);break;
@@ -432,13 +375,9 @@ public class View extends JFrame{
 	    		case 4: Lineindevidual[4].add(x,y);break;
 	    		case 5: Lineindevidual[5].add(x,y);break;
 	    		case 6: Lineindevidual[6].add(x,y);break;
-	    		case 7: Lineindevidual[7].add(x,y);break;
-	    		case 8: Lineindevidual[8].add(x,y);break;
-	    		case 9: Lineindevidual[9].add(x,y);break;
-	    		case 10: Lineindevidual[10].add(x,y);break;
-	    		case 11: Lineindevidual[11].add(x,y);break;
-	    		case 12: Lineindevidual[12].add(x,y);break;
-	    		case 13: Lineindevidual[13].add(x,y);break;	    		
+	    		case 7: LineUsage[0].add(x,y);break;
+	    		case 8: LineUsage[1].add(x,y);break;
+	    		case 9: LineUsage[2].add(x,y);break;  		
 	    	}
 		    }
 }
