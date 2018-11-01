@@ -9,9 +9,21 @@ import javax.swing.JScrollBar;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.BoxLayout;
 
 public class View extends JFrame{
@@ -75,13 +87,17 @@ public class View extends JFrame{
 		JLabel lblHomeAgentPower = new JLabel("Home Agent Power usage tracker");
 		lblHomeAgentPower.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblHomeAgentPower.setBounds(10, 11, 216, 27);
-		frame.getContentPane().add(lblHomeAgentPower);
+		frame.getContentPane().add(lblHomeAgentPower);	
 		
-		
-		lblNewLabel = new JLabel("PlaceHolder");
-		lblNewLabel.setBounds(102, 49, 719, 216);
-		frame.getContentPane().add(lblNewLabel);
-		
+		 XYDataset ds = createDataset();
+         JFreeChart chart = ChartFactory.createXYLineChart("Power Usage Data",
+                 "Time", "Cost", ds, PlotOrientation.VERTICAL, true, true,
+                 false);
+         
+         ChartPanel cp = new ChartPanel(chart);
+         cp.setBounds(102, 49, 719, 216);
+         frame.getContentPane().add(cp);
+
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(102, 276, 719, 104);
 		frame.getContentPane().add(tabbedPane);
@@ -369,8 +385,87 @@ public class View extends JFrame{
 		public JTextField Agent7Old() {
 		    return Agent7Old;
 		}
-
+		
 		public JTextField Agent7New() {
 		    return Agent7New;
 		}
+
+		public JTextField Retail1Prop() {
+		    return Retail1Prop;
+		}
+		public JTextField Retail2Prop() {
+		    return Retail2Prop;
+		}
+		public JTextField Retail3Prop() {
+		    return Retail3Prop;
+		}
+		public JTextField Retail4Prop() {
+		    return Retail4Prop;
+		}
+		public JTextField Retail5Prop() {
+		    return Retail5Prop;
+		}
+		public JTextField Retail6Prop() {
+		    return Retail6Prop;
+		}
+		public JTextField Retail7Prop() {
+		    return Retail7Prop;
+		}
+		
+		public JTextField Retail1Accept() {
+		    return Retail1Accept;
+		}
+		public JTextField Retail2Accept() {
+		    return Retail2Accept;
+		}
+		public JTextField Retail3Accept() {
+		    return Retail3Accept;
+		}
+		public JTextField Retail4Accept() {
+		    return Retail4Accept;
+		}
+		public JTextField Retail5Accept() {
+		    return Retail5Accept;
+		}
+		public JTextField Retail6Accept() {
+		    return Retail6Accept;
+		}
+		public JTextField Retail7Accept() {
+		    return Retail7Accept;
+		}
+
+		    public void ChartTest() {
+		        XYSeries Goals = new XYSeries("Goals Scored");
+		        Goals.add(1, 1.0);
+		        Goals.add(2, 3.0);
+		        Goals.add(3, 2.0);
+		        Goals.add(4, 0.0);
+		        Goals.add(5, 3.0);
+		        XYDataset xyDataset = new XYSeriesCollection(Goals);
+		        JFreeChart chart = ChartFactory.createXYLineChart(
+		            "Goals Scored Over Time", "Fixture Number", "Goals",
+		            xyDataset, PlotOrientation.VERTICAL, true, true, false);
+		        ChartPanel cp = new ChartPanel(chart) {
+
+		            @Override
+		            public Dimension getPreferredSize() {
+		                return new Dimension(320, 240);
+		            }
+		        };
+		        cp.setMouseWheelEnabled(true);
+		        add(cp);
+		        setDefaultCloseOperation(EXIT_ON_CLOSE);
+		        pack();
+		    }
+		
+		    private static XYDataset createDataset() {
+
+		        DefaultXYDataset ds = new DefaultXYDataset();
+
+		        double[][] data = { {15, 30, 45, 60, 75, 90, 105, 120}, {20, 18, 15, 20, 18, 15, 20, 18} };
+
+		        ds.addSeries("series1", data);
+
+		        return ds;
+		    }
 }

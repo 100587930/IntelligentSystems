@@ -1,5 +1,9 @@
 package Gui;
 
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 public class Model {
 
 private View view;
@@ -22,21 +26,26 @@ public int[] getCurrentNew() {
 	return intArray;
 }
 
-public void AssignNewValues(int[] values, int agents) {
-	int i = 0;
-	while(i < agents) {
-		switch(i) {
-		case 0: view.Agent1New().setText(Integer.toString(values[i]));break;
-		case 1: view.Agent2New().setText(Integer.toString(values[i]));break;
-		case 2: view.Agent3New().setText(Integer.toString(values[i]));break;
-		case 3: view.Agent4New().setText(Integer.toString(values[i]));break;
-		case 4: view.Agent5New().setText(Integer.toString(values[i]));break;
-		case 5: view.Agent6New().setText(Integer.toString(values[i]));break;
-		case 6: view.Agent7New().setText(Integer.toString(values[i]));break;
+public void AssignNewValues(Float values, int agents) {
+		switch(agents) {
+		case 0: view.Agent1Old().setText(view.Agent1New().getText()); break;
+		case 1: view.Agent2Old().setText(view.Agent2New().getText()); break;
+		case 2: view.Agent3Old().setText(view.Agent3New().getText()); break;
+		case 3: view.Agent4Old().setText(view.Agent4New().getText()); break;
+		case 4: view.Agent5Old().setText(view.Agent5New().getText()); break;
+		case 5: view.Agent6Old().setText(view.Agent6New().getText()); break;
+		case 6: view.Agent7Old().setText(view.Agent7New().getText()); break;
 		}
-		i++;
+		switch(agents) {
+		case 0: view.Agent1New().setText(Float.toString(values));break;
+		case 1: view.Agent2New().setText(Float.toString(values));break;
+		case 2: view.Agent3New().setText(Float.toString(values));break;
+		case 3: view.Agent4New().setText(Float.toString(values));break;
+		case 4: view.Agent5New().setText(Float.toString(values));break;
+		case 5: view.Agent6New().setText(Float.toString(values));break;
+		case 6: view.Agent7New().setText(Float.toString(values));break;
+		}
 	}
-}
 
 public void AssignOldValues(int[] values, int agents) {
 	int i = 0;
@@ -65,6 +74,71 @@ public void AssignRetailAgentsNames(String[] names) {
 		view.setRetailAgentNames()[i].setText(names[i]);
 	}
 }
+
+
+public void AssignAccept(String values, int i) {
+		switch(i) {
+		case 0: view.Retail1Accept().setText(values);break;
+		case 1: view.Retail2Accept().setText(values);break;
+		case 2: view.Retail3Accept().setText(values);break;
+		case 3: view.Retail4Accept().setText(values);break;
+		case 4: view.Retail5Accept().setText(values);break;
+		case 5: view.Retail6Accept().setText(values);break;
+		case 6: view.Retail7Accept().setText(values);break;
+		default:view.Retail1Accept().setText(values);
+				view.Retail2Accept().setText(values);
+				view.Retail3Accept().setText(values);
+				view.Retail4Accept().setText(values);
+				view.Retail5Accept().setText(values);
+				view.Retail6Accept().setText(values);
+				view.Retail7Accept().setText(values);
+				break;
+		}
+	}
+
+public void AssignProposed(float values, int agents) {
+	int i = 0;
+	while(i < agents) {
+		switch(i) {
+		case 0: view.Retail1Prop().setText(Float.toString(values));break;
+		case 1: view.Retail2Prop().setText(Float.toString(values));break;
+		case 2: view.Retail3Prop().setText(Float.toString(values));break;
+		case 3: view.Retail4Prop().setText(Float.toString(values));break;
+		case 4: view.Retail5Prop().setText(Float.toString(values));break;
+		case 5: view.Retail6Prop().setText(Float.toString(values));break;
+		case 6: view.Retail7Prop().setText(Float.toString(values));break;
+		}
+		i++;
+	}
+}
+
+
+public static XYDataset createDataset() {
+
+	final XYSeries firefox = new XYSeries("Firefox");
+	firefox.add(1.0, 1.0);
+	firefox.add(2.0, 3.0);
+	firefox.add(3.0, 4.0);
+
+	final XYSeries chrome = new XYSeries("Chrome");
+	chrome.add(1.0, 4.0);
+	chrome.add(2.0, 6.0);
+	chrome.add(3.0, 5.0);
+
+	final XYSeries iexplorer = new XYSeries("InternetExplorer");
+	iexplorer.add(3.0, 4.0);
+	iexplorer.add(4.0, 5.0);
+	iexplorer.add(5.0, 4.0);
+
+	final XYSeriesCollection dataset = new XYSeriesCollection();
+	dataset.addSeries(firefox);
+	dataset.addSeries(chrome);
+	dataset.addSeries(iexplorer);
+
+	return dataset;
+
+}
+
 
 
 

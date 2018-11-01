@@ -15,6 +15,7 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class SettingView extends JFrame{
 	public JFrame frame;
@@ -23,8 +24,6 @@ public class SettingView extends JFrame{
 	private JButton UpdateButton;
 	private JTextField RetilerMax;
 	private JTextField RetailerMin;
-	private JTextField BaseMax;
-	private JTextField BaseMin;
 	private JTextField Apliances;
 	private JTextField Retailers;
 	private JTextField RetailName1;
@@ -63,55 +62,84 @@ public class SettingView extends JFrame{
 		frame.getContentPane().add(SettingTab);
 		
 		UpdateButton = new JButton("Start");
-		SettingTab.add(UpdateButton);
 		
-		JLabel lblRetailer = new JLabel("Retailer");
-		SettingTab.add(lblRetailer);
-		
-		JLabel lblMax = new JLabel("Max");
-		SettingTab.add(lblMax);
+		JLabel lblMax = new JLabel("Retailer Max");
 		
 		RetilerMax = new JTextField();
-		SettingTab.add(RetilerMax);
+		RetilerMax.setText("10000");
 		RetilerMax.setColumns(10);
 		
-		JLabel lblMin = new JLabel("Min");
-		SettingTab.add(lblMin);
+		JLabel lblMin = new JLabel("Retailer Min");
 		
 		RetailerMin = new JTextField();
-		SettingTab.add(RetailerMin);
+		RetailerMin.setText("0");
 		RetailerMin.setColumns(10);
 		
-		JLabel lblRetailerBase = new JLabel("Retailer Base");
-		SettingTab.add(lblRetailerBase);
-		
-		JLabel lblMax_1 = new JLabel("Max");
-		SettingTab.add(lblMax_1);
-		
-		BaseMax = new JTextField();
-		SettingTab.add(BaseMax);
-		BaseMax.setColumns(10);
-		
-		JLabel lblMin_1 = new JLabel("Min");
-		SettingTab.add(lblMin_1);
-		
-		BaseMin = new JTextField();
-		SettingTab.add(BaseMin);
-		BaseMin.setColumns(10);
-		
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
-		SettingTab.add(lblNumberOfApliances);
 		
 		Apliances = new JTextField();
-		SettingTab.add(Apliances);
+		Apliances.setText("3");
 		Apliances.setColumns(10);
 		
 		JLabel lblNumberOfRetail = new JLabel("Number of Retail Agents");
-		SettingTab.add(lblNumberOfRetail);
 		
 		Retailers = new JTextField();
-		SettingTab.add(Retailers);
+		Retailers.setText("5");
 		Retailers.setColumns(10);
+		GroupLayout gl_SettingTab = new GroupLayout(SettingTab);
+		gl_SettingTab.setHorizontalGroup(
+			gl_SettingTab.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingTab.createSequentialGroup()
+					.addGap(22)
+					.addComponent(UpdateButton)
+					.addGap(5)
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addComponent(lblNumberOfApliances)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(Alignment.TRAILING, gl_SettingTab.createSequentialGroup()
+							.addComponent(lblMax)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblNumberOfRetail))
+						.addComponent(lblMin, Alignment.TRAILING))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(283))
+		);
+		gl_SettingTab.setVerticalGroup(
+			gl_SettingTab.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingTab.createSequentialGroup()
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addGap(5)
+							.addComponent(UpdateButton))
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_SettingTab.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_SettingTab.createSequentialGroup()
+									.addGap(9)
+									.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+										.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblMax)))
+								.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+									.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(lblMin)))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblNumberOfApliances)
+								.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNumberOfRetail)
+								.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(25, Short.MAX_VALUE))
+		);
+		SettingTab.setLayout(gl_SettingTab);
 		
 		panel = new JPanel();
 		panel.setBounds(10, 136, 784, 279);
@@ -128,20 +156,25 @@ public class SettingView extends JFrame{
 		JLabel label = new JLabel("1");
 		
 		RetailName2 = new JTextField();
+		RetailName2.setText("4");
 		RetailName2.setColumns(10);
 		
 		RetailName3 = new JTextField();
+		RetailName3.setText("6");
 		RetailName3.setColumns(10);
 		
 		RetailName1 = new JTextField();
+		RetailName1.setText("2");
 		RetailName1.setColumns(10);
 		
 		JLabel label_1 = new JLabel("2");
 		
 		AppName3 = new JTextField();
+		AppName3.setText("5");
 		AppName3.setColumns(10);
 		
 		RetailName4 = new JTextField();
+		RetailName4.setText("8");
 		RetailName4.setColumns(10);
 		
 		JLabel label_2 = new JLabel("3");
@@ -149,36 +182,45 @@ public class SettingView extends JFrame{
 		JLabel label_4 = new JLabel("5");
 		
 		RetailName5 = new JTextField();
+		RetailName5.setText("10");
 		RetailName5.setColumns(10);
 		
 		JLabel label_6 = new JLabel("6");
 		
 		AppName5 = new JTextField();
+		AppName5.setText("9");
 		AppName5.setColumns(10);
 		
 		JLabel label_3 = new JLabel("4");
 		
 		AppName4 = new JTextField();
+		AppName4.setText("7");
 		AppName4.setColumns(10);
 		
 		JLabel label_5 = new JLabel("7");
 		
 		AppName2 = new JTextField();
+		AppName2.setText("3");
 		AppName2.setColumns(10);
 		
 		AppName1 = new JTextField();
+		AppName1.setText("1");
 		AppName1.setColumns(10);
 		
 		AppName7 = new JTextField();
+		AppName7.setText("13");
 		AppName7.setColumns(10);
 		
 		RetailName7 = new JTextField();
+		RetailName7.setText("14");
 		RetailName7.setColumns(10);
 		
 		RetailName6 = new JTextField();
+		RetailName6.setText("12");
 		RetailName6.setColumns(10);
 		
 		AppName6 = new JTextField();
+		AppName6.setText("11");
 		AppName6.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
@@ -299,12 +341,7 @@ public class SettingView extends JFrame{
 		public JTextField RetailerMin() {
 		    return RetailerMin;
 		}
-		public JTextField BaseMax() {
-		    return BaseMax;
-		}
-		public JTextField BaseMin() {
-		    return BaseMin;
-		}
+
 		
 		public String[] GetAppNames() {
 			String[] array = {
