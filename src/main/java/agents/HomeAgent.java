@@ -39,7 +39,7 @@ public class HomeAgent extends Agent {
 	private String[] RetailNames = new String[7];
 	private int AppNumber = 0;
 	private int RetailNumber = 0;
-
+	private float time = 0;
 	
 	public void setup() {	    
 
@@ -55,6 +55,7 @@ public class HomeAgent extends Agent {
 			applianceAgents.put(msg.getSender(), null);
 			System.out.println("Appliance subscribed: " + msg.getSender().getLocalName());
 			AppNames[AppNumber] = msg.getSender().getLocalName();
+			model.setupLines(msg.getSender().getLocalName(), AppNumber);
 			AppNumber++;
 			break;
 
@@ -62,6 +63,7 @@ public class HomeAgent extends Agent {
 			retailerAgents.put(msg.getSender(), null);
 			System.out.println("Retailer subscribed: " + msg.getSender().getLocalName());
 			RetailNames[RetailNumber] = msg.getSender().getLocalName();
+			model.setupLines(msg.getSender().getLocalName(), RetailNumber + 7);
 			RetailNumber++;
 			break;
 		}
@@ -93,6 +95,10 @@ public class HomeAgent extends Agent {
 		for(int i = 0; i < AppNumber; i++) {
 			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
 				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+				model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+				if(i == 1) {
+				time = time + 15;
+				}
 			}
 		}
 		
@@ -197,6 +203,7 @@ public class HomeAgent extends Agent {
 				for(int i = 0; i < RetailNumber; i++) {
 					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
 						model.AssignProposed(entry.getValue().getPrice(), i+1);
+						model.addData(time, entry.getValue().getPrice(), i + 7);
 					}
 				}
 
