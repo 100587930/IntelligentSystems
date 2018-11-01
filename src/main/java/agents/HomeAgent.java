@@ -48,6 +48,28 @@ public class HomeAgent extends Agent {
 	    final View view = new View();
 	    model = new Model(view);
 	}
+	
+	private void initialize() {
+		usageExpected = 0;
+		expectedUsagesInformed = 0;
+		confirmsReceived = 0;
+		proposalsReceived = 0;
+		requestsReceived = 0;
+		energyMissing = 0;
+		energyBought = 0;
+		cheapestPrice = 9999999;
+		previousCheapestPrice = 9999999;
+		round = 0;
+		secondRoundProposals = 0;
+		//maxPrice = null;
+		isInPriceRange = false;
+
+		//AppNames = new String[7];
+		//RetailNames = new String[7];
+		AppNumber = 0;
+		RetailNumber = 0;
+		time = 0;
+	}
 
 	public void handleSubscribe(ACLMessage msg) {
 		switch (msg.getContent()) {
@@ -138,6 +160,7 @@ public class HomeAgent extends Agent {
 			notifyRetailers();
 			notifyAppliances();
 			this.proposalsReceived = 0;
+			initialize();
 		}
 	}
 
