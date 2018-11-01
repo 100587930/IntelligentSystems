@@ -118,4 +118,7 @@ public void addData(float x, float y, int i) {
 }
 
 
+public void setupLines(String Name, int i) {
+		view.setupLines(Name, i);
+	}	
 }

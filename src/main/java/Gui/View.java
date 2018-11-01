@@ -82,6 +82,7 @@ public class View extends JFrame{
 	private XYSeries Line5;
 	private XYSeries Line6;
 	private XYSeries Line7;
+	private XYSeriesCollection dataset;
 	
 	public View() {
 		
@@ -466,48 +467,33 @@ public class View extends JFrame{
 		        pack();
 		    }
 		    public XYDataset createDataset() {
-		    	Line1 = new XYSeries("testing");
-		    	XYSeries chrome = new XYSeries("Chrome");
-		    	chrome.add(1.0, 4.0);
-		    	chrome.add(2.0, 6.0);
-		    	chrome.add(3.0, 5.0);
-
-		    	XYSeries iexplorer = new XYSeries("InternetExplorer");
-		    	iexplorer.add(3.0, 4.0);
-		    	iexplorer.add(4.0, 5.0);
-		    	iexplorer.add(5.0, 4.0);
-
-		    	final XYSeriesCollection dataset = new XYSeriesCollection();
-		    	dataset.addSeries(Line1);
-		    	dataset.addSeries(chrome);
-		    	dataset.addSeries(iexplorer);
-
+		    	dataset = new XYSeriesCollection();
 		    	return dataset;
 
 		    }
 		    
 		    public void setupLines(String Name, int i) {
+		    	System.out.println("adding line to graph");
 		    	switch (i) {
-		    		case 0: Line1 = new XYSeries(Name);
-		    		case 1: Line2 = new XYSeries(Name);
-		    		case 2: Line3 = new XYSeries(Name);
-		    		case 3: Line4 = new XYSeries(Name);
-		    		case 4: Line5 = new XYSeries(Name);
-		    		case 5: Line6 = new XYSeries(Name);
-		    		case 6: Line7 = new XYSeries(Name);
-		    	}
-		    		
+		    		case 0: Line1 = new XYSeries(Name); dataset.addSeries(Line1);break;
+		    		case 1: Line2 = new XYSeries(Name);dataset.addSeries(Line2);break;
+		    		case 2: Line3 = new XYSeries(Name);dataset.addSeries(Line3);break;
+		    		case 3: Line4 = new XYSeries(Name);dataset.addSeries(Line4);break;
+		    		case 4: Line5 = new XYSeries(Name);dataset.addSeries(Line5);break;
+		    		case 5: Line6 = new XYSeries(Name);dataset.addSeries(Line6);break;
+		    		case 6: Line7 = new XYSeries(Name);dataset.addSeries(Line7);break;
+		    	}	
 		    }
 		    
 		    public void addData(float x, float y, int i) {
 		    	switch (i) {
-	    		case 0: Line1.add(x,y);
-	    		case 1: Line2.add(x,y);
-	    		case 2: Line3.add(x,y);
-	    		case 3: Line4.add(x,y);
-	    		case 4: Line5.add(x,y);
-	    		case 5: Line6.add(x,y);
-	    		case 6: Line7.add(x,y);
+	    		case 0: Line1.add(x,y);break;
+	    		case 1: Line2.add(x,y);break;
+	    		case 2: Line3.add(x,y);break;
+	    		case 3: Line4.add(x,y);break;
+	    		case 4: Line5.add(x,y);break;
+	    		case 5: Line6.add(x,y);break;
+	    		case 6: Line7.add(x,y);break;
 	    	}
 		    }
 

@@ -54,6 +54,7 @@ public class HomeAgent extends Agent {
 			applianceAgents.put(msg.getSender(), null);
 			System.out.println("Appliance subscribed: " + msg.getSender().getLocalName());
 			AppNames[AppNumber] = msg.getSender().getLocalName();
+			model.setupLines(msg.getSender().getLocalName(), AppNumber);
 			AppNumber++;
 			break;
 
@@ -92,7 +93,7 @@ public class HomeAgent extends Agent {
 		for(int i = 0; i < AppNumber; i++) {
 			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
 				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
-				//model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected());
+				model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
 				time = time + 15;
 			}
 		}
