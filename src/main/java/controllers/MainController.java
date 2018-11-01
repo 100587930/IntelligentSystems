@@ -22,6 +22,7 @@ public class MainController {
 	private AgentContainer applianceContainer;
 	private AgentContainer retailerContainer;
 
+
 	private float retailersCap = 25; 		//default values
 	private float retailersBasePrice = 18; 
 	private float defaultMaxPrice = 10000;

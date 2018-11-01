@@ -36,6 +36,7 @@ public class HomeAgent extends Agent {
 	private int secondRoundProposals = 0;
 	private Object[] maxPrice = null;
 	boolean isInPriceRange = false;
+
 	private Model model;
 	private String[] AppNames = new String[7];
 	private String[] RetailNames = new String[7];
@@ -43,6 +44,7 @@ public class HomeAgent extends Agent {
 	private int RetailNumber = 0;
 	
 	public void setup() {	    
+
 		this.maxPrice = getArguments();
 		addBehaviour(new HomeCyclicBehaviour(this));
 	    final View view = new View();
@@ -69,6 +71,7 @@ public class HomeAgent extends Agent {
 		model.AssignAppAgentsNames(AppNames);
 		model.AssignRetailAgentsNames(RetailNames);
 	}
+
 
 	public float getMaxPrice() {
 		return (float) this.maxPrice[0];
