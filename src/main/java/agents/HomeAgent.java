@@ -1,12 +1,7 @@
 package agents;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map.Entry;
-
-import org.jfree.util.StringUtils;
-
 import Gui.Model;
 import Gui.View;
 import behaviours.HomeCyclicBehaviour;
@@ -18,7 +13,6 @@ import jade.util.leap.ArrayList;
 import models.Appliance;
 import models.Retailer;
 import utils.Constants;
-import controllers.MainController;
 
 @SuppressWarnings("serial")
 public class HomeAgent extends Agent {
@@ -96,7 +90,6 @@ public class HomeAgent extends Agent {
 		}
 		String CurrentAgent = msg.getSender().getLocalName();
 		for(int i = 0; i < AppNumber; i++) {
-			System.out.println(CurrentAgent + "   " + AppNames[i]);
 			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
 				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
 			}
