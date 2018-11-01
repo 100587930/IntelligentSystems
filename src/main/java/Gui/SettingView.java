@@ -63,16 +63,16 @@ public class SettingView extends JFrame{
 		
 		UpdateButton = new JButton("Start");
 		
-		JLabel lblMax = new JLabel("Retailer Max");
+		JLabel lblMax = new JLabel("Retailers Cap");
 		
 		RetilerMax = new JTextField();
-		RetilerMax.setText("10000");
+		RetilerMax.setText("25");
 		RetilerMax.setColumns(10);
 		
-		JLabel lblMin = new JLabel("Retailer Min");
+		JLabel lblMin = new JLabel("Retailer Base Price");
 		
 		RetailerMin = new JTextField();
-		RetailerMin.setText("0");
+		RetailerMin.setText("18");
 		RetailerMin.setColumns(10);
 		
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
