@@ -23,8 +23,6 @@ public class SettingView extends JFrame{
 	private JButton UpdateButton;
 	private JTextField RetilerMax;
 	private JTextField RetailerMin;
-	private JTextField BaseMax;
-	private JTextField BaseMin;
 	private JTextField Apliances;
 	private JTextField Retailers;
 	private JTextField RetailName1;
@@ -83,25 +81,6 @@ public class SettingView extends JFrame{
 		RetailerMin.setText("0");
 		SettingTab.add(RetailerMin);
 		RetailerMin.setColumns(10);
-		
-		JLabel lblRetailerBase = new JLabel("Retailer Base");
-		SettingTab.add(lblRetailerBase);
-		
-		JLabel lblMax_1 = new JLabel("Max");
-		SettingTab.add(lblMax_1);
-		
-		BaseMax = new JTextField();
-		BaseMax.setText("18");
-		SettingTab.add(BaseMax);
-		BaseMax.setColumns(10);
-		
-		JLabel lblMin_1 = new JLabel("Min");
-		SettingTab.add(lblMin_1);
-		
-		BaseMin = new JTextField();
-		BaseMin.setText("18");
-		SettingTab.add(BaseMin);
-		BaseMin.setColumns(10);
 		
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
 		SettingTab.add(lblNumberOfApliances);
@@ -319,12 +298,7 @@ public class SettingView extends JFrame{
 		public JTextField RetailerMin() {
 		    return RetailerMin;
 		}
-		public JTextField BaseMax() {
-		    return BaseMax;
-		}
-		public JTextField BaseMin() {
-		    return BaseMin;
-		}
+
 		
 		public String[] GetAppNames() {
 			String[] array = {

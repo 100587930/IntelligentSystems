@@ -28,27 +28,6 @@ public float getRetailerMin() {
 	return i;
 }
 
-public float getBaseMax() {
-	float i;
-	try {
-		i = Integer.parseInt(view.BaseMax().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
-
-
-public float getBaseMin() {
-	float i;
-	try {
-		i = Integer.parseInt(view.BaseMin().getText());
-	}catch(NumberFormatException ex) {
-		i = 0;
-	}
-	return i;
-}
-
 public int getRetailAgents() {
 	int i;
 	try {
