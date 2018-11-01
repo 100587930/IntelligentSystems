@@ -190,6 +190,14 @@ public class HomeAgent extends Agent {
 		float difference = totalCap < this.usageExpected ? this.usageExpected - totalCap : 0;
 		while ((energyDistributed - difference) != 0) {
 			for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
+				int iend = entry.getKey().getName().indexOf("@");
+				String CurrentAgent = entry.getKey().getName().substring(0, iend);
+				for(int i = 0; i < RetailNumber; i++) {
+					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
+						model.AssignProposed(entry.getValue().getPrice(), i+1);
+					}
+				}
+
 				if (entry.getValue().getPrice() == this.cheapestPrice) {
 					ACLMessage msg = new ACLMessage(ACLMessage.PROPOSE);
 					float agentCap = entry.getValue().getCap();

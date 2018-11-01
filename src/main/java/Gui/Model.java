@@ -85,4 +85,28 @@ public void AssignAccept(String values, int i) {
 				break;
 		}
 	}
+
+public void AssignProposed(float values, int agents) {
+	int i = 0;
+	while(i < agents) {
+		switch(i) {
+		case 0: view.Retail1Prop().setText(Float.toString(values));break;
+		case 1: view.Retail2Prop().setText(Float.toString(values));break;
+		case 2: view.Retail3Prop().setText(Float.toString(values));break;
+		case 3: view.Retail4Prop().setText(Float.toString(values));break;
+		case 4: view.Retail5Prop().setText(Float.toString(values));break;
+		case 5: view.Retail6Prop().setText(Float.toString(values));break;
+		case 6: view.Retail7Prop().setText(Float.toString(values));break;
+		}
+		i++;
+	}
+}
+
+
+
+
+
+
+
+
 }
