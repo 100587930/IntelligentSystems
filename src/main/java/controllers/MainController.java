@@ -62,12 +62,16 @@ public class MainController {
 	}
 
 	private void startApplianceAgents() throws StaleProxyException {
-		// TODO: create 5 AAs
-		Object[][] applianceArguments = new Object[3][3]; // will be given by the GUI
+		Object[][] applianceArguments = new Object[5][5]; // will be given by the GUI
 		ArrayList<String> applianceAgentName = new ArrayList<String>(); // will be given by the GUI
-		applianceAgentName.add("Dishwasher");
-		applianceAgentName.add("Aircon");
-		applianceAgentName.add("Fridge");
+		
+		applianceAgentName.add("Dishwasher"); //DWE
+		applianceAgentName.add("Heater");	//FRE
+		applianceAgentName.add("Fridge");	//FGE
+		applianceAgentName.add("TV");		//TVE
+		applianceAgentName.add("Washing Machine");	//CWE
+		
+		
 		for (int i = 0; i < applianceArguments.length; i++) {
 			AgentController applianceAgent = this.applianceContainer.createNewAgent(applianceAgentName.get(i),
 					"agents.ApplianceAgent", applianceArguments);
