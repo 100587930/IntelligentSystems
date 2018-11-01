@@ -201,6 +201,7 @@ public class HomeAgent extends Agent {
 				for(int i = 0; i < RetailNumber; i++) {
 					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
 						model.AssignProposed(entry.getValue().getPrice(), i+1);
+						model.addData(time, entry.getValue().getPrice(), i + 7);
 					}
 				}
 

@@ -114,11 +114,11 @@ public void AssignProposed(float values, int agents) {
 }
 
 public void addData(float x, float y, int i) {
-		view.addData(x, y, i);
+		view.addDataIndevidual(x, y, i);
 }
 
 
 public void setupLines(String Name, int i) {
-		view.setupLines(Name, i);
+		view.setupLinesindevidual(Name, i);
 	}	
 }

@@ -73,13 +73,7 @@ public class View extends JFrame{
 	private JTextField Retail7Prop;
 	private JTextField Retail7Accept;
 	
-	private XYSeries Line1;
-	private XYSeries Line2;
-	private XYSeries Line3;
-	private XYSeries Line4;
-	private XYSeries Line5;
-	private XYSeries Line6;
-	private XYSeries Line7;
+	private XYSeries[] Lineindevidual = new XYSeries[14];
 	private XYSeriesCollection dataset;
 	
 	public View() {
@@ -470,28 +464,42 @@ public class View extends JFrame{
 
 		    }
 		    
-		    public void setupLines(String Name, int i) {
+		    public void setupLinesindevidual(String Name, int i) {
 		    	System.out.println("adding line to graph");
 		    	switch (i) {
-		    		case 0: Line1 = new XYSeries("Appliance " + Name);dataset.addSeries(Line1);break;
-		    		case 1: Line2 = new XYSeries("Appliance " + Name);dataset.addSeries(Line2);break;
-		    		case 2: Line3 = new XYSeries("Appliance " + Name);dataset.addSeries(Line3);break;
-		    		case 3: Line4 = new XYSeries("Appliance " + Name);dataset.addSeries(Line4);break;
-		    		case 4: Line5 = new XYSeries("Appliance " + Name);dataset.addSeries(Line5);break;
-		    		case 5: Line6 = new XYSeries("Appliance " + Name);dataset.addSeries(Line6);break;
-		    		case 6: Line7 = new XYSeries("Appliance " + Name);dataset.addSeries(Line7);break;
+		    		case 0: Lineindevidual[0] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[0]);break;
+		    		case 1: Lineindevidual[1] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[1]);break;
+		    		case 2: Lineindevidual[2] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[2]);break;
+		    		case 3: Lineindevidual[3] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[3]);break;
+		    		case 4: Lineindevidual[4] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[4]);break;
+		    		case 5: Lineindevidual[5] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[5]);break;
+		    		case 6: Lineindevidual[6] = new XYSeries("Appliance " + Name);dataset.addSeries(Lineindevidual[6]);break;
+		    		case 7: Lineindevidual[7] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[7]);break;
+		    		case 8: Lineindevidual[8] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[8]);break;
+		    		case 9: Lineindevidual[9] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[9]);break;
+		    		case 10: Lineindevidual[10] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[10]);break;
+		    		case 11: Lineindevidual[11] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[11]);break;
+		    		case 12: Lineindevidual[12] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[12]);break;
+		    		case 13: Lineindevidual[13] = new XYSeries("Retailer " + Name);dataset.addSeries(Lineindevidual[13]);break;
 		    	}	
 		    }
 		    
-		    public void addData(float x, float y, int i) {
+		    public void addDataIndevidual(float x, float y, int i) {
 		    	switch (i) {
-	    		case 0: Line1.add(x,y);break;
-	    		case 1: Line2.add(x,y);break;
-	    		case 2: Line3.add(x,y);break;
-	    		case 3: Line4.add(x,y);break;
-	    		case 4: Line5.add(x,y);break;
-	    		case 5: Line6.add(x,y);break;
-	    		case 6: Line7.add(x,y);break;
+	    		case 0: Lineindevidual[0].add(x,y);break;
+	    		case 1: Lineindevidual[1].add(x,y);break;
+	    		case 2: Lineindevidual[2].add(x,y);break;
+	    		case 3: Lineindevidual[3].add(x,y);break;
+	    		case 4: Lineindevidual[4].add(x,y);break;
+	    		case 5: Lineindevidual[5].add(x,y);break;
+	    		case 6: Lineindevidual[6].add(x,y);break;
+	    		case 7: Lineindevidual[7].add(x,y);break;
+	    		case 8: Lineindevidual[8].add(x,y);break;
+	    		case 9: Lineindevidual[9].add(x,y);break;
+	    		case 10: Lineindevidual[10].add(x,y);break;
+	    		case 11: Lineindevidual[11].add(x,y);break;
+	    		case 12: Lineindevidual[12].add(x,y);break;
+	    		case 13: Lineindevidual[13].add(x,y);break;	    		
 	    	}
 		    }
 
