@@ -31,7 +31,7 @@ public class Forcaster {
 		      // new forecaster
 		      WekaForecaster forecaster = new WekaForecaster();
 		 
-		      // set the targets we want to forecast.
+		      // set the target we want to forecast.
 		      forecaster.setFieldsToForecast(name);
 		 
 		      forecaster.setBaseForecaster(new GaussianProcesses());
@@ -50,6 +50,8 @@ public class Forcaster {
 		      ex.printStackTrace();
 		    }
 		  }
+	
+	
 	
 	public float getPrediction() {
 		
