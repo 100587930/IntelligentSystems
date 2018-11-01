@@ -60,7 +60,11 @@ public void AssignAppAgentsNames(String[] names) {
 	}
 }
 
-
+public void AssignRetailAgentsNames(String[] names) {
+	for(int i = 0; i<7; i++) {
+		view.setRetailAgentNames()[i].setText(names[i]);
+	}
+}
 
 
 

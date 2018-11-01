@@ -38,7 +38,9 @@ public class HomeAgent extends Agent {
 	boolean isInPriceRange = false;
 	private Model model;
 	private String[] AppNames = new String[7];
+	private String[] RetailNames = new String[7];
 	private int AppNumber = 0;
+	private int RetailNumber = 0;
 	
 	public void setup() {	    
 		this.maxPrice = getArguments();
@@ -59,10 +61,13 @@ public class HomeAgent extends Agent {
 		case (Constants.RETAILER_AGENT):
 			retailerAgents.put(msg.getSender(), null);
 			System.out.println("Retailer subscribed: " + msg.getSender().getLocalName());
+			RetailNames[RetailNumber] = msg.getSender().getLocalName();
+			RetailNumber++;
 			break;
 		}
 		
 		model.AssignAppAgentsNames(AppNames);
+		model.AssignRetailAgentsNames(RetailNames);
 	}
 
 	public float getMaxPrice() {
