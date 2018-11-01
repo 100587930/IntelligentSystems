@@ -94,13 +94,9 @@ public class View extends JFrame{
          JFreeChart chart = ChartFactory.createXYLineChart("Power Usage Data",
                  "Time", "Cost", ds, PlotOrientation.VERTICAL, true, true,
                  false);
-         
-         ChartPanel cp = new ChartPanel(chart);
-         cp.setBounds(102, 49, 719, 216);
-         frame.getContentPane().add(cp);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(102, 276, 719, 104);
+		tabbedPane.setBounds(10, 49, 811, 331);
 		frame.getContentPane().add(tabbedPane);
 		
 		JPanel ApplianceTab = new JPanel();
@@ -108,102 +104,114 @@ public class View extends JFrame{
 		ApplianceTab.setLayout(null);
 		
 		lblAppAgent1 = new JLabel("Agent 1");
-		lblAppAgent1.setBounds(12, 6, 46, 14);
+		lblAppAgent1.setBounds(100, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent1);
 		
 		Agent1New = new JTextField();
-		Agent1New.setBounds(10, 21, 86, 20);
+		Agent1New.setBounds(98, 26, 86, 20);
 		ApplianceTab.add(Agent1New);
 		Agent1New.setColumns(10);
 		
 		Agent1Old = new JTextField();
-		Agent1Old.setBounds(10, 40, 86, 20);
+		Agent1Old.setBounds(98, 45, 86, 20);
 		ApplianceTab.add(Agent1Old);
 		Agent1Old.setColumns(10);
 		
 		lblAppAgent2 = new JLabel("Agent 2");
-		lblAppAgent2.setBounds(108, 6, 46, 14);
+		lblAppAgent2.setBounds(196, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent2);
 		
 		Agent2New = new JTextField();
 		Agent2New.setColumns(10);
-		Agent2New.setBounds(106, 21, 86, 20);
+		Agent2New.setBounds(194, 26, 86, 20);
 		ApplianceTab.add(Agent2New);
 		
 		Agent2Old = new JTextField();
 		Agent2Old.setColumns(10);
-		Agent2Old.setBounds(106, 40, 86, 20);
+		Agent2Old.setBounds(194, 45, 86, 20);
 		ApplianceTab.add(Agent2Old);
 		
 		lblAppAgent3 = new JLabel("Agent 3");
-		lblAppAgent3.setBounds(204, 6, 46, 14);
+		lblAppAgent3.setBounds(292, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent3);
 		
 		Agent3New = new JTextField();
 		Agent3New.setColumns(10);
-		Agent3New.setBounds(202, 21, 86, 20);
+		Agent3New.setBounds(290, 26, 86, 20);
 		ApplianceTab.add(Agent3New);
 		
 		Agent3Old = new JTextField();
 		Agent3Old.setColumns(10);
-		Agent3Old.setBounds(202, 40, 86, 20);
+		Agent3Old.setBounds(290, 45, 86, 20);
 		ApplianceTab.add(Agent3Old);
 		
 		lblAppAgent4 = new JLabel("Agent 4");
-		lblAppAgent4.setBounds(300, 6, 46, 14);
+		lblAppAgent4.setBounds(388, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent4);
 		
 		Agent4New = new JTextField();
 		Agent4New.setColumns(10);
-		Agent4New.setBounds(298, 21, 86, 20);
+		Agent4New.setBounds(386, 26, 86, 20);
 		ApplianceTab.add(Agent4New);
 		
 		Agent4Old = new JTextField();
 		Agent4Old.setColumns(10);
-		Agent4Old.setBounds(298, 40, 86, 20);
+		Agent4Old.setBounds(386, 45, 86, 20);
 		ApplianceTab.add(Agent4Old);
 		
 		lblAppAgent5 = new JLabel("Agent 5");
-		lblAppAgent5.setBounds(396, 6, 46, 14);
+		lblAppAgent5.setBounds(484, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent5);
 		
 		Agent5New = new JTextField();
 		Agent5New.setColumns(10);
-		Agent5New.setBounds(394, 21, 86, 20);
+		Agent5New.setBounds(482, 26, 86, 20);
 		ApplianceTab.add(Agent5New);
 		
 		Agent5Old = new JTextField();
 		Agent5Old.setColumns(10);
-		Agent5Old.setBounds(394, 40, 86, 20);
+		Agent5Old.setBounds(482, 45, 86, 20);
 		ApplianceTab.add(Agent5Old);
 		
 		lblAppAgent6 = new JLabel("Agent 6");
-		lblAppAgent6.setBounds(492, 6, 46, 14);
+		lblAppAgent6.setBounds(580, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent6);
 		
 		Agent6New = new JTextField();
 		Agent6New.setColumns(10);
-		Agent6New.setBounds(490, 21, 86, 20);
+		Agent6New.setBounds(578, 26, 86, 20);
 		ApplianceTab.add(Agent6New);
 		
 		Agent6Old = new JTextField();
 		Agent6Old.setColumns(10);
-		Agent6Old.setBounds(490, 40, 86, 20);
+		Agent6Old.setBounds(578, 45, 86, 20);
 		ApplianceTab.add(Agent6Old);
 		
 		lblAppAgent7 = new JLabel("Agent 7");
-		lblAppAgent7.setBounds(588, 6, 46, 14);
+		lblAppAgent7.setBounds(676, 11, 46, 14);
 		ApplianceTab.add(lblAppAgent7);
 		
 		Agent7New = new JTextField();
 		Agent7New.setColumns(10);
-		Agent7New.setBounds(586, 21, 86, 20);
+		Agent7New.setBounds(674, 26, 86, 20);
 		ApplianceTab.add(Agent7New);
 		
 		Agent7Old = new JTextField();
 		Agent7Old.setColumns(10);
-		Agent7Old.setBounds(586, 40, 86, 20);
+		Agent7Old.setBounds(674, 45, 86, 20);
 		ApplianceTab.add(Agent7Old);
+		
+		ChartPanel cp = new ChartPanel(chart);
+		cp.setBounds(0, 76, 796, 216);
+		ApplianceTab.add(cp);
+		
+		JLabel lblCurrentValues = new JLabel("Current Values");
+		lblCurrentValues.setBounds(10, 29, 78, 14);
+		ApplianceTab.add(lblCurrentValues);
+		
+		JLabel lblPreviousValues = new JLabel("Previous Values");
+		lblPreviousValues.setBounds(10, 48, 78, 14);
+		ApplianceTab.add(lblPreviousValues);
 		
 		RetailTab = new JPanel();
 		RetailTab.setLayout(null);
@@ -435,34 +443,11 @@ public class View extends JFrame{
 		    return Retail7Accept;
 		}
 
-		    public void ChartTest() {
-		        XYSeries Goals = new XYSeries("Goals Scored");
-		        Goals.add(1, 1.0);
-		        Goals.add(2, 3.0);
-		        Goals.add(3, 2.0);
-		        Goals.add(4, 0.0);
-		        Goals.add(5, 3.0);
-		        XYDataset xyDataset = new XYSeriesCollection(Goals);
-		        JFreeChart chart = ChartFactory.createXYLineChart(
-		            "Goals Scored Over Time", "Fixture Number", "Goals",
-		            xyDataset, PlotOrientation.VERTICAL, true, true, false);
-		        ChartPanel cp = new ChartPanel(chart) {
 
-		            @Override
-		            public Dimension getPreferredSize() {
-		                return new Dimension(320, 240);
-		            }
-		        };
-		        cp.setMouseWheelEnabled(true);
-		        getContentPane().add(cp);
-		        setDefaultCloseOperation(EXIT_ON_CLOSE);
-		        pack();
-		    }
-		    public XYDataset createDataset() {
-		    	dataset = new XYSeriesCollection();
-		    	return dataset;
-
-		    }
+		public XYDataset createDataset() {
+			dataset = new XYSeriesCollection();
+		    return dataset;
+		}
 		    
 		    public void setupLinesindevidual(String Name, int i) {
 		    	System.out.println("adding line to graph");
@@ -502,5 +487,4 @@ public class View extends JFrame{
 	    		case 13: Lineindevidual[13].add(x,y);break;	    		
 	    	}
 		    }
-
 }
