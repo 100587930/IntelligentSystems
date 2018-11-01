@@ -65,6 +65,7 @@ public class MainController {
 		ArrayList<String> retailerAgentNames = new ArrayList<String>();
 		Object[][] retailerArguments = new Object[model.getRetailAgents()][3];
 		String[] tariffs = Tariffs.getTariffs();
+		int j = 0;
 		for(int r = 0; r < model.getRetailAgents();){
 			retailerArguments[r][0] = tariffs[r];
 			retailerArguments[r][1] = model.getRetailerMax();

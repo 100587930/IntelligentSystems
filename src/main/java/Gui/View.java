@@ -39,11 +39,17 @@ public class View extends JFrame{
 	private JTextField Agent3New;
 	private JTextField Agent5Old;
 	private JTextField Agent5New;
+	private JTextField Agent6New;
+	private JTextField Agent6Old;
+	private JTextField Agent7Old;
+	private JTextField Agent7New;
 	private JLabel lblAppAgent1;
 	private JLabel lblAppAgent2;
 	private JLabel lblAppAgent3;
 	private JLabel lblAppAgent4;
 	private JLabel lblAppAgent5;
+	private JLabel lblAppAgent6;
+	private JLabel lblAppAgent7;
 	private JPanel RetailTab;
 	private JLabel lblRetailAgent1;
 	private JTextField Retail1Prop;
@@ -185,6 +191,34 @@ public class View extends JFrame{
 		Agent5Old.setBounds(482, 45, 86, 20);
 		ApplianceTab.add(Agent5Old);
 		
+		lblAppAgent6 = new JLabel("Agent 6");
+		lblAppAgent6.setBounds(580, 11, 46, 14);
+		ApplianceTab.add(lblAppAgent6);
+		
+		Agent6New = new JTextField();
+		Agent6New.setColumns(10);
+		Agent6New.setBounds(578, 26, 86, 20);
+		ApplianceTab.add(Agent6New);
+		
+		Agent6Old = new JTextField();
+		Agent6Old.setColumns(10);
+		Agent6Old.setBounds(578, 45, 86, 20);
+		ApplianceTab.add(Agent6Old);
+		
+		lblAppAgent7 = new JLabel("Agent 7");
+		lblAppAgent7.setBounds(676, 11, 46, 14);
+		ApplianceTab.add(lblAppAgent7);
+		
+		Agent7New = new JTextField();
+		Agent7New.setColumns(10);
+		Agent7New.setBounds(674, 26, 86, 20);
+		ApplianceTab.add(Agent7New);
+		
+		Agent7Old = new JTextField();
+		Agent7Old.setColumns(10);
+		Agent7Old.setBounds(674, 45, 86, 20);
+		ApplianceTab.add(Agent7Old);
+		
 		ChartPanel cp = new ChartPanel(chart);
 		cp.setBounds(0, 76, 398, 216);
 		ApplianceTab.add(cp);
@@ -259,7 +293,9 @@ public class View extends JFrame{
 				lblAppAgent2,
 				lblAppAgent3,
 				lblAppAgent4,
-				lblAppAgent5
+				lblAppAgent5,
+				lblAppAgent6,
+				lblAppAgent7
 		};
 	    return names;
 	}
@@ -301,7 +337,19 @@ public class View extends JFrame{
 		public JTextField Agent3New() {
 		    return Agent3New;
 		}
-
+		public JTextField Agent6New() {
+		    return Agent6New;
+		}
+		public JTextField Agent6Old() {
+		    return Agent6Old;
+		}
+		public JTextField Agent7Old() {
+		    return Agent7Old;
+		}
+		
+		public JTextField Agent7New() {
+		    return Agent7New;
+		}
 
 		public JTextField Agent5Old() {
 		    return Agent5Old;
@@ -363,6 +411,10 @@ public class View extends JFrame{
 		    		case 7: LineUsage[0] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[0]);break;
 		    		case 8: LineUsage[1] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[1]);break;
 		    		case 9: LineUsage[2] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[2]);break;
+		    		case 10: LineUsage[3] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[3]);break;
+		    		case 11: LineUsage[4] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[4]);break;
+		    		case 12: LineUsage[5] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[5]);break;
+		    		case 13: LineUsage[6] = new XYSeries("Retailer " + Name);Usagedataset.addSeries(LineUsage[6]);break;
 		    	}	
 		    	switch (i) {
 	    		case 0: LineCumlitive[0] = new XYSeries("Appliance " + Name);Cumlativedataset.addSeries(LineCumlitive[0]); break;
@@ -390,7 +442,12 @@ public class View extends JFrame{
 	    		case 6: Lineindevidual[6].add(x,y);break;
 	    		case 7: LineUsage[0].add(x,y);break;
 	    		case 8: LineUsage[1].add(x,y);break;
-	    		case 9: LineUsage[2].add(x,y);break;  		
+	    		case 9: LineUsage[2].add(x,y);break;
+	    		case 10: LineUsage[3].add(x,y);break;
+	    		case 11: LineUsage[4].add(x,y);break;
+	    		case 12: LineUsage[5].add(x,y);break;
+	    		case 13: LineUsage[6].add(x,y);break;
+	    		
 	    	}
 		    }
 		    

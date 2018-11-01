@@ -21,6 +21,8 @@ public int[] getCurrentNew() {
 	intArray[2] = Integer.parseInt(view.Agent3New().getText());
 	intArray[3] = Integer.parseInt(view.Agent4New().getText());
 	intArray[4] = Integer.parseInt(view.Agent5New().getText());
+	intArray[5] = Integer.parseInt(view.Agent6New().getText());
+	intArray[6] = Integer.parseInt(view.Agent7New().getText());
 	return intArray;
 }
 
@@ -31,6 +33,8 @@ public void AssignNewValues(Float values, int agents) {
 		case 2: view.Agent3Old().setText(view.Agent3New().getText()); break;
 		case 3: view.Agent4Old().setText(view.Agent4New().getText()); break;
 		case 4: view.Agent5Old().setText(view.Agent5New().getText()); break;
+		case 5: view.Agent6Old().setText(view.Agent6New().getText()); break;
+		case 6: view.Agent7Old().setText(view.Agent7New().getText()); break;
 		}
 		switch(agents) {
 		case 0: view.Agent1New().setText(Float.toString(values));break;
@@ -38,6 +42,8 @@ public void AssignNewValues(Float values, int agents) {
 		case 2: view.Agent3New().setText(Float.toString(values));break;
 		case 3: view.Agent4New().setText(Float.toString(values));break;
 		case 4: view.Agent5New().setText(Float.toString(values));break;
+		case 5: view.Agent6New().setText(Float.toString(values));break;
+		case 6: view.Agent7New().setText(Float.toString(values));break;
 		}
 	}
 
@@ -50,13 +56,15 @@ public void AssignOldValues(int[] values, int agents) {
 		case 2: view.Agent3Old().setText(Integer.toString(values[i]));break;
 		case 3: view.Agent4Old().setText(Integer.toString(values[i]));break;
 		case 4: view.Agent5Old().setText(Integer.toString(values[i]));break;
+		case 5: view.Agent6Old().setText(Integer.toString(values[i]));break;
+		case 6: view.Agent7Old().setText(Integer.toString(values[i]));break;
 		}
 		i++;
 	}
 }
 
 public void AssignAppAgentsNames(String[] names) {
-	for(int i = 0; i<5; i++) {
+	for(int i = 0; i<7; i++) {
 		view.setAppAgentNames()[i].setText(names[i]);
 	}
 }
