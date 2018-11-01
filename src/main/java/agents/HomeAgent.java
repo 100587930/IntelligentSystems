@@ -61,7 +61,6 @@ public class HomeAgent extends Agent {
 		previousCheapestPrice = 9999999;
 		round = 0;
 		secondRoundProposals = 0;
-		//maxPrice = null;
 		isInPriceRange = false;
 	}
 

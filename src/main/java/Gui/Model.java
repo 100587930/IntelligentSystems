@@ -58,7 +58,7 @@ public void AssignAppAgentsNames(String[] names) {
 }
 
 public void AssignRetailAgentsNames(String[] names) {
-	for(int i = 0; i<7; i++) {
+	for(int i = 0; i<3; i++) {
 		view.setRetailAgentNames()[i].setText(names[i]);
 	}
 }
@@ -69,17 +69,9 @@ public void AssignAccept(String values, int i) {
 		case 0: view.Retail1Accept().setText(values);break;
 		case 1: view.Retail2Accept().setText(values);break;
 		case 2: view.Retail3Accept().setText(values);break;
-		case 3: view.Retail4Accept().setText(values);break;
-		case 4: view.Retail5Accept().setText(values);break;
-		case 5: view.Retail6Accept().setText(values);break;
-		case 6: view.Retail7Accept().setText(values);break;
 		default:view.Retail1Accept().setText(values);
 				view.Retail2Accept().setText(values);
 				view.Retail3Accept().setText(values);
-				view.Retail4Accept().setText(values);
-				view.Retail5Accept().setText(values);
-				view.Retail6Accept().setText(values);
-				view.Retail7Accept().setText(values);
 				break;
 		}
 	}
@@ -91,10 +83,6 @@ public void AssignProposed(float values, int agents) {
 		case 0: view.Retail1Prop().setText(Float.toString(values));break;
 		case 1: view.Retail2Prop().setText(Float.toString(values));break;
 		case 2: view.Retail3Prop().setText(Float.toString(values));break;
-		case 3: view.Retail4Prop().setText(Float.toString(values));break;
-		case 4: view.Retail5Prop().setText(Float.toString(values));break;
-		case 5: view.Retail6Prop().setText(Float.toString(values));break;
-		case 6: view.Retail7Prop().setText(Float.toString(values));break;
 		}
 		i++;
 	}
