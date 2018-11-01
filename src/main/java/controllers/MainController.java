@@ -14,6 +14,7 @@ import jade.core.Profile;
 import jade.core.ProfileImpl;
 import jade.wrapper.*;
 import utils.Constants;
+import utils.Tariffs;
 
 public class MainController {
 
@@ -63,8 +64,9 @@ public class MainController {
 	private void startRetailerAgents() throws StaleProxyException {
 		ArrayList<String> retailerAgentNames = new ArrayList<String>();
 		Object[][] retailerArguments = new Object[model.getRetailAgents()][3];
+		String[] tariffs = Tariffs.getTariffs();
 		for(int r = 0; r < model.getRetailAgents();){
-			retailerArguments[r][0] = Constants.FIXED_TARIFF;
+			retailerArguments[r][0] = tariffs[r];
 			retailerArguments[r][1] = model.getRetailerMax();
 			retailerArguments[r][2] = model.getRetailerMin();
 			retailerAgentNames.add(model.getRetailNames()[r]);

@@ -155,7 +155,7 @@ public class HomeAgent extends Agent {
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			Retailer retailer = entry.getValue();
 			ACLMessage msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
-			if (retailer.getRound() == 2) {
+			if (retailer.getRound() == 2 && retailer.getPrice() != 0f) {
 				msg.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
 				int iend = entry.getKey().getName().indexOf("@");
 				String CurrentAgent = entry.getKey().getName().substring(0, iend);
@@ -171,6 +171,7 @@ public class HomeAgent extends Agent {
 				msg.setPerformative(ACLMessage.REJECT_PROPOSAL);
 			}
 			msg.addReceiver(entry.getKey());
+			send(msg);
 			}
 		}
 
@@ -228,6 +229,7 @@ public class HomeAgent extends Agent {
 				newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : newCheapestPrice;
 			} else if (agentPrice != this.cheapestPrice && newCheapestPrice > 0) {
 				newCheapestPrice = agentPrice < newCheapestPrice ? agentPrice : newCheapestPrice;
+				//newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : newCheapestPrice;
 			}
 		}
 		this.cheapestPrice = newCheapestPrice;
