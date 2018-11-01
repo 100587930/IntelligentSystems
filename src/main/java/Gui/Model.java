@@ -22,21 +22,17 @@ public int[] getCurrentNew() {
 	return intArray;
 }
 
-public void AssignNewValues(int[] values, int agents) {
-	int i = 0;
-	while(i < agents) {
-		switch(i) {
-		case 0: view.Agent1New().setText(Integer.toString(values[i]));break;
-		case 1: view.Agent2New().setText(Integer.toString(values[i]));break;
-		case 2: view.Agent3New().setText(Integer.toString(values[i]));break;
-		case 3: view.Agent4New().setText(Integer.toString(values[i]));break;
-		case 4: view.Agent5New().setText(Integer.toString(values[i]));break;
-		case 5: view.Agent6New().setText(Integer.toString(values[i]));break;
-		case 6: view.Agent7New().setText(Integer.toString(values[i]));break;
+public void AssignNewValues(Float values, int agents) {
+		switch(agents) {
+		case 0: view.Agent1New().setText(Float.toString(values));break;
+		case 1: view.Agent2New().setText(Float.toString(values));break;
+		case 2: view.Agent3New().setText(Float.toString(values));break;
+		case 3: view.Agent4New().setText(Float.toString(values));break;
+		case 4: view.Agent5New().setText(Float.toString(values));break;
+		case 5: view.Agent6New().setText(Float.toString(values));break;
+		case 6: view.Agent7New().setText(Float.toString(values));break;
 		}
-		i++;
 	}
-}
 
 public void AssignOldValues(int[] values, int agents) {
 	int i = 0;

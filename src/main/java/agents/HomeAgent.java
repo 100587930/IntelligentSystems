@@ -44,7 +44,6 @@ public class HomeAgent extends Agent {
 	private String[] RetailNames = new String[7];
 	private int AppNumber = 0;
 	private int RetailNumber = 0;
-	private int[] Appliancearray = {1,2,3,4,5,6,7};
 
 	
 	public void setup() {	    
@@ -86,7 +85,6 @@ public class HomeAgent extends Agent {
 
 		System.out.println("Agent " + msg.getSender().getLocalName() + " expected usage is - "
 				+ this.applianceAgents.get(msg.getSender()).getEnergyExpected());
-		model.AssignNewValues(Appliancearray, AppNumber);
 
 		this.usageExpected = this.usageExpected + this.applianceAgents.get(msg.getSender()).getEnergyExpected();
 
@@ -96,6 +94,14 @@ public class HomeAgent extends Agent {
 			this.startNegotiation();
 			this.expectedUsagesInformed = 0;
 		}
+		String CurrentAgent = msg.getSender().getLocalName();
+		for(int i = 0; i < AppNumber; i++) {
+			System.out.println(CurrentAgent + "   " + AppNames[i]);
+			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
+				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+			}
+		}
+		
 	}
 
 	private void startNegotiation() {
