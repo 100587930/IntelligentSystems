@@ -15,6 +15,7 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class SettingView extends JFrame{
 	public JFrame frame;
@@ -61,42 +62,84 @@ public class SettingView extends JFrame{
 		frame.getContentPane().add(SettingTab);
 		
 		UpdateButton = new JButton("Start");
-		SettingTab.add(UpdateButton);
 		
-		JLabel lblRetailer = new JLabel("Retailer");
-		SettingTab.add(lblRetailer);
-		
-		JLabel lblMax = new JLabel("Max");
-		SettingTab.add(lblMax);
+		JLabel lblMax = new JLabel("Retailer Max");
 		
 		RetilerMax = new JTextField();
 		RetilerMax.setText("10000");
-		SettingTab.add(RetilerMax);
 		RetilerMax.setColumns(10);
 		
-		JLabel lblMin = new JLabel("Min");
-		SettingTab.add(lblMin);
+		JLabel lblMin = new JLabel("Retailer Min");
 		
 		RetailerMin = new JTextField();
 		RetailerMin.setText("0");
-		SettingTab.add(RetailerMin);
 		RetailerMin.setColumns(10);
 		
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
-		SettingTab.add(lblNumberOfApliances);
 		
 		Apliances = new JTextField();
 		Apliances.setText("3");
-		SettingTab.add(Apliances);
 		Apliances.setColumns(10);
 		
 		JLabel lblNumberOfRetail = new JLabel("Number of Retail Agents");
-		SettingTab.add(lblNumberOfRetail);
 		
 		Retailers = new JTextField();
 		Retailers.setText("5");
-		SettingTab.add(Retailers);
 		Retailers.setColumns(10);
+		GroupLayout gl_SettingTab = new GroupLayout(SettingTab);
+		gl_SettingTab.setHorizontalGroup(
+			gl_SettingTab.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingTab.createSequentialGroup()
+					.addGap(22)
+					.addComponent(UpdateButton)
+					.addGap(5)
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addComponent(lblNumberOfApliances)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(Alignment.TRAILING, gl_SettingTab.createSequentialGroup()
+							.addComponent(lblMax)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblNumberOfRetail))
+						.addComponent(lblMin, Alignment.TRAILING))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(283))
+		);
+		gl_SettingTab.setVerticalGroup(
+			gl_SettingTab.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SettingTab.createSequentialGroup()
+					.addGroup(gl_SettingTab.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addGap(5)
+							.addComponent(UpdateButton))
+						.addGroup(gl_SettingTab.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_SettingTab.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_SettingTab.createSequentialGroup()
+									.addGap(9)
+									.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+										.addComponent(RetilerMax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblMax)))
+								.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+									.addComponent(RetailerMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(lblMin)))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_SettingTab.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblNumberOfApliances)
+								.addComponent(Apliances, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNumberOfRetail)
+								.addComponent(Retailers, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(25, Short.MAX_VALUE))
+		);
+		SettingTab.setLayout(gl_SettingTab);
 		
 		panel = new JPanel();
 		panel.setBounds(10, 136, 784, 279);
