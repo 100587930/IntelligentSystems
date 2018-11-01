@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import Gui.Model;
-import Gui.View;
 import behaviours.HomeCyclicBehaviour;
 import jade.core.AID;
 import jade.core.Agent;
@@ -16,7 +14,6 @@ import jade.util.leap.ArrayList;
 import models.Appliance;
 import models.Retailer;
 import utils.Constants;
-import controllers.MainController;
 
 @SuppressWarnings("serial")
 public class HomeAgent extends Agent {
@@ -37,16 +34,9 @@ public class HomeAgent extends Agent {
 	private Object[] maxPrice = null;
 	boolean isInPriceRange = false;
 
-	private Model model;
-	private String[] AppNames = new String[7];
-	private int AppNumber = 0;
-	
-	public void setup() {	    
-
+	public void setup() {
 		this.maxPrice = getArguments();
 		addBehaviour(new HomeCyclicBehaviour(this));
-	    final View view = new View();
-	    model = new Model(view);
 	}
 
 	public void handleSubscribe(ACLMessage msg) {
@@ -54,8 +44,6 @@ public class HomeAgent extends Agent {
 		case (Constants.APPLIANCE_AGENT):
 			applianceAgents.put(msg.getSender(), null);
 			System.out.println("Appliance subscribed: " + msg.getSender().getLocalName());
-			AppNames[AppNumber] = msg.getSender().getLocalName();
-			AppNumber++;
 			break;
 
 		case (Constants.RETAILER_AGENT):
@@ -63,10 +51,7 @@ public class HomeAgent extends Agent {
 			System.out.println("Retailer subscribed: " + msg.getSender().getLocalName());
 			break;
 		}
-		
-		model.AssignAppAgentsNames(AppNames);
 	}
-
 
 	public float getMaxPrice() {
 		return (float) this.maxPrice[0];
@@ -78,8 +63,6 @@ public class HomeAgent extends Agent {
 
 		System.out.println("Agent " + msg.getSender().getLocalName() + " expected usage is - "
 				+ this.applianceAgents.get(msg.getSender()).getEnergyExpected());
-		int[] array = {1,2,3,4,5,6,7};
-		model.AssignNewValues(array, 7);
 
 		this.usageExpected = this.usageExpected + this.applianceAgents.get(msg.getSender()).getEnergyExpected();
 
@@ -145,6 +128,7 @@ public class HomeAgent extends Agent {
 	}
 
 	private void notifyRetailers() {
+		float zero = 0;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			Retailer retailer = entry.getValue();
 			ACLMessage msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
@@ -259,7 +243,7 @@ public class HomeAgent extends Agent {
 				System.out.println("All appliances received at least the right amount of energy they needed");	
 			}
 			System.out.println("System exiting...");
-			//System.exit(0);
+			System.exit(0);
 		}
 	}
 
