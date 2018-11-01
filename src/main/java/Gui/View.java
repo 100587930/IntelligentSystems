@@ -310,7 +310,18 @@ public class View extends JFrame{
 	    return names;
 	}
 
-		
+	public JLabel[] setRetailAgentNames() {
+		JLabel[] names = {
+				lblRetailAgent1,
+				lblRetailAgent2,
+				lblRetailAgent3,
+				lblRetailAgent4,
+				lblRetailAgent5,
+				lblRetailAgent6,
+				lblRetailAgent7
+		};
+	    return names;
+	}	
 	
 		public JLabel getLblNewLabel() {
 		    return lblNewLabel;
