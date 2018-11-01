@@ -1,4 +1,4 @@
-package main.java.utils;
+package utils;
 
 import jade.core.AID;
 

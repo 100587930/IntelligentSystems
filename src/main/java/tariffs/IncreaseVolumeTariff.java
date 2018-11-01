@@ -1,4 +1,4 @@
-package main.java.tariffs;
+package tariffs;
 
 public class IncreaseVolumeTariff extends Tariff {
 

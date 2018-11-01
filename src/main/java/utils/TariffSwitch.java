@@ -1,4 +1,4 @@
-package main.java.utils;
+package utils;
 
 import main.java.tariffs.FixedTariff;
 import main.java.tariffs.IncreaseVolumeTariff;

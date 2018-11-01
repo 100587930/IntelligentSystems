@@ -1,4 +1,4 @@
-package main.java.forecasters;
+package forecasters;
 
 import java.util.List;
 

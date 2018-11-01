@@ -1,4 +1,4 @@
-package main.java.agents;
+package agents;
 
 import main.java.behaviours.ApplianceCyclicBehaviour;
 import main.java.behaviours.ApplianceTickerBehaviour;

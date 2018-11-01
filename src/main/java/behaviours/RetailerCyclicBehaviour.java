@@ -1,4 +1,4 @@
-package main.java.behaviours;
+package behaviours;
 
 import java.io.IOException;
 

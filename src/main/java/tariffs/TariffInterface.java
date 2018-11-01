@@ -1,4 +1,4 @@
-package main.java.tariffs;
+package tariffs;
 
 public interface TariffInterface {
 

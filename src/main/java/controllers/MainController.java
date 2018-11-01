@@ -1,4 +1,4 @@
-package main.java.controllers;
+package controllers;
 
 import jade.core.Runtime;
 

@@ -1,4 +1,4 @@
-package main.java.behaviours;
+package behaviours;
 
 import main.java.agents.ApplianceAgent;
 import jade.core.behaviours.TickerBehaviour;

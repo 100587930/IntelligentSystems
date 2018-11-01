@@ -1,4 +1,4 @@
-package main.java.agents;
+package agents;
 
 import java.io.IOException;
 import main.java.behaviours.RetailerCyclicBehaviour;

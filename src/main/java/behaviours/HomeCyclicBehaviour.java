@@ -1,4 +1,4 @@
-package main.java.behaviours;
+package behaviours;
 
 import main.java.agents.HomeAgent;
 import jade.core.behaviours.CyclicBehaviour;
