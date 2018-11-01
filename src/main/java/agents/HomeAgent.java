@@ -45,6 +45,7 @@ public class HomeAgent extends Agent {
 	private int AppNumber = 0;
 	private int RetailNumber = 0;
 	private int[] Appliancearray = {1,2,3,4,5,6,7};
+
 	
 	public void setup() {	    
 

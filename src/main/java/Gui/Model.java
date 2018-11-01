@@ -66,6 +66,7 @@ public void AssignRetailAgentsNames(String[] names) {
 	}
 }
 
+
 public void AssignAccept(String values, int i) {
 		switch(i) {
 		case 0: view.Retail1Accept().setText(values);break;
