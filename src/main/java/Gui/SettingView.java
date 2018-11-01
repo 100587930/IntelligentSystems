@@ -72,6 +72,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblMax);
 		
 		RetilerMax = new JTextField();
+		RetilerMax.setText("10000");
 		SettingTab.add(RetilerMax);
 		RetilerMax.setColumns(10);
 		
@@ -79,6 +80,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblMin);
 		
 		RetailerMin = new JTextField();
+		RetailerMin.setText("0");
 		SettingTab.add(RetailerMin);
 		RetailerMin.setColumns(10);
 		
@@ -89,6 +91,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblMax_1);
 		
 		BaseMax = new JTextField();
+		BaseMax.setText("18");
 		SettingTab.add(BaseMax);
 		BaseMax.setColumns(10);
 		
@@ -96,6 +99,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblMin_1);
 		
 		BaseMin = new JTextField();
+		BaseMin.setText("18");
 		SettingTab.add(BaseMin);
 		BaseMin.setColumns(10);
 		
@@ -103,6 +107,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblNumberOfApliances);
 		
 		Apliances = new JTextField();
+		Apliances.setText("3");
 		SettingTab.add(Apliances);
 		Apliances.setColumns(10);
 		
@@ -110,6 +115,7 @@ public class SettingView extends JFrame{
 		SettingTab.add(lblNumberOfRetail);
 		
 		Retailers = new JTextField();
+		Retailers.setText("5");
 		SettingTab.add(Retailers);
 		Retailers.setColumns(10);
 		
@@ -128,20 +134,25 @@ public class SettingView extends JFrame{
 		JLabel label = new JLabel("1");
 		
 		RetailName2 = new JTextField();
+		RetailName2.setText("4");
 		RetailName2.setColumns(10);
 		
 		RetailName3 = new JTextField();
+		RetailName3.setText("6");
 		RetailName3.setColumns(10);
 		
 		RetailName1 = new JTextField();
+		RetailName1.setText("2");
 		RetailName1.setColumns(10);
 		
 		JLabel label_1 = new JLabel("2");
 		
 		AppName3 = new JTextField();
+		AppName3.setText("5");
 		AppName3.setColumns(10);
 		
 		RetailName4 = new JTextField();
+		RetailName4.setText("8");
 		RetailName4.setColumns(10);
 		
 		JLabel label_2 = new JLabel("3");
@@ -149,36 +160,45 @@ public class SettingView extends JFrame{
 		JLabel label_4 = new JLabel("5");
 		
 		RetailName5 = new JTextField();
+		RetailName5.setText("10");
 		RetailName5.setColumns(10);
 		
 		JLabel label_6 = new JLabel("6");
 		
 		AppName5 = new JTextField();
+		AppName5.setText("9");
 		AppName5.setColumns(10);
 		
 		JLabel label_3 = new JLabel("4");
 		
 		AppName4 = new JTextField();
+		AppName4.setText("7");
 		AppName4.setColumns(10);
 		
 		JLabel label_5 = new JLabel("7");
 		
 		AppName2 = new JTextField();
+		AppName2.setText("3");
 		AppName2.setColumns(10);
 		
 		AppName1 = new JTextField();
+		AppName1.setText("1");
 		AppName1.setColumns(10);
 		
 		AppName7 = new JTextField();
+		AppName7.setText("13");
 		AppName7.setColumns(10);
 		
 		RetailName7 = new JTextField();
+		RetailName7.setText("14");
 		RetailName7.setColumns(10);
 		
 		RetailName6 = new JTextField();
+		RetailName6.setText("12");
 		RetailName6.setColumns(10);
 		
 		AppName6 = new JTextField();
+		AppName6.setText("11");
 		AppName6.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(

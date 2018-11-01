@@ -369,8 +369,52 @@ public class View extends JFrame{
 		public JTextField Agent7Old() {
 		    return Agent7Old;
 		}
-
+		
 		public JTextField Agent7New() {
 		    return Agent7New;
+		}
+
+		public JTextField Retail1Prop() {
+		    return Retail1Prop;
+		}
+		public JTextField Retail2Prop() {
+		    return Retail2Prop;
+		}
+		public JTextField Retail3Prop() {
+		    return Retail3Prop;
+		}
+		public JTextField Retail4Prop() {
+		    return Retail4Prop;
+		}
+		public JTextField Retail5Prop() {
+		    return Retail5Prop;
+		}
+		public JTextField Retail6Prop() {
+		    return Retail6Prop;
+		}
+		public JTextField Retail7Prop() {
+		    return Retail7Prop;
+		}
+		
+		public JTextField Retail1Accept() {
+		    return Retail1Accept;
+		}
+		public JTextField Retail2Accept() {
+		    return Retail2Accept;
+		}
+		public JTextField Retail3Accept() {
+		    return Retail3Accept;
+		}
+		public JTextField Retail4Accept() {
+		    return Retail4Accept;
+		}
+		public JTextField Retail5Accept() {
+		    return Retail5Accept;
+		}
+		public JTextField Retail6Accept() {
+		    return Retail6Accept;
+		}
+		public JTextField Retail7Accept() {
+		    return Retail7Accept;
 		}
 }

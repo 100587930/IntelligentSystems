@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.jfree.util.StringUtils;
+
 import Gui.Model;
 import Gui.View;
 import behaviours.HomeCyclicBehaviour;
@@ -42,6 +44,7 @@ public class HomeAgent extends Agent {
 	private String[] RetailNames = new String[7];
 	private int AppNumber = 0;
 	private int RetailNumber = 0;
+	private int[] Appliancearray = {1,2,3,4,5,6,7};
 	
 	public void setup() {	    
 
@@ -67,7 +70,6 @@ public class HomeAgent extends Agent {
 			RetailNumber++;
 			break;
 		}
-		
 		model.AssignAppAgentsNames(AppNames);
 		model.AssignRetailAgentsNames(RetailNames);
 	}
@@ -83,8 +85,7 @@ public class HomeAgent extends Agent {
 
 		System.out.println("Agent " + msg.getSender().getLocalName() + " expected usage is - "
 				+ this.applianceAgents.get(msg.getSender()).getEnergyExpected());
-		int[] array = {1,2,3,4,5,6,7};
-		model.AssignNewValues(array, 7);
+		model.AssignNewValues(Appliancearray, AppNumber);
 
 		this.usageExpected = this.usageExpected + this.applianceAgents.get(msg.getSender()).getEnergyExpected();
 
@@ -124,6 +125,7 @@ public class HomeAgent extends Agent {
 			this.renegotiate();
 			this.proposalsReceived = 0;
 		} else if (this.round == 2 && this.secondRoundProposals == this.proposalsReceived) {
+			model.AssignAccept("Rejected", 10);
 			setCheapestPrice();
 			this.isInPriceRange = this.cheapestPrice <= this.getMaxPrice();
 			notifyRetailers();
@@ -155,6 +157,13 @@ public class HomeAgent extends Agent {
 			ACLMessage msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
 			if (retailer.getRound() == 2) {
 				msg.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
+				int iend = entry.getKey().getName().indexOf("@");
+				String CurrentAgent = entry.getKey().getName().substring(0, iend);
+				for(int i = 0; i < RetailNumber; i++) {
+					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
+						model.AssignAccept("accepted", i);
+					}
+				}
 				System.out.println("Accepting proposal: $" + retailer.getPrice() + " for " + retailer.getEnergyDemand()
 						+ " of energy");
 				this.energyBought += retailer.getEnergyDemand(); 
@@ -162,9 +171,8 @@ public class HomeAgent extends Agent {
 				msg.setPerformative(ACLMessage.REJECT_PROPOSAL);
 			}
 			msg.addReceiver(entry.getKey());
-			send(msg);
+			}
 		}
-	}
 
 	private void setCheapestPrice() {
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {

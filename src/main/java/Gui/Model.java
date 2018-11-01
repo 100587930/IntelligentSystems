@@ -66,8 +66,23 @@ public void AssignRetailAgentsNames(String[] names) {
 	}
 }
 
-
-
-
-
+public void AssignAccept(String values, int i) {
+		switch(i) {
+		case 0: view.Retail1Accept().setText(values);break;
+		case 1: view.Retail2Accept().setText(values);break;
+		case 2: view.Retail3Accept().setText(values);break;
+		case 3: view.Retail4Accept().setText(values);break;
+		case 4: view.Retail5Accept().setText(values);break;
+		case 5: view.Retail6Accept().setText(values);break;
+		case 6: view.Retail7Accept().setText(values);break;
+		default:view.Retail1Accept().setText(values);
+				view.Retail2Accept().setText(values);
+				view.Retail3Accept().setText(values);
+				view.Retail4Accept().setText(values);
+				view.Retail5Accept().setText(values);
+				view.Retail6Accept().setText(values);
+				view.Retail7Accept().setText(values);
+				break;
+		}
+	}
 }
