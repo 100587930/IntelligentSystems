@@ -28,8 +28,6 @@ import javax.swing.BoxLayout;
 
 public class View extends JFrame{
 	public JFrame frame;
-	private JTable table;
-	private JTextField txtPendingGraph;
 	private JLabel lblNewLabel;
 	private JTextField Agent1New;
 	private JTextField Agent1Old;
@@ -475,13 +473,13 @@ public class View extends JFrame{
 		    public void setupLines(String Name, int i) {
 		    	System.out.println("adding line to graph");
 		    	switch (i) {
-		    		case 0: Line1 = new XYSeries(Name); dataset.addSeries(Line1);break;
-		    		case 1: Line2 = new XYSeries(Name);dataset.addSeries(Line2);break;
-		    		case 2: Line3 = new XYSeries(Name);dataset.addSeries(Line3);break;
-		    		case 3: Line4 = new XYSeries(Name);dataset.addSeries(Line4);break;
-		    		case 4: Line5 = new XYSeries(Name);dataset.addSeries(Line5);break;
-		    		case 5: Line6 = new XYSeries(Name);dataset.addSeries(Line6);break;
-		    		case 6: Line7 = new XYSeries(Name);dataset.addSeries(Line7);break;
+		    		case 0: Line1 = new XYSeries("Appliance " + Name);dataset.addSeries(Line1);break;
+		    		case 1: Line2 = new XYSeries("Appliance " + Name);dataset.addSeries(Line2);break;
+		    		case 2: Line3 = new XYSeries("Appliance " + Name);dataset.addSeries(Line3);break;
+		    		case 3: Line4 = new XYSeries("Appliance " + Name);dataset.addSeries(Line4);break;
+		    		case 4: Line5 = new XYSeries("Appliance " + Name);dataset.addSeries(Line5);break;
+		    		case 5: Line6 = new XYSeries("Appliance " + Name);dataset.addSeries(Line6);break;
+		    		case 6: Line7 = new XYSeries("Appliance " + Name);dataset.addSeries(Line7);break;
 		    	}	
 		    }
 		    
