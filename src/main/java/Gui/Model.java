@@ -113,15 +113,9 @@ public void AssignProposed(float values, int agents) {
 	}
 }
 
-public void updateChart() {
-	
+public void addData(float x, float y, int i) {
+		view.addData(x, y, i);
 }
-
-public void addData(float x, float y) {
-	view.addData(x, y);
-}
-
-
 
 
 }

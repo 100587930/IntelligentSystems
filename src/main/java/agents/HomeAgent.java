@@ -92,7 +92,7 @@ public class HomeAgent extends Agent {
 		for(int i = 0; i < AppNumber; i++) {
 			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
 				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
-				model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected());
+				//model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected());
 				time = time + 15;
 			}
 		}

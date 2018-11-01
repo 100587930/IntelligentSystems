@@ -74,7 +74,14 @@ public class View extends JFrame{
 	private JLabel lblRetailAgent7;
 	private JTextField Retail7Prop;
 	private JTextField Retail7Accept;
-	private XYSeries firefox;
+	
+	private XYSeries Line1;
+	private XYSeries Line2;
+	private XYSeries Line3;
+	private XYSeries Line4;
+	private XYSeries Line5;
+	private XYSeries Line6;
+	private XYSeries Line7;
 	
 	public View() {
 		
@@ -459,12 +466,7 @@ public class View extends JFrame{
 		        pack();
 		    }
 		    public XYDataset createDataset() {
-
-		    	firefox = new XYSeries("Firefox");
-		    	firefox.add(1.0, 1.0);
-		    	firefox.add(2.0, 3.0);
-		    	firefox.add(3.0, 4.0);
-
+		    	Line1 = new XYSeries("testing");
 		    	XYSeries chrome = new XYSeries("Chrome");
 		    	chrome.add(1.0, 4.0);
 		    	chrome.add(2.0, 6.0);
@@ -476,15 +478,37 @@ public class View extends JFrame{
 		    	iexplorer.add(5.0, 4.0);
 
 		    	final XYSeriesCollection dataset = new XYSeriesCollection();
-		    	dataset.addSeries(firefox);
+		    	dataset.addSeries(Line1);
 		    	dataset.addSeries(chrome);
 		    	dataset.addSeries(iexplorer);
 
 		    	return dataset;
 
 		    }
-		    public void addData(float x, float y) {
-		    	firefox.add(x, y);
+		    
+		    public void setupLines(String Name, int i) {
+		    	switch (i) {
+		    		case 0: Line1 = new XYSeries(Name);
+		    		case 1: Line2 = new XYSeries(Name);
+		    		case 2: Line3 = new XYSeries(Name);
+		    		case 3: Line4 = new XYSeries(Name);
+		    		case 4: Line5 = new XYSeries(Name);
+		    		case 5: Line6 = new XYSeries(Name);
+		    		case 6: Line7 = new XYSeries(Name);
+		    	}
+		    		
+		    }
+		    
+		    public void addData(float x, float y, int i) {
+		    	switch (i) {
+	    		case 0: Line1.add(x,y);
+	    		case 1: Line2.add(x,y);
+	    		case 2: Line3.add(x,y);
+	    		case 3: Line4.add(x,y);
+	    		case 4: Line5.add(x,y);
+	    		case 5: Line6.add(x,y);
+	    		case 6: Line7.add(x,y);
+	    	}
 		    }
 
 }

@@ -78,7 +78,7 @@ public class SettingView extends JFrame{
 		JLabel lblNumberOfApliances = new JLabel("Number of Appliances");
 		
 		Apliances = new JTextField();
-		Apliances.setText("3");
+		Apliances.setText("5");
 		Apliances.setColumns(10);
 		
 		JLabel lblNumberOfRetail = new JLabel("Number of Retail Agents");
