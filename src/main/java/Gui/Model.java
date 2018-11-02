@@ -97,14 +97,10 @@ public void AssignPowerOffer(Float val, int i) {
 }
 
 public void AssignProposed(float values, int agents) {
-	int i = 0;
-	while(i < agents) {
-		switch(i) {
+		switch(agents) {
 		case 0: view.Retail1Prop().setText(Float.toString(values));break;
 		case 1: view.Retail2Prop().setText(Float.toString(values));break;
 		case 2: view.Retail3Prop().setText(Float.toString(values));break;
-		}
-		i++;
 	}
 }
 
