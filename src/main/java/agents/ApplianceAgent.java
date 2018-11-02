@@ -20,13 +20,15 @@ public class ApplianceAgent extends Agent {
 
 	protected void setup() {
 		this.subscribe();
-		this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
+		this.setExpectedUsage((float)Math.random()*50);
+		//this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 	}
 
 	public String getExpectedUsage() {
-		return Float.toString(this.energyExpected);
+		//return Float.toString(this.energyExpected);
+		return Float.toString((float)Math.random()*50);
 	}
 
 	public void setExpectedUsage(float energyUsage) {
