@@ -100,8 +100,7 @@ public class ApplianceAgent extends Agent {
 	}
 
 	public float getEnergyUsage() {
-		// TODO: change it later with the real usage
-		this.energyUsage = this.energyExpected;
+		this.energyUsage = energyforcaster.getPrediction();
 		return this.energyUsage;
 	}
 
