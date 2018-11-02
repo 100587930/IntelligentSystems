@@ -7,6 +7,7 @@ import weka.classifiers.functions.GaussianProcesses;
 import weka.classifiers.timeseries.WekaForecaster;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
+import weka.core converters.ArffLoader.ArffReader;
 
 public class Forcaster {
 
