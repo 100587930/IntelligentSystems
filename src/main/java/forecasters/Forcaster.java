@@ -23,10 +23,15 @@ public class Forcaster {
 		try {
 			   
 		      //find data in files
-		      DataSource source = new DataSource("/IntelligentSystems/src/lib/Electricity_P_DS.arff");
+			String path = weka.core.WekaPackageManager.PACKAGES_DIR.toString()
+					+ File.separator + "IntelligentSystems" + File.separator + "src" + File.separator + "lib" + File.separator + "Electricity_P_DS.arff";
+			
+			Instances data = new Instances(new BufferedReader(new FileReader(path)));
+			
+		    //  DataSource source = new DataSource("/IntelligentSystems/src/lib/Electricity_P_DS.arff");
 		      
 		      //load data
-		      Instances data = source.getDataSet();
+		    //  Instances data = source.getDataSet();
 		 
 		      // new forecaster
 		      WekaForecaster forecaster = new WekaForecaster();
