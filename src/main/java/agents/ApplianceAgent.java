@@ -70,9 +70,12 @@ public class ApplianceAgent extends Agent {
 		
 		
 		this.setExpectedUsage(energyforcaster.getPrediction()); 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> parent of bab7e56... Merge branch 'master' into Weka
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 		
