@@ -29,7 +29,9 @@ Src▼
     ►controllers▼
 
                   MainController.java
-
+    ►forecasters▼
+    
+	              Forcaster.java
     ►Gui▼
 
                   gui.java
