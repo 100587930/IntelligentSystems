@@ -39,7 +39,6 @@ public class ApplianceAgent extends Agent {
 	private Forcaster energyforcaster;
 	protected void setup() {
 		this.subscribe();
-<<<<<<< HEAD
 		
 		for (Entry<AID, Appliance> entry : this.applianceAgents.entrySet()) {
 			int iend = entry.getKey().getName().indexOf("@");
@@ -71,18 +70,13 @@ public class ApplianceAgent extends Agent {
 		
 		
 		this.setExpectedUsage(energyforcaster.getPrediction()); 
-=======
-		this.setExpectedUsage((float)Math.random()*50);
-		//this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
->>>>>>> master
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 		
 	}
 
 	public String getExpectedUsage() {
-		//return Float.toString(this.energyExpected);
-		return Float.toString((float)Math.random()*50);
+		return Float.toString(this.energyExpected);
 	}
 
 	public void setExpectedUsage(float energyUsage) {
