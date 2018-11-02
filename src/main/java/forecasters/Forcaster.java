@@ -25,21 +25,25 @@ public class Forcaster {
 			   
 		      //find data in files
 			
-			
+			/*
 			BufferedReader reader = new BufferedReader(new FileReader("/IntelligentSystems/src/lib/Electricity_P_DS.arff"));
 			ArffReader arff = new ArffReader(reader);
 			Instances data = arff.getData();
 			
 			data.SetClassIndex(data.numAttributes() - 1);
 			
+			Instance name;
+			while ((inst = arff.readInstance(data)) ! = null) {
+				data.add(name); 
+			}
+			
+			*/
 			
 			
-			
-			
-		    //  DataSource source = new DataSource("/IntelligentSystems/src/lib/Electricity_P_DS.arff");
+		      DataSource source = new DataSource("/IntelligentSystems/src/lib/Electricity_P_DS.arff");
 		      
 		      //load data
-		    //  Instances data = source.getDataSet();
+		      Instances data = source.getDataSet();
 		 
 		      // new forecaster
 		      WekaForecaster forecaster = new WekaForecaster();

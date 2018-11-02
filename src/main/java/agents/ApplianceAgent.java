@@ -64,7 +64,7 @@ public class ApplianceAgent extends Agent {
 				
 				energyforcaster = new Forcaster("CWE");
 			}
-			
+			else { energyforcaster = new Forcaster("DWE");}
 		}
 		
 		
