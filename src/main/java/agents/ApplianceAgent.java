@@ -39,6 +39,10 @@ public class ApplianceAgent extends Agent {
 	private Forcaster energyforcaster;
 	protected void setup() {
 		this.subscribe();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> parent of 236a691... Revert "Merge branch 'Weka'"
 		
 		for (Entry<AID, Appliance> entry : this.applianceAgents.entrySet()) {
 			int iend = entry.getKey().getName().indexOf("@");
@@ -70,6 +74,13 @@ public class ApplianceAgent extends Agent {
 		
 		
 		this.setExpectedUsage(energyforcaster.getPrediction()); 
+<<<<<<< HEAD
+=======
+=======
+		this.setExpectedUsage((float)Math.random()*50);
+		//this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
+>>>>>>> master
+>>>>>>> parent of 236a691... Revert "Merge branch 'Weka'"
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 		
