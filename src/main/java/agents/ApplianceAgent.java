@@ -1,14 +1,32 @@
 package agents;
 
-import behaviours.ApplianceCyclicBehaviour;
-import behaviours.ApplianceTickerBehaviour;
-import behaviours.RetailerCyclicBehaviour;
+import main.java.behaviours.ApplianceCyclicBehaviour;
+import main.java.behaviours.ApplianceTickerBehaviour;
+import main.java.behaviours.RetailerCyclicBehaviour;
+import main.java.forecasters.Forcaster;
+import main.java.models.Appliance;
+import main.java.models.Retailer;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import jade.core.*;
 import jade.lang.acl.ACLMessage;
+import main.java.utils.Constants;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
+import main.java.behaviours.HomeCyclicBehaviour;
+import jade.core.AID;
 import jade.core.Agent;
-
-import utils.Constants;
+import jade.lang.acl.ACLMessage;
+import jade.lang.acl.UnreadableException;
+import jade.util.leap.ArrayList;
+import main.java.models.Appliance;
+import main.java.models.Retailer;
+import main.java.utils.Constants;
 
 @SuppressWarnings("serial")
 public class ApplianceAgent extends Agent {
@@ -17,10 +35,10 @@ public class ApplianceAgent extends Agent {
 	private float energyUsage;
 	private AID homeAgent = Constants.HOME_AGENT_AID;
 	private long mSecondsToInform = 3000; // change for different frequencies
-
+	private HashMap<AID, Appliance> applianceAgents = new HashMap<AID, Appliance>();
+	private Forcaster energyforcaster;
 	protected void setup() {
 		this.subscribe();
-<<<<<<< HEAD
 		
 		for (Entry<AID, Appliance> entry : this.applianceAgents.entrySet()) {
 			int iend = entry.getKey().getName().indexOf("@");
@@ -52,12 +70,9 @@ public class ApplianceAgent extends Agent {
 		
 		
 		this.setExpectedUsage(energyforcaster.getPrediction()); 
-=======
-		this.setExpectedUsage((float)Math.random()*50);
-		//this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
->>>>>>> master
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
+		
 	}
 
 	public String getExpectedUsage() {
