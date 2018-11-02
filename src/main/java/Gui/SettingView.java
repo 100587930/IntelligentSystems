@@ -203,7 +203,7 @@ public class SettingView extends JFrame{
 				RetailName2.setText("2");
 				RetailName3.setText("3");
 				Retailers.setText("3");
-				RetilerMax.setText("1000");
+				RetilerMax.setText("100");
 			}
 		});
 		
@@ -223,7 +223,7 @@ public class SettingView extends JFrame{
 				RetailName2.setText("2");
 				RetailName3.setText("3");
 				Retailers.setText("3");
-				RetilerMax.setText("1000");
+				RetilerMax.setText("100");
 			}
 		});
 		
