@@ -8,7 +8,7 @@ public class FixedTariff extends Tariff {
 
 	public float calculateOffer(float energyWanted) {
 		energyWanted = energyWanted > this.energyCap ? this.energyCap : energyWanted;
-		return this.calculatePrice(5, energyWanted);
+		return this.calculatePrice(5.5f, energyWanted);
 	}
 
 	public float calculatePrice(float penaltyRate, float energyWanted) {

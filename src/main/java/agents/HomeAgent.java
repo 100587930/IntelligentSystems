@@ -1,19 +1,19 @@
 package agents;
 
-import java.util.Arrays;
+import java.awt.Color;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map.Entry;
-
-import main.java.behaviours.HomeCyclicBehaviour;
+import Gui.Model;
+import Gui.View;
+import behaviours.HomeCyclicBehaviour;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 import jade.util.leap.ArrayList;
-import main.java.models.Appliance;
-import main.java.models.Retailer;
-import main.java.utils.Constants;
+import models.Appliance;
+import models.Retailer;
+import utils.Constants;
 
 @SuppressWarnings("serial")
 public class HomeAgent extends Agent {
@@ -29,14 +29,40 @@ public class HomeAgent extends Agent {
 	private float energyMissing = 0;
 	private float energyBought = 0;
 	private float cheapestPrice = 9999999;
+	private float previousCheapestPrice = 9999999;
 	private int round = 0;
 	private int secondRoundProposals = 0;
 	private Object[] maxPrice = null;
 	boolean isInPriceRange = false;
 
+	private Model model;
+	private String[] AppNames = new String[7];
+	private String[] RetailNames = new String[7];
+	private int AppNumber = 0;
+	private int RetailNumber = 0;
+	private float time = 0;
+	
 	public void setup() {
+
 		this.maxPrice = getArguments();
 		addBehaviour(new HomeCyclicBehaviour(this));
+	    final View view = new View();
+	    model = new Model(view);
+	}
+	
+	private void initialize() {
+		usageExpected = 0;
+		expectedUsagesInformed = 0;
+		confirmsReceived = 0;
+		proposalsReceived = 0;
+		requestsReceived = 0;
+		energyMissing = 0;
+		energyBought = 0;
+		cheapestPrice = 9999999;
+		previousCheapestPrice = 9999999;
+		round = 0;
+		secondRoundProposals = 0;
+		isInPriceRange = false;
 	}
 
 	public void handleSubscribe(ACLMessage msg) {
@@ -44,14 +70,23 @@ public class HomeAgent extends Agent {
 		case (Constants.APPLIANCE_AGENT):
 			applianceAgents.put(msg.getSender(), null);
 			System.out.println("Appliance subscribed: " + msg.getSender().getLocalName());
+			AppNames[AppNumber] = msg.getSender().getLocalName();
+			model.setupLines(msg.getSender().getLocalName(), AppNumber);
+			AppNumber++;
 			break;
 
 		case (Constants.RETAILER_AGENT):
 			retailerAgents.put(msg.getSender(), null);
 			System.out.println("Retailer subscribed: " + msg.getSender().getLocalName());
+			RetailNames[RetailNumber] = msg.getSender().getLocalName();
+			model.setupLines(msg.getSender().getLocalName(), RetailNumber + 7);
+			RetailNumber++;
 			break;
 		}
+		model.AssignAppAgentsNames(AppNames);
+		model.AssignRetailAgentsNames(RetailNames);
 	}
+
 
 	public float getMaxPrice() {
 		return (float) this.maxPrice[0];
@@ -72,6 +107,17 @@ public class HomeAgent extends Agent {
 			this.startNegotiation();
 			this.expectedUsagesInformed = 0;
 		}
+		String CurrentAgent = msg.getSender().getLocalName();
+		for(int i = 0; i < AppNumber; i++) {
+			if(CurrentAgent.trim().equals(AppNames[i].trim())) {
+				model.AssignNewValues(this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+				model.addData(time, this.applianceAgents.get(msg.getSender()).getEnergyExpected(), i);
+				if(i == 1) {
+				time = time + 15;
+				}
+			}
+		}
+		
 	}
 
 	private void startNegotiation() {
@@ -92,7 +138,7 @@ public class HomeAgent extends Agent {
 
 	public void handlePropose(ACLMessage msg) {
 		Retailer retailer = this.retailerAgents.get(msg.getSender());
-		retailer.setPrice(Float.parseFloat(msg.getContent()));
+		retailer.setPrice(Float.parseFloat(msg.getContent()));		
 		retailer.incrementRound();
 		this.retailerAgents.get(msg.getSender()).setPrice(Float.parseFloat(msg.getContent()));
 		this.proposalsReceived++;
@@ -102,11 +148,13 @@ public class HomeAgent extends Agent {
 			this.renegotiate();
 			this.proposalsReceived = 0;
 		} else if (this.round == 2 && this.secondRoundProposals == this.proposalsReceived) {
+			model.AssignAccept("Rejected", 10);
 			setCheapestPrice();
 			this.isInPriceRange = this.cheapestPrice <= this.getMaxPrice();
 			notifyRetailers();
 			notifyAppliances();
 			this.proposalsReceived = 0;
+			initialize();
 		}
 	}
 
@@ -128,12 +176,18 @@ public class HomeAgent extends Agent {
 	}
 
 	private void notifyRetailers() {
-		float zero = 0;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			Retailer retailer = entry.getValue();
 			ACLMessage msg = new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
-			if (retailer.getRound() == 2) {
+			if (retailer.getRound() == 2 && retailer.getPrice() != 0f) {
 				msg.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
+				int iend = entry.getKey().getName().indexOf("@");
+				String CurrentAgent = entry.getKey().getName().substring(0, iend);
+				for(int i = 0; i < RetailNumber; i++) {
+					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
+						model.AssignAccept("accepted", i);
+					}
+				}
 				System.out.println("Accepting proposal: $" + retailer.getPrice() + " for " + retailer.getEnergyDemand()
 						+ " of energy");
 				this.energyBought += retailer.getEnergyDemand(); 
@@ -142,8 +196,8 @@ public class HomeAgent extends Agent {
 			}
 			msg.addReceiver(entry.getKey());
 			send(msg);
+			}
 		}
-	}
 
 	private void setCheapestPrice() {
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
@@ -161,6 +215,16 @@ public class HomeAgent extends Agent {
 		float difference = totalCap < this.usageExpected ? this.usageExpected - totalCap : 0;
 		while ((energyDistributed - difference) != 0) {
 			for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
+				int iend = entry.getKey().getName().indexOf("@");
+				String CurrentAgent = entry.getKey().getName().substring(0, iend);
+				for(int i = 0; i < RetailNumber; i++) {
+					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
+						model.AssignProposed(entry.getValue().getPrice(), i);
+						model.addData(time, entry.getValue().getPrice(), i + 7);
+						model.AssignPowerOffer(this.usageExpected, i);
+					}
+				}	
+				
 				if (entry.getValue().getPrice() == this.cheapestPrice) {
 					ACLMessage msg = new ACLMessage(ACLMessage.PROPOSE);
 					float agentCap = entry.getValue().getCap();
@@ -185,12 +249,14 @@ public class HomeAgent extends Agent {
 
 	private void setHigherCheapestPrice() {
 		float newCheapestPrice = 0;
+		this.previousCheapestPrice = this.cheapestPrice;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			float agentPrice = entry.getValue().getPrice();
 			if (agentPrice != this.cheapestPrice && newCheapestPrice == 0) {
-				newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : newCheapestPrice;
-			} else if (agentPrice != this.cheapestPrice && newCheapestPrice > 0) {
-				newCheapestPrice = agentPrice < newCheapestPrice ? agentPrice : newCheapestPrice;
+				newCheapestPrice = agentPrice > this.cheapestPrice ? agentPrice : 0;
+			} 
+			else if (agentPrice != this.cheapestPrice && newCheapestPrice > 0) {
+				newCheapestPrice = agentPrice > this.cheapestPrice && agentPrice < newCheapestPrice ? agentPrice : newCheapestPrice;
 			}
 		}
 		this.cheapestPrice = newCheapestPrice;
@@ -206,14 +272,11 @@ public class HomeAgent extends Agent {
 	}
 
 	private void proposeOffer() {
-		float totalCap = getTotalCap();
-		float difference = totalCap < this.usageExpected ? this.usageExpected - totalCap : 0;
 		float splitDemand = this.usageExpected / this.retailerAgents.size();
 		ACLMessage proposeMessage = null;
 		for (Entry<AID, Retailer> entry : this.retailerAgents.entrySet()) {
 			float agentCap = entry.getValue().getCap();
 			float energyWanted = splitDemand > agentCap ? agentCap : splitDemand;
-			totalCap -= energyWanted;
 			proposeMessage = new ACLMessage(ACLMessage.PROPOSE);
 			proposeMessage.setContent(Float.toString(energyWanted));
 			proposeMessage.addReceiver(entry.getKey());
@@ -236,14 +299,16 @@ public class HomeAgent extends Agent {
 		this.applianceAgents.put(msg.getSender(), appliance);
 		this.energyMissing += Float.parseFloat(msg.getContent());
 		this.requestsReceived++;
-		if(this.requestsReceived == Constants.APPLIANCE_AGENTS_COUNT) {
+		if(this.requestsReceived == AppNumber) {
 			if(this.energyMissing > 0) {
-				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");		
+				System.out.println("Penalty! " + this.energyMissing + " kw of energy missing");
+				model.PowerSupplyColour(Color.red, this.energyMissing);
 			} else if (this.energyMissing == 0) {
 				System.out.println("All appliances received at least the right amount of energy they needed");	
+				model.PowerSupplyColour(Color.green, this.energyMissing);
 			}
 			System.out.println("System exiting...");
-			System.exit(0);
+			//System.exit(0);
 		}
 	}
 
