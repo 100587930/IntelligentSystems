@@ -1,14 +1,14 @@
 package agents;
 
 import java.io.IOException;
-import behaviours.RetailerCyclicBehaviour;
+import main.java.behaviours.RetailerCyclicBehaviour;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
-import models.Retailer;
-import tariffs.Tariff;
-import utils.Constants;
-import utils.TariffSwitch;
+import main.java.models.Retailer;
+import main.java.tariffs.Tariff;
+import main.java.utils.Constants;
+import main.java.utils.TariffSwitch;
 
 @SuppressWarnings("serial")
 public class RetailerAgent extends Agent {
