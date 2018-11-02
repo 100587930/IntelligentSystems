@@ -23,10 +23,17 @@ public class Forcaster {
 		try {
 			   
 		      //find data in files
-			String path = weka.core.WekaPackageManager.PACKAGES_DIR.toString()
-					+ File.separator + "IntelligentSystems" + File.separator + "src" + File.separator + "lib" + File.separator + "Electricity_P_DS.arff";
 			
-			Instances data = new Instances(new BufferedReader(new FileReader(path)));
+			
+			BufferedReader reader = new BufferedReader(new FileReader("/IntelligentSystems/src/lib/Electricity_P_DS.arff"));
+			ArffReader arff = new ArffReader(reader);
+			Instances data = arff.getData();
+			
+			data.SetClassIndex(data.numAttributes() - 1);
+			
+			
+			
+			
 			
 		    //  DataSource source = new DataSource("/IntelligentSystems/src/lib/Electricity_P_DS.arff");
 		      
