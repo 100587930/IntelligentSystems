@@ -219,7 +219,7 @@ public class HomeAgent extends Agent {
 				String CurrentAgent = entry.getKey().getName().substring(0, iend);
 				for(int i = 0; i < RetailNumber; i++) {
 					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
-						model.AssignProposed(entry.getValue().getPrice(), i+1);
+						model.AssignProposed(entry.getValue().getPrice(), i);
 						model.addData(time, entry.getValue().getPrice(), i + 7);
 						model.AssignPowerOffer(this.usageExpected, i);
 					}
