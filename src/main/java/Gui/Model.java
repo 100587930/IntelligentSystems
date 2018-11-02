@@ -88,6 +88,14 @@ public void AssignAccept(String values, int i) {
 		}
 	}
 
+public void AssignPowerOffer(Float val, int i) {
+	switch(i) {
+		case 0: view.offeredpower1().setText(val.toString());
+		case 1: view.offeredpower2().setText(val.toString());
+		case 2: view.offeredpower3().setText(val.toString());
+	}
+}
+
 public void AssignProposed(float values, int agents) {
 	int i = 0;
 	while(i < agents) {

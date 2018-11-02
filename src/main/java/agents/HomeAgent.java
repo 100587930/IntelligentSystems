@@ -138,7 +138,7 @@ public class HomeAgent extends Agent {
 
 	public void handlePropose(ACLMessage msg) {
 		Retailer retailer = this.retailerAgents.get(msg.getSender());
-		retailer.setPrice(Float.parseFloat(msg.getContent()));
+		retailer.setPrice(Float.parseFloat(msg.getContent()));		
 		retailer.incrementRound();
 		this.retailerAgents.get(msg.getSender()).setPrice(Float.parseFloat(msg.getContent()));
 		this.proposalsReceived++;
@@ -221,9 +221,10 @@ public class HomeAgent extends Agent {
 					if(CurrentAgent.trim().equals(RetailNames[i].trim())) {
 						model.AssignProposed(entry.getValue().getPrice(), i+1);
 						model.addData(time, entry.getValue().getPrice(), i + 7);
+						model.AssignPowerOffer(this.usageExpected, i);
 					}
-				}
-
+				}	
+				
 				if (entry.getValue().getPrice() == this.cheapestPrice) {
 					ACLMessage msg = new ACLMessage(ACLMessage.PROPOSE);
 					float agentCap = entry.getValue().getCap();

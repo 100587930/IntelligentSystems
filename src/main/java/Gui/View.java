@@ -70,6 +70,9 @@ public class View extends JFrame{
 	private XYSeriesCollection Cumlativedataset;
 	private float[] UsageArray = {0,0,0,0,0,0,0};
 	private JLabel PowerMissing;
+	private JTextField PowerOffer1;
+	private JTextField PowerOffer2;
+	private JTextField PowerOffer3;
 	
 	public View() {
 		
@@ -81,14 +84,14 @@ public class View extends JFrame{
 		frame.setVisible(true);  
 		
 		PowerSupply = new JPanel();
-		PowerSupply.setBounds(654, 24, 84, 27);
+		PowerSupply.setBounds(654, 24, 131, 27);
 		frame.getContentPane().add(PowerSupply);
 		
 		PowerMissing = new JLabel("");
 		PowerSupply.add(PowerMissing);
 		
 		JLabel lblPowerSupplied = new JLabel("Power Supplied:");
-		lblPowerSupplied.setBounds(539, 24, 105, 14);
+		lblPowerSupplied.setBounds(562, 30, 105, 14);
 		frame.getContentPane().add(lblPowerSupplied);
 
 		JLabel lblHomeAgentPower = new JLabel("Home Agent Power usage tracker");
@@ -122,7 +125,7 @@ public class View extends JFrame{
 		ApplianceTab.setLayout(null);
 		
 		lblAppAgent1 = new JLabel("Agent 1");
-		lblAppAgent1.setBounds(100, 11, 46, 14);
+		lblAppAgent1.setBounds(100, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent1);
 		
 		Agent1New = new JTextField();
@@ -136,7 +139,7 @@ public class View extends JFrame{
 		Agent1Old.setColumns(10);
 		
 		lblAppAgent2 = new JLabel("Agent 2");
-		lblAppAgent2.setBounds(196, 11, 46, 14);
+		lblAppAgent2.setBounds(196, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent2);
 		
 		Agent2New = new JTextField();
@@ -150,7 +153,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent2Old);
 		
 		lblAppAgent3 = new JLabel("Agent 3");
-		lblAppAgent3.setBounds(292, 11, 46, 14);
+		lblAppAgent3.setBounds(292, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent3);
 		
 		Agent3New = new JTextField();
@@ -164,7 +167,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent3Old);
 		
 		lblAppAgent4 = new JLabel("Agent 4");
-		lblAppAgent4.setBounds(388, 11, 46, 14);
+		lblAppAgent4.setBounds(388, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent4);
 		
 		Agent4New = new JTextField();
@@ -178,7 +181,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent4Old);
 		
 		lblAppAgent5 = new JLabel("Agent 5");
-		lblAppAgent5.setBounds(484, 11, 46, 14);
+		lblAppAgent5.setBounds(484, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent5);
 		
 		Agent5New = new JTextField();
@@ -192,7 +195,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent5Old);
 		
 		lblAppAgent6 = new JLabel("Agent 6");
-		lblAppAgent6.setBounds(580, 11, 46, 14);
+		lblAppAgent6.setBounds(580, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent6);
 		
 		Agent6New = new JTextField();
@@ -206,7 +209,7 @@ public class View extends JFrame{
 		ApplianceTab.add(Agent6Old);
 		
 		lblAppAgent7 = new JLabel("Agent 7");
-		lblAppAgent7.setBounds(676, 11, 46, 14);
+		lblAppAgent7.setBounds(676, 11, 84, 14);
 		ApplianceTab.add(lblAppAgent7);
 		
 		Agent7New = new JTextField();
@@ -223,12 +226,12 @@ public class View extends JFrame{
 		cp.setBounds(0, 76, 398, 216);
 		ApplianceTab.add(cp);
 		
-		JLabel lblCurrentValues = new JLabel("Current Values");
-		lblCurrentValues.setBounds(10, 29, 78, 14);
+		JLabel lblCurrentValues = new JLabel("Current Usage");
+		lblCurrentValues.setBounds(0, 29, 101, 14);
 		ApplianceTab.add(lblCurrentValues);
 		
-		JLabel lblPreviousValues = new JLabel("Previous Values");
-		lblPreviousValues.setBounds(10, 48, 78, 14);
+		JLabel lblPreviousValues = new JLabel("Previous Usage");
+		lblPreviousValues.setBounds(0, 48, 101, 14);
 		ApplianceTab.add(lblPreviousValues);
 		
 		ChartPanel chartPanel = new ChartPanel(chartUsage);
@@ -245,46 +248,73 @@ public class View extends JFrame{
 		RetailTab.add(CumlitivechartPanel);	
 		
 		lblRetailAgent1 = new JLabel("Agent 1");
-		lblRetailAgent1.setBounds(12, 6, 46, 14);
+		lblRetailAgent1.setBounds(178, 0, 84, 14);
 		RetailTab.add(lblRetailAgent1);
 		
 		Retail1Prop = new JTextField();
 		Retail1Prop.setColumns(10);
-		Retail1Prop.setBounds(10, 21, 86, 20);
+		Retail1Prop.setBounds(176, 15, 86, 20);
 		RetailTab.add(Retail1Prop);
 		
 		Retail1Accept = new JTextField();
 		Retail1Accept.setColumns(10);
-		Retail1Accept.setBounds(10, 40, 86, 20);
+		Retail1Accept.setBounds(176, 34, 86, 20);
 		RetailTab.add(Retail1Accept);
 		
 		lblRetailAgent2 = new JLabel("Agent 2");
-		lblRetailAgent2.setBounds(108, 6, 46, 14);
+		lblRetailAgent2.setBounds(274, 0, 84, 14);
 		RetailTab.add(lblRetailAgent2);
 		
 		Retail2Prop = new JTextField();
 		Retail2Prop.setColumns(10);
-		Retail2Prop.setBounds(106, 21, 86, 20);
+		Retail2Prop.setBounds(272, 15, 86, 20);
 		RetailTab.add(Retail2Prop);
 		
 		Retail2Accept = new JTextField();
 		Retail2Accept.setColumns(10);
-		Retail2Accept.setBounds(106, 40, 86, 20);
+		Retail2Accept.setBounds(272, 34, 86, 20);
 		RetailTab.add(Retail2Accept);
 		
 		lblRetailAgent3 = new JLabel("Agent 3");
-		lblRetailAgent3.setBounds(204, 6, 46, 14);
+		lblRetailAgent3.setBounds(370, 0, 84, 14);
 		RetailTab.add(lblRetailAgent3);
 		
 		Retail3Prop = new JTextField();
 		Retail3Prop.setColumns(10);
-		Retail3Prop.setBounds(202, 21, 86, 20);
+		Retail3Prop.setBounds(368, 15, 86, 20);
 		RetailTab.add(Retail3Prop);
 		
 		Retail3Accept = new JTextField();
 		Retail3Accept.setColumns(10);
-		Retail3Accept.setBounds(202, 40, 86, 20);
+		Retail3Accept.setBounds(368, 34, 86, 20);
 		RetailTab.add(Retail3Accept);
+		
+		PowerOffer1 = new JTextField();
+		PowerOffer1.setBounds(176, 55, 86, 20);
+		RetailTab.add(PowerOffer1);
+		PowerOffer1.setColumns(10);
+		
+		PowerOffer2 = new JTextField();
+		PowerOffer2.setColumns(10);
+		PowerOffer2.setBounds(272, 55, 86, 20);
+		RetailTab.add(PowerOffer2);
+		
+		PowerOffer3 = new JTextField();
+		PowerOffer3.setColumns(10);
+		PowerOffer3.setBounds(368, 55, 86, 20);
+		RetailTab.add(PowerOffer3);
+		
+		JLabel lblCostForPower = new JLabel("Cost for power proposed");
+		lblCostForPower.setBounds(12, 18, 154, 14);
+		RetailTab.add(lblCostForPower);
+		
+		JLabel lblOffer = new JLabel("Offer");
+		lblOffer.setBounds(12, 37, 154, 14);
+		RetailTab.add(lblOffer);
+		
+		JLabel lblOfferedPower = new JLabel("Offered Power");
+		lblOfferedPower.setBounds(12, 58, 154, 14);
+		RetailTab.add(lblOfferedPower);
 	}
 	
 	public JLabel[] setAppAgentNames() {
@@ -458,4 +488,16 @@ public class View extends JFrame{
 	public JLabel getJPowerMissing() {
 		return PowerMissing;
 	}
+	
+	public JTextField offeredpower1() {
+		return PowerOffer1;
+	}
+	public JTextField offeredpower2() {
+		return PowerOffer2;
+	}
+	public JTextField offeredpower3() {
+		return PowerOffer3;
+	}
+	
+	
 }

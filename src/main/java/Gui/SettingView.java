@@ -16,6 +16,8 @@ import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SettingView extends JFrame{
 	public JFrame frame;
@@ -28,16 +30,12 @@ public class SettingView extends JFrame{
 	private JTextField RetailName1;
 	private JTextField RetailName2;
 	private JTextField RetailName3;
-	private JTextField RetailName4;
-	private JTextField RetailName5;
 	private JTextField AppName5;
 	private JTextField AppName4;
 	private JTextField AppName3;
 	private JTextField AppName2;
 	private JTextField AppName1;
 	private JTextField AppName7;
-	private JTextField RetailName7;
-	private JTextField RetailName6;
 	private JTextField AppName6;
 	private JPanel panel;
 	private JLabel label_7;
@@ -155,17 +153,9 @@ public class SettingView extends JFrame{
 		AppName3.setText("5");
 		AppName3.setColumns(10);
 		
-		RetailName4 = new JTextField();
-		RetailName4.setText("8");
-		RetailName4.setColumns(10);
-		
 		JLabel label_2 = new JLabel("3");
 		
 		JLabel label_4 = new JLabel("5");
-		
-		RetailName5 = new JTextField();
-		RetailName5.setText("10");
-		RetailName5.setColumns(10);
 		
 		JLabel label_6 = new JLabel("6");
 		
@@ -193,17 +183,69 @@ public class SettingView extends JFrame{
 		AppName7.setText("13");
 		AppName7.setColumns(10);
 		
-		RetailName7 = new JTextField();
-		RetailName7.setText("14");
-		RetailName7.setColumns(10);
-		
-		RetailName6 = new JTextField();
-		RetailName6.setText("12");
-		RetailName6.setColumns(10);
-		
 		AppName6 = new JTextField();
 		AppName6.setText("11");
 		AppName6.setColumns(10);
+		
+		JButton btnScenario = new JButton("Scenario 1");
+		btnScenario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				AppName1.setText("TV");
+				AppName2.setText("Dish Washer");
+				AppName3.setText("Washing Machine");
+				AppName4.setText("Heater");
+				AppName5.setText("Fridge");
+				AppName6.setText("");
+				AppName7.setText("");
+				Apliances.setText("5");
+				RetailName1.setText("1");
+				RetailName2.setText("2");
+				RetailName3.setText("3");
+				Retailers.setText("3");
+				RetilerMax.setText("1000");
+			}
+		});
+		
+		JButton btnScenario_1 = new JButton("Scenario 2");
+		btnScenario_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AppName1.setText("Fridge");
+				AppName2.setText("Washing Washer");
+				AppName3.setText("");
+				AppName4.setText("");
+				AppName5.setText("");
+				AppName6.setText("");
+				AppName7.setText("");
+				Apliances.setText("2");
+				RetailName1.setText("1");
+				RetailName2.setText("2");
+				RetailName3.setText("3");
+				Retailers.setText("3");
+				RetilerMax.setText("1000");
+			}
+		});
+		
+		JButton btnScenario_2 = new JButton("Scenario 3");
+		btnScenario_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AppName1.setText("Fridge");
+				AppName2.setText("Washing Washer");
+				AppName3.setText("TV");
+				AppName4.setText("");
+				AppName5.setText("");
+				AppName6.setText("");
+				AppName7.setText("");
+				Apliances.setText("3");
+				RetailName1.setText("1");
+				RetailName2.setText("2");
+				RetailName3.setText("3");
+				Retailers.setText("3");
+				RetilerMax.setText("50");
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -220,34 +262,37 @@ public class SettingView extends JFrame{
 						.addComponent(lblRetail, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 						.addComponent(RetailName1, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 						.addComponent(RetailName2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
-					.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
+						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnScenario_1)
+								.addComponent(btnScenario_2)
+								.addComponent(btnScenario))
+							.addGap(31))))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 					.addComponent(AppName3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 					.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-					.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
+					.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 196, GroupLayout.PREFERRED_SIZE)))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addComponent(lblAgentNames, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 							.addComponent(label, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
@@ -272,30 +317,34 @@ public class SettingView extends JFrame{
 							.addComponent(RetailName2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(3)
-							.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(RetailName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addComponent(label_7, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnScenario)))
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(AppName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(RetailName3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(AppName4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(AppName5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+									.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(30)
+									.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+								.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(30)
-							.addComponent(AppName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addComponent(AppName6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(RetailName6, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addComponent(RetailName7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnScenario_1)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnScenario_2))))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -340,11 +389,7 @@ public class SettingView extends JFrame{
 			String[] array = {
 					RetailName1.getText(),
 					RetailName2.getText(),
-					RetailName3.getText(),
-					RetailName4.getText(),
-					RetailName5.getText(),
-					RetailName6.getText(),
-					RetailName7.getText()
+					RetailName3.getText()
 			};
 			return array;
 		}
