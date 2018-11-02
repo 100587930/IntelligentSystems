@@ -76,8 +76,8 @@ Src▼
 
 **How to build and run the code**
 
-For our code no special runconfig is needed, however jade and waka must be imported, and java version must be set to 1.7 (generaly homeagent will have a error that prompts to fix this) after these have been done the code can be run directly through the main controller
+For our code no special runconfig is needed, however jade and waka must be imported, and java version must be set to 1.7 (generally  homeagent will have a error that prompts to fix this) after these have been done the code can be run directly through the main controller
 
 **How to run specific scenarios**
 
-For this application the scenarios have been provided as click buttons in the setting menu on the right hand side. Just chick the relevent one you which to test.
+For this application the scenarios have been provided as click buttons in the setting menu on the right hand side. Just chick the relevant  one you which to test.
