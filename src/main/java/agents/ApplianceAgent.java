@@ -20,15 +20,48 @@ public class ApplianceAgent extends Agent {
 
 	protected void setup() {
 		this.subscribe();
+<<<<<<< HEAD
+		
+		for (Entry<AID, Appliance> entry : this.applianceAgents.entrySet()) {
+			int iend = entry.getKey().getName().indexOf("@");
+			String CurrentAgent = entry.getKey().getName().substring(0, iend);
+			
+			if(CurrentAgent == "Dishwasher"){
+				energyforcaster = new Forcaster("DWE");
+				
+			}
+			else if(CurrentAgent == "Heater") {
+				
+				energyforcaster = new Forcaster("FRE");
+			}
+			else if(CurrentAgent == "Fridge") {
+				
+				energyforcaster = new Forcaster("FGE");
+			}
+			else if(CurrentAgent == "TV") {
+				
+				energyforcaster = new Forcaster("TVE");
+			}
+			else if(CurrentAgent == "Washing Machine") {
+				
+				energyforcaster = new Forcaster("CWE");
+			}
+			
+		}
+		
+		
+		
+		this.setExpectedUsage(energyforcaster.getPrediction()); 
+=======
 		this.setExpectedUsage((float)Math.random()*50);
 		//this.setExpectedUsage(15); // TODO: CHANGE HERE FOR THE FORECASTING
+>>>>>>> master
 		addBehaviour(new ApplianceTickerBehaviour(this, this.mSecondsToInform));
 		addBehaviour(new ApplianceCyclicBehaviour(this));
 	}
 
 	public String getExpectedUsage() {
-		//return Float.toString(this.energyExpected);
-		return Float.toString((float)Math.random()*50);
+		return Float.toString(this.energyExpected);
 	}
 
 	public void setExpectedUsage(float energyUsage) {
